@@ -1,0 +1,260 @@
+{
+  "schema": "ARCHAEOLOGY_MANIFEST-v0.1",
+  "updated": "2026-08-14",
+  "mission": "Determine what parts of the minimum causal loop already exist as qualified executable organs, and what must be invented.",
+  "recorded": {
+    "CREP": {
+      "status": "QUALIFIED / FROZEN",
+      "paths": {
+        "wrapper_zip": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\AI_INTEGER_AGENT_CREP_WRAPPER_v0_1.zip",
+        "wrapper_dir": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\AI_INTEGER_AGENT_CREP_WRAPPER_v0_1",
+        "freeze_zip": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\AI_INTEGER_AGENT_COMPLETE_FREEZE_STAGE_0_TO_38_2026-08-13_HOLD.zip",
+        "build_prompt": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\Codex_CREP_Wrapper_v0_1_Build_Prompt_2026-08-13.md",
+        "independent_verification": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\CREP_Independent_Verification_2026-08-13.md",
+        "natural_math_crep_docx": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Natural Math\\Jim_Handoff_Natural_Math_CREP.docx"
+      },
+      "hashes_verified": {
+        "wrapper_zip_sha256": "17816c03d18a5af35671783e3f17617229a56cdeb99bee50539317bfc4cdfa3d",
+        "freeze_zip_sha256": "114102935f5d2dfe489f3a3c6f84bc048fbb291c5031542eae7c28265d794d3e",
+        "freeze_matches_qualification_record": true
+      },
+      "qualification": {
+        "result": "PASS_CREP_WRAPPER_V0_1",
+        "claim_boundary": "bounded governed-wrapper and software-compatibility behavior only",
+        "unit_tests": {"passed": 40, "run": 40, "errors": 0, "failures": 0},
+        "wdbc_compatibility": {"correct": 543, "total": 569, "B": "345/357", "M": "198/212", "abstain": 0},
+        "five_fold_replays": "PASS_ANCHORED in both run_a and run_b",
+        "determinism": "byte_identical across two complete lifecycle runs",
+        "dependency_pin": {
+          "learner_sha256": "b9e9806327a370fe0c29a938797955a15b58cc3f9e1cec793a4874ecfd2bd341",
+          "manifest_manifest_sha256": "0f531b61ccdf9ecfe2d669864bcbca3bec147efb5573079824b33c5a9e65dd44",
+          "manifest_files": 752
+        },
+        "runtime": {"platform": "Windows-10-10.0.19045-SP0", "python": "CPython 3.11.15", "cross_os_byte_identity_tested": false}
+      },
+      "important_distinctions": {
+        "learner_and_wrapper_pair": "hash-anchored and self-consistent; wrapper qualification is real and useful",
+        "classifier_science": "claim-bounded / HOLD where appropriate (WDBC result is a bounded software-compatibility result on a preserved fixture, not external scientific validation)",
+        "not_the_complete_baby": true,
+        "not_retroactively_integrated": ["Bolt-On", "SymLan", "GUARD", "PIA", "Activation Runtime", "networking", "actuator integration"]
+      },
+      "usage_policy": "Preserve wrapper and frozen learner unchanged. Build any baby-AI integration around them through adapters. Never mutate the frozen learner or its pinned dependency manifest."
+    },
+    "MIMIC": {
+      "status": "UNRESOLVED / POSSIBLE NAME DRIFT",
+      "bounded_scan": "125 candidate hits; 123 prose-only uses of the word 'mimic(s/micking/icry)' in scientific/thesis text; 2 non-prose: (a) article filename 'Self Healing Lichtenberg Patterns Mimic Life (High Voltage Fractals).txt'; (b) an index JSON key in DAILY LITERATURE MINING. No MIMIC subsystem, project, runtime, or codebase identified. Closed per bounded assignment."
+    },
+    "CONFIGURATOR": {
+      "status": "QUALIFIED / RUNNING (v1.2 SymLan Bridge canonical)",
+      "canonical_copy": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Configurator\\configurator_v1_2_SYMLAN_BRIDGE.py",
+      "all_v1_2_copies": [
+        "C:\\Users\\moop\\Downloads\\Articles on X.com\\Cognitive_Basin and Coherence\\Configurator\\configurator_v1_2_SYMLAN_BRIDGE.py",
+        "C:\\Users\\moop\\Downloads\\Articles on X.com\\Machine Consciousness as Persistent Statehood\\Configurator\\configurator_v1_2_SYMLAN_BRIDGE.py"
+      ],
+      "sha256_canonical": "8ec454a528fe00bc55f1c67d483a47f0640bdc622754beefa8e1023024514f79",
+      "sha256_first_two_copies_identical": true,
+      "symlan_package_fork": {
+        "path": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\fractalish-workspace\\projects\\symlan\\library\\symlan_teaching_package_v0_1_repaired\\symlan_teaching_package_v0_1\\04_runtime\\configurator_v1_2_SYMLAN_BRIDGE.py",
+        "sha256": "390cfab04066055a080e335339dbe5666fe7b2ed95c14ea9341882ab6098dffa",
+        "verdict": "Different fork (52539 B vs 51209 B). Not yet run; do not conflate with canonical copy."
+      },
+      "verified": {
+        "compile": "OK (py_compile)",
+        "default_run_exit_0_with_utf8_env": true,
+        "full_run": "9/9 PASS (lanes A-I: commutativity, N-way arbitration, SessionGlyph resume, corruption detection, chain integrity+HMAC, receipt DAG, end-to-end tip binding, HOLD/release, SymLan dual-view teaching emission)",
+        "determinism": "Two runs byte-identical except wall-clock timing line; deterministic tips confirmed by self-test",
+        "self_test": "PASS (deterministic tips, SymLan dual-view stable, all lanes)",
+        "encoding_note": "Default cp1252 shell fails at print_report on '\\u2192'; works with PYTHONIOENCODING=utf-8. Environment-only defect, not mechanism defect.",
+        "stdlib_only": true
+      },
+      "lineage_run_matrix": {
+        "v0.6": {"compile": "OK", "run": "exit=0, CONFIGURATOR 0.6", "selftest_flag": "absent"},
+        "v0.7": {"compile": "OK", "run": "exit=0, v0.7 duel-informed"},
+        "v0.8_CLAUDE": {"compile": "OK", "run": "exit=0, v0.8 parameterized-grid-witness"},
+        "v0.8_ZAI": {"compile": "OK", "run": "exit=0, v0.8 formation-effects"},
+        "v1.0_CLAUDE": {"compile": "OK", "run": "exit=0, v1.0 eight-lanes-observability"},
+        "v1.1_TEAM": {"compile": "OK", "self_test": "PASS", "sha256": "b0eb9c944044e6bc10a91cc9c34ae382197202d573b14fb2a4d8ea0c18f9794b"},
+        "v1.2_BRIDGE": {"compile": "OK", "self_test": "PASS", "full_lanes": "9/9 PASS"}
+      },
+      "reusable_mechanisms_for_baby": [
+        "ChainedMatchLog: receipt chain + verify_chain + tip",
+        "Basin.clone/apply_move/scar/export_state/import_state",
+        "HoldRegistry.form_scar/is_blocked/release",
+        "ArenaMatch: independent_round/conflict_round/checkpoint/close",
+        "arbitrate() with witness ladder & kappa computation",
+        "make_receipt / validate_dag / make_session_glyph / resume_from_glyph",
+        "export_bundle / replay_file (offline replay)",
+        "emit_symlan_program / validate_symlan_teaching_source"
+      ],
+      "not_claimed": ["full SymLan compiler/HAL", "consciousness", "NM v5 freeze", "Eracii combat balance", "Byzantine safety", "production PKI"],
+      "usage_policy": "Preserve historical .py versions unchanged. Build adapters over v1.2. Salvage mechanisms from later/broken branches via copy-to-workspace, never edit in place."
+    },
+    "BOLT-ON": {
+      "status": "QUALIFIED / FROZEN (v0.4 canonical product; frozen release exists)",
+      "product_root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\fractalish-workspace\\projects\\natural-math\\library\\Natural math Python\\Natural_Math_CNTM_Canonical_Repository\\Natural_Math_CNTM_Canonical_Repository\\products\\bolt_on_continuity_v0_4",
+      "frozen_release": "C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\fractalish-workspace\\projects\\natural-math\\library\\Natural math Python\\Natural_Math_CNTM_Canonical_Repository\\Natural_Math_CNTM_Canonical_Repository\\frozen\\bolt_on_continuity\\v0.4",
+      "verified": {
+        "pytest": "234 passed in ~0.36s (exit 0) twice; byte-identical stdout across runs",
+        "test_style": "pytest (unittest discover yields 0 tests; must use pytest with PYTHONPATH=src)",
+        "stage_gates": "STAGE_0..10 contracts, RC1 prep, release review; 10-stage qualification chain",
+        "frozen_release_record": "Release v0.4; approved candidate v0.4-rc1; freeze auth 2026-08-01; Stage 10 head 6e3843ee...; RC1 head caede7dc..."
+      },
+      "lineage": {
+        "frozen": ["bolt_on/v0.1", "bolt_on/v0.2", "bolt_on/v0.3", "bolt_on/v0.4", "bolt_on_continuity/v0.2", "bolt_on_continuity/v0.3", "bolt_on_continuity/v0.4", "bolt_on_continuity_v0_1"],
+        "products": ["bolt_on_continuity_v0_2", "bolt_on_continuity_v0_3", "bolt_on_continuity_v0_4"],
+        "development": ["bolt_on_continuity_control_room_v0_1", "bolt_on_demonstrator_v0_1..v0_4"]
+      },
+      "reusable_mechanisms_for_baby": [
+        "10-stage qualification/verification chain (deterministic evidence)",
+        "RC1/release-review authority gates (fail-closed)",
+        "portable-state & portable state semantics (frozen engine boundary json)",
+        "receipt/manifest hashing per release (RELEASE_MANIFEST_SHA256.txt, FREEZE_RECEIPT.json)"
+      ],
+      "usage_policy": "Preserve frozen v0.4 unchanged. Adapters over the product package. Do not treat its governance layer as the baby itself; it is continuity/authority infrastructure."
+    },
+    "FRACTALISH-AI (OLD / OPERATIONAL SELF)": {
+      "status": "QUALIFIED / RUNNING",
+      "project_root": "C:\\Users\\moop\\Downloads\\Articles on X.com\\F R A C T A L I S H - - - A I - - - FRACTALISH-AI\\fractalish-ai\\fractalish ai",
+      "project_sha256_all_files_excl_git": "584704b511576bd7a6456f55ae65affa65cedecfb0991beef5434e9c3f503a93",
+      "project_files_excl_git": 911,
+      "package_copies_identical": {
+        "underscore": "fractalish-ai\\fractalish_ai",
+        "space": "fractalish-ai\\fractalish ai\\fractalish_ai",
+        "identical": true,
+        "tests_identical": true,
+        "operational_self_identical": true
+      },
+      "verified": {
+        "pytest_full": "113 passed in ~20s (tests/ dir, excludes cognitive-basin-platform)",
+        "operational_self_focused": "72 passed (test_operational_self_memory + test_recovery + test_guardian_authority_corpus + test_guardian_intake_gateway)",
+        "demo_run": "OperationalSelfEngine.run_demo end-to-end OK: 15 events, 15 memories, 2 scars, 6 fog regions, 1 replay route, 45 decay actions, 16 JSON artifacts",
+        "determinism": "After normalizing generated UUIDs and RFC timestamps in payloads, ALL output JSON identical EXCEPT self-referential state_hash/session_glyph_refs (hash chains include wall-clock). Effectively deterministic modulo wall-clock.",
+        "git": "repo at project_root: 2 commits (Initial commit, fckgrtrds), branch main"
+      },
+      "formation_machinery": [
+        "light_compress -> CompressedMemory (claims/decisions/constraints/open loops/scars preserved, lossiness, replay_fidelity_estimate)",
+        "create_attractor -> MemoryAttractor w/ transparent salience (recurrence/utility/contradiction/pressure/authority/recency/operator/replay/guard)",
+        "basin_region assignment: core/active/near/peripheral/dormant/fog/scar/archived/purged",
+        "detect_scars_from_event (CONTRADICTION_PAIRS incl similarity-vs-identity, pressure-not-truth, authority-scope, governed-intake) -> guard_effect HOLD/REVERSE",
+        "detect_fog_from_event (HOLD/WATCH/REVERSE) -> FogRegion with missing_context + next_action",
+        "apply_decay (protected doctrine/core/scar/commitment tags; decayed outward; deprecated past 0.8)",
+        "purge_demo (doctrine/core/operator_anchor preserved)",
+        "build_replay_route across BUILD_SEQUENCE natural math -> cognitive basin -> guardian intake -> guardian authority -> operational self",
+        "retrieve() keyword/tag/link retrieval with guard_status HOLD on similarity-identity hazard + doctrine-warning singleton",
+        "update_self_from_consolidation -> OperationalSelfState (recent ids, active attractors, unresolved loops, hold regions, recovery routes)",
+        "SelfNarrativeFrame + SessionGlyph (export/load/basin_from_glyph recovery, state_hash)"
+      ],
+      "control_and_guard_pipeline": "run_activation_event wires PERCEPT -> ATAL -> RIGOR -> CIRCUIT -> GUARD -> SERA -> SessionGlyph; RIGOR has source/claim_support/contradiction/scope/speculation/similarity_vs_identity/boundary/overclaim/false_continuity checks; false_continuity uses prior_unresolved_hold_count = causal control comparison; REVERSE on boundary violation emits RecoveryRoute.",
+      "loop_gap_analysis_for_minimum_causal_loop": {
+        "formation_after_experience": "EXISTS (compression+attractor+links + persist to JSON)",
+        "bear_behavior_change_on_task_b": "PARTIAL (retrieval advisory guard_status/recommended_use only; no task-executor gating)",
+        "causal_control_comparison": "EXISTS (false_continuity / prior_unresolved_hold_count; SessionGlyph carry-forward)",
+        "process_death_and_restoration": "PARTIAL (SessionGlyph export/load/basin_from_glyph + test_recovery; no OS-level processes)",
+        "changed_behavior_survives_restoration": "PARTIAL (SessionGlyph carries holds/scars/routes/loops; needs 2-host harness to prove)",
+        "contradictory_c_scar_hold": "EXISTS (contradiction_scars + fog HOLD regions, preserved in snapshot)",
+        "scar_resolution_escape_correction": "MISSING (ScarStatus literal has resolved/superseded/watch but NO code path writes them; no resolve/supersede API)",
+        "export_formed_state": "EXISTS (operational_self snapshot + self_state + replay_routes JSON; SessionGlyph export)",
+        "import_into_second_host_and_compare": "MISSING (no snapshot import API; only SessionGlyph basin-level restore, not full attractor/memory graph)",
+        "biography_plain_text_transfer_comparison": "MISSING (narrative_frame is generated, no biography comparison)",
+        "deterministic_replay_proof": "PARTIAL here; strong proof exists elsewhere in-tree: Natural-Math v5 frozen deterministic_replay_results (200 configs all_deterministic, 2026-06-23)",
+        "pia_sera": "SERA present (sera.py build_sera_record). PIA is a separate qualified organ (v0.3) inventoried separately."
+      },
+      "reusable_mechanisms_for_baby": [
+        "Open503 perf: OperationalSelfEngine (consolidate/ingest_bundle/retrieve_query/replay_route/decay/purge/export_dashboard/run_demo)",
+        "RIGOR integrity checks + GUARD decisions + SessionGlyph hashing",
+        "Fractal memory map snapshot + session glyph update",
+        "basin_sim simulator/scenarios (recovery-after-interruption scenarios exist)",
+        "Guardian Intake + Guardian Authority corpuses (sanitized artifact pipeline)"
+      ],
+      "not_claimed": ["consciousness/subjective experience", "actual task execution loop", "full snapshot second-host import", "biography transfer", "scar resolution/supersession mechanics"],
+      "usage_policy": "Preserve tree unchanged. Build adapters over fractalish_ai package. Do not edit in place; copy organs to workspace."
+    },
+    "CNTM": {
+      "status": "QUALIFIED / RUNNING (superset tree; CNT morphology + evolution prize validation + dashboards)",
+      "note": "CNTM = Carbon Nanotube Morphology (not Cognitive-Natural-Turing-Machine). Standalone root: C:\\Users\\moop\\Downloads\\Articles on X.com\\Fractalish.com\\CNTM_Natural_Math_Canonical_Library (556 files, standalone).",
+      "live_superset_tree": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai",
+      "relation_to_qualified_tree": "Superset of the qualified Downloads fractalish-ai tree: 64 shared files byte-identical (incl guardian_authority/conflict_detector.py + versioning.py), 4 differ (mcva, natural_math v3_6_core, receptors), 81 new files. New packages not in qualified tree: cnt_morphology, evolution_prize_validation, morphological_language, field_app, scripts.",
+      "verified": {
+        "full_suite_build_tree": "227 passed, 1 failed, 1 suite-external failure in 87.5s (tests/ dir at live tree); qualified-baseline tests pass (no qualified regression)",
+        "suite_external_failure": "tests/test_visual_similarity_does_not_imply_mechanism_identity.py asserts geometric_similarity>0.7 but morphological_language/similarity.py Jaccard returns 0.333 for the supplied features (branching:high shared, tips differ). Unreachable CNTM-supplied threshold — NOT a qualified-baseline regression; do not fix qualified tree.",
+        "cnt_morphology_package": "10/10 PASS (tests/test_cnt_morphology.py; simulator/growth_rules/perturbation/persistence/glyphs/conductance/feedback/features/evidence/calibration/validation/resonance/render/clustering/cli)",
+        "determinism": "Freeze record CNT_Morphology_v0_2_first_demo_freeze: 25 runs, 5 profiles, all deterministic; claim-boundary: software-only, no consciousness/hardware/wet-lab",
+        "python_environment": "py = Python 3.14.4, pytest 9.0.3, numpy 2.4.6; PYTHONPATH=src required"
+      },
+      "true_cntm_kernel_hardware_control": "cntm_phase_zero software = physical apparatus controller (acquisition/camera/safety/waveform/twin_compare) — instrumentation for hardware, NOT baby memory.",
+      "operator_dashboard": {
+        "status": "INSTRUMENTATION, NOT COGNITION",
+        "v0_4_url": "C:\\Users\\moop\\FractalishBuild\\fractalish-ai\\cnt_morphology\\operator_dashboard",
+        "executes": "orchestrator.py (DashboardOrchestrator wired to real core_runtime/cnt_morphology), main.py, session_store.py (SQLite playback frames), session_review.py (export review summaries/timelines)",
+        "offline_fallback": "CNTM_Operator_Dashboard.html v0.1 simulated",
+        "claim_boundary": "software-only operator readout/monitoring; does not itself add memory or cognition"
+      },
+      "gap_verdict_minimum_causal_loop": {
+        "gap_A_scar_resolution_supersession": {
+          "verdict": "NOT CLOSED",
+          "evidence": "No code anywhere writes ScarStatus resolved/superseded or AuthorityRecord.superseded_by (grep for 'superseded_by =' = zero hits). guardian_authority conflict_detector.py DETECTS version/jurisdiction/scope/direct/definition/license conflicts and emits HOLD/WATCH only — shared code also present byte-identical in qualified tree (not CNTM novelty). operational_self/scars.py only ever writes status 'hold'/'unresolved'. No resolve/weaken/quarantine/de-formation EXECUTOR exists."
+        },
+        "gap_B_full_snapshot_import_second_host": {
+          "verdict": "PARTIALLY CLOSED — substrate-level closed, memory-graph level still MISSING",
+          "closed_substrate_level": [
+            "cnt_morphology/perturbation.py: _graph_from_dict (reconstruct full MorphologyGraph incl nodes+edges) + load_run_artifacts (graph.json/features.json/conductance.json/glyph.json -> graph)",
+            "natural_math_persistent_attractor.py: save_final_state (full node-state JSON export)",
+            "trace_export.py: nodes_to_trace_bundle (full trace serialization)"
+          ],
+          "still_missing": "operational_self full attractor/memory graph has NO import/restore API (continuity_spine._persist writes snapshots only; SessionGlyph is basin-level). SECOND-HOST full-graph comparison harness still MISSING."
+        },
+        "gap_C_causal_reconstruction_pia_style": {
+          "verdict": "MECHANISM CLOSED, BIOGRAPHY-TEXT DIMENSION STILL MISSING",
+          "closed_mechanism": [
+            "evolution_prize_validation/replay_validation.py run_replay_probes: exact_replay, noisy_replay, parameter_perturbation, null_control, random_control, shuffled_control, cross_generator_probe — executable control-probed comparison assay comparing readout tokens vs expected tokens",
+            "cnt_morphology/perturbation.py replay_signature: sequential perturbations with signature_same / feature_distance / conductance_distance gradient — robustness/causal-sensitivity assay",
+            "construction_a_readout.py: feature/morphology/process signatures + replay_signature (deterministic hashing for comparison keys)"
+          ],
+          "still_missing": "biography/plain-text narrative transfer comparison; the assay compares morphology readout tokens, not generated plain-text biography. Subjective/plain-text side remains to be invented."
+        }
+      },
+      "reusable_mechanisms_for_baby": [
+        "run_replay_probes (7 control types incl shuffled/random/null) as PIA-style comparison assay",
+        "replay_signature + feature/conductance distance gradient (causal sensitivity readout)",
+        "_graph_from_dict / load_run_artifacts / save_final_state (substrate-level snapshot export/import/reconstruct cycle)",
+        "freeze_evidence (MANIFEST.json + SHA256SUMS + archive.zip evidence freeze) — use for reproducible runs",
+        "natural_math_persistent_attractor pre-step maintenance (energy-hold mode; disclosed simulated support)",
+        "chemical_hopfield.py numpy ODE executable (evolution prize validation)"
+      ],
+      "not_claimed": ["consciousness", "hardware/wet-lab CNT growth", "operational_self second-host graph import", "scar resolution executor", "plain-text biography comparison", "Operator Dashboard as cognition"],
+      "usage_policy": "Live build tree at C:\\Users\\moop\\FractalishBuild\\fractalish-ai is a superset working copy — do NOT treat as the qualified 113/113 tree; preserve qualified Downloads tree unchanged. Adapters over cnt_morphology and evolution_prize_validation for assembly."
+    }
+  },
+  "TRUE_MISSING_INNOVATION": {
+    "intro": "Gaps that no inventoried organ closes as executable code — these must be invented from scratch for the minimum causal loop. Statuses below are AS OF BABY_AI_CAUSAL_CORE_MVP_2026-08-14 (freeze evidence in baby_ai/artifacts/freeze/).",
+    "gap_A_scar_resolution_executor": {
+      "status": "WAS MISSING -> NOW IMPLEMENTED AND CAUSALLY DEMONSTRATED AT MVP LEVEL",
+      "resolved_by": "baby_ai/core/plasticity.py (PlasticityExecutor) + baby_ai/adapters/operational_self.py route_decision(plasticity=...). Causal chain demonstrated: formed RELEASE -> real contradiction scar (qualified detector) -> HOLD -> supersede/resolve -> old scar ceases gating -> RELEASE restored -> prior state reconstructible (reconstruct_lineage).",
+      "why_still_missing": "CNTM P4 verdict: guardian_authority detects conflicts (HOLD/WATCH) and ScarStatus literal has resolved/superseded, but NO code path writes either. That remains true of the qualified organs; the gap is now closed by NEW integration code (PlasticityExecutor) that writes scar statuses through adapter methods only, without mutating the qualified tree.",
+      "nearest_primitives": ["HoldRegistry.form_scar/is_blocked/release (Configurator, arbitration only)", "guardian_authority conflict_detector (detection only)", "ScarStatus literal + fractal_memory_map blocked/replay_validated/hold_flag (data fields, no writers)"]
+    },
+    "gap_B_second_host_full_graph_import_compare": {
+      "status": "PROVISIONALLY DEMONSTRATED -> STRICT CLEAN-HOST QUALIFIED AT MVP MECHANISM LEVEL (2026-08-14)",
+      "resolved_by": "baby_ai/core/continuity.py (ContinuitySnapshot pack/read/integrity) + baby_ai/hosts/host_b.py --strict. Strict clean-host cycle PASS: Host A terminates -> fresh Host B imports ONLY the exported snapshot + code/schema -> related item (flux_beta) routes RELEASE -> ablate imported attractor -> HOLD -> restore imported attractor -> RELEASE -> integrity_ok=True. Host B receives no process memory, no hidden globals, no original event transcript.",
+      "scope_precision": "The snapshot restores the COMPLETE Operational Self data model: memories/attractors/links/scars/fog/routes + OperationalSelfState + plasticity lineage ledger + receipts chain + provenance. Host B re-derives routing from that state alone. No claim beyond this scope.",
+      "nearest_primitives": ["SessionGlyph export/load/basin_from_glyph (basin-level only)", "cnt_morphology load_run_artifacts + _graph_from_dict (morphology-graph level)", "continuity_spine._persist / save_final_state (write-only snapshots)"]
+    },
+    "gap_C_biography_plain_text_transfer_comparison": {
+      "status": "OPEN (mechanism-scoped advantage MEASURED, stronger claim HELD)",
+      "why_still_missing": "The four-condition comparison (CLEAN / BIOGRAPHY / FLAT / FORMED_EXPORTED) now runs (baby_ai/assays/transfer_control.py). Measured: FORMED and FORMED_EXPORTED route RELEASE on the item AND the withheld related task, while equivalent-word conditions (BIOGRAPHY prose, FLAT conclusion) route HOLD. Correction sequence RELEASE->HOLD->RELEASE exists only in formed conditions. The advantage is mechanism-scoped to qualified-retrieval gating and is NOT claimed to generalize beyond this mechanism.",
+      "nearest_primitives": ["run_replay_probes (control-probed token comparison)", "replay_signature (perturbation gradient)", "SelfNarrativeFrame (generated narrative, no comparison)"]
+    },
+    "assembly_readiness": "Qualified organs cover: formation-after-experience, causal control comparison (false_continuity), contradictory-c scar hold, substrate-level snapshot cycle. Assembly may begin with the minimum loop built over CREP wrapper (frozen) + old fractalish-ai operational self + CNTM replay/dashboard primitives, leaving the TRUE_MISSING_INNOVATION items as the deliberate build-plus-invent scope."
+  },
+  "negative_findings": {
+    "BABYSTATUS_OVERCLAIM": "BABYSTATUS.TXT reported BABYAI_TEST_SUITE PASSED 2026-08-14, but the underlying PASS files and runner script are 0-2 bytes (empty). The test bundle is hollow; PASS status is NOT corroborated by artifact content."
+  },
+  "not_yet_inventoried": [
+    "SYMLAN (v0.2.6 / v1.0 / v0.3 / bridge)",
+    "R2R",
+    "APTD / MOTOROLA",
+    "ERACII / DUEL / KINETIC DUELLUM",
+    "PRISMML / BONSAI",
+    "NATURAL MATH"
+  ]
+}
