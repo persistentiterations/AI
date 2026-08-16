@@ -96,6 +96,16 @@ class FormationCore:
         self.mem_contexts: dict[str, str] = {}
         self.scar_contexts: dict[str, str] = {}
         self.scar_kinds: dict[str, str] = {}
+        # dependency dimension (repair v0.1): dependent surface -> ordered
+        # prerequisite surfaces. Satisfaction is evaluated per-query-context by
+        # the representation layer reusing the formed-state gate; the router's
+        # raw path is untouched. Direct primitive only: no recursion, no graph.
+        self.dependencies: dict[str, list[str]] = {}
+        # surface attribution (repair v0.1): the event's structured_summary
+        # {action, subject, group} survives compression nowhere, so it is kept
+        # in a side registry mirroring mem_contexts/scar_contexts, letting the
+        # representation distinguish OWN-state from token-overlap records.
+        self.mem_tuples: dict[str, dict[str, str]] = {}
         self._record_provenance()
 
     def _record_provenance(self) -> None:
@@ -111,12 +121,22 @@ class FormationCore:
             modifications="adapter layer: deterministic id stream + fixed timestamps; no organ mutation",
         )
 
+    def record_dependency(self, dependent: str, prerequisite: str) -> None:
+        """Declare a keyed dependency edge: `dependent` may proceed only while
+        `prerequisite` is in a formed, non-blocked state in the query context.
+        Direct primitive: one record per (dependent, prerequisite); no graph,
+        no recursion, no cycle semantics (RELIEVE/cycles deferred)."""
+        lst = self.dependencies.setdefault(dependent, [])
+        if prerequisite not in lst:
+            lst.append(prerequisite)
+
     # ------------------------------------------------------------ formation
     def make_event(
         self,
         *,
         raw_summary: str,
         structured_summary: str = "",
+        structured_tuple: dict | None = None,
         claims: list[str] | None = None,
         decisions: list[str] | None = None,
         tags: list[str] | None = None,
@@ -133,6 +153,8 @@ class FormationCore:
         extra.setdefault("context", context)
         if op_kind is not None:
             extra["op_kind"] = op_kind
+        if structured_tuple:
+            extra["structured_tuple"] = dict(structured_tuple)
         return MemoryEvent(
             event_id=eid,
             activation_id=self.activation_id,
@@ -164,6 +186,8 @@ class FormationCore:
         ev_ctx = str(event.provenance.get("context", GLOBAL_CTX))
         ev_kind = event.provenance.get("op_kind")
         self.mem_contexts[memory_id] = ev_ctx
+        _tup = event.provenance.get("structured_tuple") if isinstance(getattr(event, "provenance", None), dict) else None
+        self.mem_tuples[memory_id] = dict(_tup) if isinstance(_tup, dict) else {}
 
         new_scars = _scars.detect_scars_from_event(event, memory)
         fog_region = _fog.detect_fog_from_event(event, memory)
@@ -439,6 +463,8 @@ class FormationCore:
             "mem_contexts": dict(self.mem_contexts),
             "scar_contexts": dict(self.scar_contexts),
             "scar_kinds": dict(self.scar_kinds),
+            "mem_tuples": {k: dict(v) for k, v in self.mem_tuples.items()},
+            "dependencies": {k: list(v) for k, v in self.dependencies.items()},
         }
 
     @classmethod
@@ -459,6 +485,8 @@ class FormationCore:
         core.mem_contexts = dict(data.get("mem_contexts", {}))
         core.scar_contexts = dict(data.get("scar_contexts", {}))
         core.scar_kinds = dict(data.get("scar_kinds", {}))
+        core.mem_tuples = {k: dict(v) for k, v in data.get("mem_tuples", {}).items()}
+        core.dependencies = {k: list(v) for k, v in data.get("dependencies", {}).items()}
         return core
 
     def counts(self) -> dict[str, int]:

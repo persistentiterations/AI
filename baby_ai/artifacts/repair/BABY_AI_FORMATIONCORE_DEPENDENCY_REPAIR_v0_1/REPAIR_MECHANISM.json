@@ -1,0 +1,16 @@
+{
+  "name": "direct_keyed_prerequisite_primitive",
+  "layers": {
+    "adapter": "baby_ai/adapters/operational_self.py::FormationCore.dependencies (dict: dependent surface -> ordered prerequisite surfaces), record_dependency(), mem_tuples attribution registry (surfaces compression drops), persisted in to_dict/from_dict",
+    "representation": "baby_ai/ladder/representations.py::HistoricalFractalish.apply(DEPEND) records the edge; route() consults it with dependency_gate: a clean dependent (own-state not superseded/contradicted) proceeds only while every prerequisite satisfies the formed-state gate in the QUERY's context; missing prereq -> HOLD [prerequisite_missing:<surface>]",
+    "hostile_events": "baby_ai/hostile/events.py builders now pass structured_tuple through provenance so the adapter can attribute own-state (summary strings unchanged)",
+    "retrieval": "fractalish-ai retrieval (UNMODIFIED, read-only upstream)"
+  },
+  "direct_only": "prerequisite satisfaction reuses route_decision (retrieval + applicability + context + scar + plasticity) with NO recursion into the prerequisite's own dependencies, NO graph, NO cycle walk, NO RELIEVE semantics. Cycles (R8) and temporal validity (R9) remain explicitly deferred.",
+  "gate": "dependency_gate: bool = True; OFF restores historical (DEPEND -> unmodeled, no routing effect)",
+  "source_hashes": {
+    "adapter_operational_self": "a02bdc506bf2b5df",
+    "ladder_representations": "7cd3d886dae891fa",
+    "hostile_events": "a43041df1881485e"
+  }
+}

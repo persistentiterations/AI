@@ -1,0 +1,94 @@
+{
+  "totals": {
+    "A": {
+      "route_correct": 828,
+      "cause_fidelity": 552,
+      "false_proceed": 48,
+      "false_hold": 396
+    },
+    "B": {
+      "route_correct": 1272,
+      "cause_fidelity": 1248,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "C": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "D": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "E": {
+      "route_correct": 1200,
+      "cause_fidelity": 1200,
+      "false_proceed": 72,
+      "false_hold": 0
+    }
+  },
+  "frozen_references": {
+    "A": {
+      "route_correct": 828,
+      "cause_fidelity": 552,
+      "false_proceed": 48,
+      "false_hold": 396
+    },
+    "B": {
+      "route_correct": 1272,
+      "cause_fidelity": 1248,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "C": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "D": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    }
+  },
+  "a_d_unchanged_vs_original_freeze": {
+    "A": {
+      "route_identical": true,
+      "cause_identical": true,
+      "fp_identical": true,
+      "fh_identical": true
+    },
+    "B": {
+      "route_identical": true,
+      "cause_identical": true,
+      "fp_identical": true,
+      "fh_identical": true
+    },
+    "C": {
+      "route_identical": true,
+      "cause_identical": true,
+      "fp_identical": true,
+      "fh_identical": true
+    },
+    "D": {
+      "route_identical": true,
+      "cause_identical": true,
+      "fp_identical": true,
+      "fh_identical": true
+    }
+  },
+  "e_context_tranche_reference": {
+    "route_correct": 1200,
+    "cause_fidelity": 1068,
+    "false_proceed": 72,
+    "false_hold": 0
+  },
+  "n_queries": 1272,
+  "interpretation": "Dependency repair moves E from the context-tranche state (route 1200 / cause 1068) to route 1200 / cause 1200: +132 cause-fidelity, route unchanged, fp unchanged at 72 (all remaining in R8 cycles + R9 temporal, deferred). A-D remain bit-identical to the original freeze."
+}

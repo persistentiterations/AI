@@ -16,6 +16,7 @@ def safe_event(core: FormationCore, item: str, group: str, *, decision: str = "R
     return core.make_event(
         raw_summary=f"{item} is safe to release under {group}.",
         structured_summary=f"release clearance obtained for {item} [{group}]",
+        structured_tuple={"action": "formed", "subject": item, "group": group},
         claims=[f"{item} is safe", "safe_for_release"],
         decisions=[decision],
         tags=[group],
@@ -33,6 +34,7 @@ def contradiction_event(
     return core.make_event(
         raw_summary=f"{item} is NOT safe. Similarity is not identity.",
         structured_summary=f"contradiction notice for {item}",
+        structured_tuple={"action": "contradicted", "subject": item, "group": group},
         claims=[f"{item} is unsafe", "similarity is not identity"],
         decisions=[decision],
         tags=[group, "contradiction"],
@@ -50,6 +52,7 @@ def resolve_event(
     return core.make_event(
         raw_summary=f"{item} clearance re-verified under guard with new evidence.",
         structured_summary=f"superseding evidence for {item}",
+        structured_tuple={"action": "resolved", "subject": item, "group": group},
         claims=[f"{item} is safe", "governed_release_verified"],
         decisions=[decision],
         tags=[group],
@@ -65,6 +68,7 @@ def unrelated_event(core: FormationCore, item: str, group: str) -> object:
     return core.make_event(
         raw_summary=f"{item} observed in its own context ({group}).",
         structured_summary=f"{item} unrelated history",
+        structured_tuple={"action": "unrelated", "subject": item, "group": group},
         claims=[f"{item} exists", group],
         decisions=["HOLD"],
         tags=[group],
@@ -80,6 +84,7 @@ def interference_event(core: FormationCore, item: str, group: str) -> object:
     return core.make_event(
         raw_summary=f"{item} experienced in unrelated {group} context.",
         structured_summary=f"{item} interference record",
+        structured_tuple={"action": "interference", "subject": item, "group": group},
         claims=[f"{item} belongs to {group}", "not_relevant_to_target"],
         decisions=["HOLD"],
         tags=[group],

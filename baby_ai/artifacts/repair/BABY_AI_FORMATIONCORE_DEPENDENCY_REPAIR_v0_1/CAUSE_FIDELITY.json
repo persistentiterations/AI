@@ -1,0 +1,8 @@
+{
+  "dependency_class_hold_count": 132,
+  "exact_prerequisite_cause_count": 132,
+  "exact_rate": "100.00",
+  "borrowed_causes_violations": [],
+  "rule": "Every prerequisite_class HOLD (child/chain rows) must cite ONLY prerequisite_missing:<full surface>; no dependent-level HOLD may cite a cause borrowed from a record whose subject is not the query surface (active_contradiction/declared_prohibition/evidence_missing on a's record leaking into b).",
+  "note": "R8/R9 rows are NOT in the dependency_class; they keep their deferred causes."
+}

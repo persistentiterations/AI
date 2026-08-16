@@ -1,0 +1,105 @@
+{
+  "seed": 0,
+  "query": {
+    "label": "b_scoped_ctx",
+    "e": "flux_alpha_1_418760",
+    "g": "alpha_family",
+    "ctx": "ctx_scoped"
+  },
+  "trace": {
+    "seed": 0,
+    "level": "R7",
+    "label": "b_scoped_ctx",
+    "context": "ctx_scoped",
+    "sequence": [
+      {
+        "op": "FORM",
+        "e": "flux_alpha_0_635111",
+        "a": null,
+        "b": null,
+        "ctx": "ctx_base"
+      },
+      {
+        "op": "DEPEND",
+        "e": null,
+        "a": "flux_alpha_1_418760",
+        "b": "flux_alpha_0_635111",
+        "ctx": "-"
+      },
+      {
+        "op": "MARK",
+        "e": "flux_alpha_0_635111",
+        "a": null,
+        "b": null,
+        "ctx": "ctx_scoped"
+      }
+    ],
+    "dependency_declaration": {
+      "dependent_surface": "flux_alpha_1_418760",
+      "prerequisite_surface": "flux_alpha_0_635111"
+    },
+    "formed_not_formed": {
+      "a_formed_in": [
+        "ctx_base"
+      ],
+      "b_formed_in": [],
+      "a_contradicted_in": [
+        "ctx_scoped"
+      ]
+    },
+    "retrieved_records": [
+      {
+        "memory_id": "mem-0001",
+        "subject": "flux_alpha_0_635111",
+        "action": "contradicted",
+        "decisions": [
+          "HOLD"
+        ],
+        "mem_ctx": "ctx_scoped",
+        "tags": [
+          "alpha_family",
+          "contradiction"
+        ]
+      },
+      {
+        "memory_id": "mem-0000",
+        "subject": "flux_alpha_0_635111",
+        "action": "formed",
+        "decisions": [
+          "RELEASE"
+        ],
+        "mem_ctx": "ctx_base",
+        "tags": [
+          "alpha_family"
+        ]
+      }
+    ],
+    "applicability_result": "family tag filter passed 1/2 retrieved records",
+    "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+    "route": "HOLD",
+    "actual_cause": [
+      "prerequisite_missing:flux_alpha_0_635111"
+    ],
+    "oracle_cause": [
+      "prerequisite_missing:flux_alpha_0_635111"
+    ],
+    "oracle_route": "HOLD",
+    "first_wrong_transition": {
+      "op_index": 1,
+      "op_type": "DEPEND",
+      "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+    }
+  },
+  "oracle_contract": {
+    "DEPEND_aX_bY": "o.deps[X].add(Y); X becomes contingent on Y's proceeding",
+    "pre_ok_Evaluated_in_Query_Context": "Y is ok iff formed(Y,g,ctx) and not contradicted(Y,g,ctx) and not superseded-HOLD(Y,g,ctx)",
+    "type_order": "own superseded-HOLD(X) -> own contradicted(X) -> prerequisites -> formed(X) -> evidence_missing",
+    "missing_cause": "prerequisite_missing:<full surface> (never truncated)"
+  },
+  "first_wrong_transition": {
+    "op_index": 1,
+    "op_type": "DEPEND",
+    "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+  },
+  "structural_read": "mem_tuples registry exposes subject/group attribution that compression drops, so the representation can distinguish OWN-state (subject == query surface) from token-overlap records (subject != query surface, e.g. a's mark leaking into b's query)."
+}

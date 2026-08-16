@@ -1,0 +1,165 @@
+{
+  "n": 15,
+  "n_ok": 15,
+  "interpretation": "Extreme specificity in the ladder's lexical regime: a dependency earned PROCEED only when retrieval, exact applicability tag, context grounding, scar blocking, RELEASE and the prerequisite's OWN grounded state all line up. Errors of the opposite sign (dependent in a different context becoming consequential on an absent/blocked prerequisite) must HOLD with prerequisite_missing:<full surface>. A cross-group prerequisite is rejected by the tag gate before any dependency check.",
+  "cases": [
+    {
+      "case": "global_prereq_local_dependent",
+      "queries": {
+        "dependent_in_scoped": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        },
+        "dependent_global": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "local_prereq_same_context",
+      "queries": {
+        "same_ctx": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        },
+        "other_ctx_no_ctor": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "local_prereq_different_context",
+      "queries": {
+        "B_in_ctx_y": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        },
+        "B_in_ctx_x": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "scoped_supersede_blocks_only_its_scope",
+      "queries": {
+        "dependent_in_superseded_ctx": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        },
+        "dependent_elsewhere": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "resolve_restores_prerequisite_after_mark",
+      "queries": {
+        "dependent_after_resolve": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "unformed_prereq_blocks",
+      "queries": {
+        "dependent_no_prereq": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "dependent_contradicted_owns_its_cause",
+      "queries": {
+        "dependent_marked_own": {
+          "decision": "HOLD",
+          "causes": [
+            "active_contradiction"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        },
+        "dependent_marked_elsewhere": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "mark_scoped_prereq_blocks_dependent",
+      "queries": {
+        "dependent_scoped": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        },
+        "dependent_base": {
+          "decision": "PROCEED",
+          "causes": [],
+          "expected": "PROCEED",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    },
+    {
+      "case": "cross_group_prereq_never_leaks",
+      "queries": {
+        "dependent_other_group_prereq": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "expected": "HOLD",
+          "correct": true
+        }
+      },
+      "all_correct": true
+    }
+  ]
+}

@@ -454,12 +454,14 @@ class HistoricalFractalish(Representation):
     """The CURRENT Fractalish architecture driven through the SAME op stream.
 
     FORM -> safe_event ingest; MARK -> contradiction_event; RESOLVE -> resolve
-    event + plasticity supersede; queries -> core.route_decision(plasticity).
+    event + plasticity supersede; DEPEND -> keyed dependency record (direct
+    prerequisite primitive, evaluated per query context at route time);
+    queries -> core.route_decision(plasticity).
     This is the actual qualified implementation (FormationCore via adapters),
-    not a stub. Dependencies (DEPEND/RELIEVE) and temporal windows (VALID) have
-    no expressible primitive in the current architecture's routing: links are
-    stored but not route-load-bearing, and there is no time dimension. Those
-    ops are recorded as unmodeled so the honest failure points raise.
+    not a stub. RELIEVE and temporal windows (VALID) still have no expressible
+    primitive in the current architecture's routing: links are stored but not
+    route-load-bearing, and there is no time dimension. Those ops are recorded
+    as unmodeled so the honest failure points raise.
     """
 
     name = "E_historical_fractalish"
@@ -524,9 +526,14 @@ class HistoricalFractalish(Representation):
                 ev = self._resolve(self.core, e, g, decision="RELEASE_WITH_GUARD")
                 ev.provenance.update({"context": ctx, "op_kind": kind})
                 self.core.ingest(ev)
-        elif kind in ("DEPEND", "RELIEVE", "VALID"):
+        elif kind == "DEPEND":
+            if type(self).dependency_gate:
+                self.core.record_dependency(op["a"], op["b"])
+            elif getattr(self, "unmodeled", None) is not None:
+                self.unmodeled.append(kind)
+        elif kind in ("RELIEVE", "VALID"):
             self.unmodeled.append(kind)
-            # no load-bearing primitive in the current architecture's routing
+            # no expressible primitive in the current architecture's routing
 
     def _belief_id(self, e: str) -> str:
         return f"route:{e}"
@@ -543,6 +550,66 @@ class HistoricalFractalish(Representation):
     # OFF restores the historical behavior for the ablation.
     context_gate: bool = True
 
+    # Dependency repair gate (v0.1): DEPEND records a keyed prerequisite edge
+    # (dependent surface -> ordered prerequisite surfaces). At route time a
+    # dependent surface whose OWN state is clean (not superseded-HOLD, not
+    # contradicted) proceeds only while every prerequisite satisfies the
+    # formed-state gate in the QUERY's context; otherwise the cause is
+    # prerequisite_missing:<surface> (never truncated). Direct primitive only:
+    # satisfaction does NOT recurse into the prerequisite's own dependencies.
+    # Toggle OFF restores the historical behavior (DEPEND dropped to unmodeled)
+    # for the ablation.
+    dependency_gate: bool = True
+
+    def _prereq_ok(self, prereq: str, g: str, ctx: str) -> bool:
+        """Y satisfies the prerequisite iff Y alone routes PROCEED through the
+        same formed-state gate that X is queried through (retrieval,
+        applicability, context, scar blocking). No recursion: Y's own
+        dependencies are not consulted (the oracle's pre_ok is straight-line
+        too, modulo its cycle walk which this direct primitive does not have)."""
+        kwargs = {"plasticity": self.plast}
+        if type(self).applicability_gate:
+            kwargs["applicability"] = g
+        if type(self).context_gate:
+            kwargs["context"] = ctx
+        r = self.core.route_decision(prereq, **kwargs)
+        return str(r.get("decision", "HOLD")).startswith("RELEASE")
+
+    def _own_superseded_hold(self, e: str, g: str, ctx: str) -> bool:
+        """Own-state: e is superseded-HOLD in this context (a SUPERSEDE-origin
+        scar over e's own grounded record, scoped to ctx or global)."""
+        for scar in self.core.scars:
+            if str(self.core.scar_kinds.get(scar.scar_id, "")).upper() != "SUPERSEDE":
+                continue
+            if self.core.scar_contexts.get(scar.scar_id, "*") not in (ctx, "*"):
+                continue
+            for mid in scar.memory_ids:
+                mem = self.core.memories.get(mid)
+                if not mem:
+                    continue
+                ss = self.core.mem_tuples.get(mid, {})
+                if ss.get("subject") == e and (ss.get("group") in (None, "", g)):
+                    return True
+        return False
+
+    def _own_contradicted(self, e: str, g: str, ctx: str) -> bool:
+        """Own-state: e is actively contradicted in this context (a non-
+        SUPERSEDE-origin contradiction scar over e's own grounded record,
+        scoped to ctx or global)."""
+        for scar in self.core.scars:
+            if str(self.core.scar_kinds.get(scar.scar_id, "")).upper() == "SUPERSEDE":
+                continue
+            if self.core.scar_contexts.get(scar.scar_id, "*") not in (ctx, "*"):
+                continue
+            for mid in scar.memory_ids:
+                mem = self.core.memories.get(mid)
+                if not mem:
+                    continue
+                ss = self.core.mem_tuples.get(mid, {})
+                if ss.get("subject") == e and (ss.get("group") in (None, "", g)):
+                    return True
+        return False
+
     def route(self, e: str, g: str, *, ctx: str = "", t: int | None = None) -> dict[str, Any]:
         self._w["routes"] += 1
         kwargs = {"plasticity": self.plast}
@@ -552,6 +619,22 @@ class HistoricalFractalish(Representation):
             kwargs["context"] = ctx
         r = self.core.route_decision(e, **kwargs)
         decision = r.get("decision", "HOLD")
+        # Dependency gate (v0.1): mirrors the oracle's straight-line order -
+        # X's own superseded/contradicted state is checked FIRST; only a clean
+        # dependent is gated by its prerequisites. Each missing prerequisite is
+        # cited by full surface, never truncated (the oracle cause strings
+        # carry the full surface).
+        if type(self).dependency_gate:
+            deps = self.core.dependencies.get(e, [])
+            if deps:
+                ctx_q = ctx if ctx not in ("", None) else GLOBAL
+                if not self._own_superseded_hold(e, g, ctx_q) and not self._own_contradicted(e, g, ctx_q):
+                    missing = [p for p in deps if not self._prereq_ok(p, g, ctx_q)]
+                    if missing:
+                        return {
+                            "decision": "HOLD",
+                            "causes": ["prerequisite_missing:" + p for p in missing],
+                        }
         # Surface the ladder's canonical cause tokens: a retrieval that found
         # nothing admissible (or records outside the declared scope) is, per the
         # oracle contract, "evidence_missing" for that query.

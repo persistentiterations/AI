@@ -1,0 +1,2059 @@
+{
+  "thesis": "The 24 R7 b_scoped_ctx residuals are the exact dependency-class failure. DEPEND was recorded as 'unmodeled' at the representation layer (gate OFF == historical), so b's proceeding never became contingent on a's state. The router's HOLD is route-correct (by token overlap with a's scoped mark) but the cause is the wrong one: it cites a's contradiction as if b were contradicted, instead of citing b's unsatisfied prerequisite.",
+  "first_causally_incorrect_transition": {
+    "op_index": 1,
+    "op": {
+      "op": "DEPEND",
+      "a": "<b surface>",
+      "b": "<a surface>"
+    },
+    "what_happens": "The dependent-prerequisite edge is dropped to unmodeled; it carries NO routing consequence. From that point on the causal account of why b must not proceed is irreducible to any formed state of b itself.",
+    "expected_consequence": "querying b where a's state is broken must yield HOLD(prerequisite_missing:<a>).",
+    "current_consequence": "querying b there yields HOLD(active_contradiction, evidence_missing) - a cause borrowed from a's record."
+  },
+  "n": 24,
+  "route_correct_count": 24,
+  "cause_fidelity_count": 0,
+  "rows": [
+    {
+      "seed": 0,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_alpha_0_635111",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_alpha_1_418760",
+        "prerequisite_surface": "flux_alpha_0_635111"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_alpha_0_635111",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "alpha_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_alpha_0_635111",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "alpha_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_alpha_0_635111"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 1,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_446259",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_beta_1_2861",
+          "b": "flux_beta_0_446259",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_beta_0_446259",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_beta_1_2861",
+        "prerequisite_surface": "flux_beta_0_446259"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_beta_0_446259",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "beta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_beta_0_446259",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "beta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_beta_0_446259"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 2,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_839346",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_gamma_1_181335",
+          "b": "flux_gamma_0_839346",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_gamma_0_839346",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_gamma_1_181335",
+        "prerequisite_surface": "flux_gamma_0_839346"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_gamma_0_839346",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "gamma_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_gamma_0_839346",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "gamma_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_gamma_0_839346"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 3,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_277514",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_delta_1_45492",
+          "b": "flux_delta_0_277514",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_delta_0_277514",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_delta_1_45492",
+        "prerequisite_surface": "flux_delta_0_277514"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_delta_0_277514",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "delta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_delta_0_277514",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "delta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_delta_0_277514"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 4,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_451977",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_epsilon_1_605053",
+          "b": "flux_epsilon_0_451977",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_epsilon_0_451977",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_epsilon_1_605053",
+        "prerequisite_surface": "flux_epsilon_0_451977"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_epsilon_0_451977",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "epsilon_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_epsilon_0_451977",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "epsilon_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_epsilon_0_451977"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 5,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_177027",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_zeta_1_781372",
+          "b": "flux_zeta_0_177027",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_zeta_0_177027",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_zeta_1_781372",
+        "prerequisite_surface": "flux_zeta_0_177027"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_zeta_0_177027",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "zeta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_zeta_0_177027",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "zeta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_zeta_0_177027"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 6,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669423",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_alpha_1_460298",
+          "b": "flux_alpha_0_669423",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_alpha_0_669423",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_alpha_1_460298",
+        "prerequisite_surface": "flux_alpha_0_669423"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_alpha_0_669423",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "alpha_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_alpha_0_669423",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "alpha_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_alpha_0_669423"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 7,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_453448",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_beta_1_773178",
+          "b": "flux_beta_0_453448",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_beta_0_453448",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_beta_1_773178",
+        "prerequisite_surface": "flux_beta_0_453448"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_beta_0_453448",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "beta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_beta_0_453448",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "beta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_beta_0_453448"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 8,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_11129",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_gamma_1_392062",
+          "b": "flux_gamma_0_11129",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_gamma_0_11129",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_gamma_1_392062",
+        "prerequisite_surface": "flux_gamma_0_11129"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_gamma_0_11129",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "gamma_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_gamma_0_11129",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "gamma_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_gamma_0_11129"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 9,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_397460",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_delta_1_861278",
+          "b": "flux_delta_0_397460",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_delta_0_397460",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_delta_1_861278",
+        "prerequisite_surface": "flux_delta_0_397460"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_delta_0_397460",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "delta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_delta_0_397460",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "delta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_delta_0_397460"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 10,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_817349",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_epsilon_1_154281",
+          "b": "flux_epsilon_0_817349",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_epsilon_0_817349",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_epsilon_1_154281",
+        "prerequisite_surface": "flux_epsilon_0_817349"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_epsilon_0_817349",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "epsilon_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_epsilon_0_817349",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "epsilon_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_epsilon_0_817349"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 11,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_592247",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_zeta_1_40096",
+          "b": "flux_zeta_0_592247",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_zeta_0_592247",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_zeta_1_40096",
+        "prerequisite_surface": "flux_zeta_0_592247"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_zeta_0_592247",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "zeta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_zeta_0_592247",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "zeta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_zeta_0_592247"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 12,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669495",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_alpha_1_857235",
+          "b": "flux_alpha_0_669495",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_alpha_0_669495",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_alpha_1_857235",
+        "prerequisite_surface": "flux_alpha_0_669495"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_alpha_0_669495",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "alpha_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_alpha_0_669495",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "alpha_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_alpha_0_669495"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 13,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_553120",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_beta_1_993757",
+          "b": "flux_beta_0_553120",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_beta_0_553120",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_beta_1_993757",
+        "prerequisite_surface": "flux_beta_0_553120"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_beta_0_553120",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "beta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_beta_0_553120",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "beta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_beta_0_553120"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 14,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_538021",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_gamma_1_793682",
+          "b": "flux_gamma_0_538021",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_gamma_0_538021",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_gamma_1_793682",
+        "prerequisite_surface": "flux_gamma_0_538021"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_gamma_0_538021",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "gamma_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_gamma_0_538021",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "gamma_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_gamma_0_538021"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 15,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_418854",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_delta_1_194049",
+          "b": "flux_delta_0_418854",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_delta_0_418854",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_delta_1_194049",
+        "prerequisite_surface": "flux_delta_0_418854"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_delta_0_418854",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "delta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_delta_0_418854",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "delta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_delta_0_418854"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 16,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_928198",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_epsilon_1_248934",
+          "b": "flux_epsilon_0_928198",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_epsilon_0_928198",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_epsilon_1_248934",
+        "prerequisite_surface": "flux_epsilon_0_928198"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_epsilon_0_928198",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "epsilon_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_epsilon_0_928198",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "epsilon_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_epsilon_0_928198"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 17,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_387765",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_zeta_1_442950",
+          "b": "flux_zeta_0_387765",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_zeta_0_387765",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_zeta_1_442950",
+        "prerequisite_surface": "flux_zeta_0_387765"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_zeta_0_387765",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "zeta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_zeta_0_387765",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "zeta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_zeta_0_387765"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 18,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_334115",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_alpha_1_806892",
+          "b": "flux_alpha_0_334115",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_alpha_0_334115",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_alpha_1_806892",
+        "prerequisite_surface": "flux_alpha_0_334115"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_alpha_0_334115",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "alpha_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_alpha_0_334115",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "alpha_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_alpha_0_334115"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 19,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_829366",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_beta_1_60080",
+          "b": "flux_beta_0_829366",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_beta_0_829366",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_beta_1_60080",
+        "prerequisite_surface": "flux_beta_0_829366"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_beta_0_829366",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "beta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_beta_0_829366",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "beta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_beta_0_829366"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 20,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_427010",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_gamma_1_312135",
+          "b": "flux_gamma_0_427010",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_gamma_0_427010",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_gamma_1_312135",
+        "prerequisite_surface": "flux_gamma_0_427010"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_gamma_0_427010",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "gamma_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_gamma_0_427010",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "gamma_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_gamma_0_427010"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 21,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_800958",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_delta_1_194209",
+          "b": "flux_delta_0_800958",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_delta_0_800958",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_delta_1_194209",
+        "prerequisite_surface": "flux_delta_0_800958"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_delta_0_800958",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "delta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_delta_0_800958",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "delta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_delta_0_800958"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 22,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_21940",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_epsilon_1_126145",
+          "b": "flux_epsilon_0_21940",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_epsilon_0_21940",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_epsilon_1_126145",
+        "prerequisite_surface": "flux_epsilon_0_21940"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_epsilon_0_21940",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "epsilon_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_epsilon_0_21940",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "epsilon_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_epsilon_0_21940"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    },
+    {
+      "seed": 23,
+      "level": "R7",
+      "label": "b_scoped_ctx",
+      "context": "ctx_scoped",
+      "sequence": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_931800",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_base"
+        },
+        {
+          "op": "DEPEND",
+          "e": null,
+          "a": "flux_zeta_1_217087",
+          "b": "flux_zeta_0_931800",
+          "ctx": "-"
+        },
+        {
+          "op": "MARK",
+          "e": "flux_zeta_0_931800",
+          "a": null,
+          "b": null,
+          "ctx": "ctx_scoped"
+        }
+      ],
+      "dependency_declaration": {
+        "dependent_surface": "flux_zeta_1_217087",
+        "prerequisite_surface": "flux_zeta_0_931800"
+      },
+      "formed_not_formed": {
+        "a_formed_in": [
+          "ctx_base"
+        ],
+        "b_formed_in": [],
+        "a_contradicted_in": [
+          "ctx_scoped"
+        ]
+      },
+      "retrieved_records": [
+        {
+          "memory_id": "mem-0001",
+          "subject": "flux_zeta_0_931800",
+          "action": "contradicted",
+          "decisions": [
+            "HOLD"
+          ],
+          "mem_ctx": "ctx_scoped",
+          "tags": [
+            "zeta_family",
+            "contradiction"
+          ]
+        },
+        {
+          "memory_id": "mem-0000",
+          "subject": "flux_zeta_0_931800",
+          "action": "formed",
+          "decisions": [
+            "RELEASE"
+          ],
+          "mem_ctx": "ctx_base",
+          "tags": [
+            "zeta_family"
+          ]
+        }
+      ],
+      "applicability_result": "family tag filter passed 1/2 retrieved records",
+      "grounding_result": "a formed-mem (ctx_base) NOT admissible in ctx_scoped; a mark-mem (ctx_scoped) admissible (HOLD); b has no formed record",
+      "route": "HOLD",
+      "actual_cause": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "oracle_cause": [
+        "prerequisite_missing:flux_zeta_0_931800"
+      ],
+      "oracle_route": "HOLD",
+      "first_wrong_transition": {
+        "op_index": 1,
+        "op_type": "DEPEND",
+        "what_happens": "The dependent->prerequisite edge is appended to the representation's unmodeled list (dependency_gate OFF -> historical). It carries no routing consequence, so the causal account of why b must not proceed is irreducible to any formed state of b."
+      }
+    }
+  ]
+}

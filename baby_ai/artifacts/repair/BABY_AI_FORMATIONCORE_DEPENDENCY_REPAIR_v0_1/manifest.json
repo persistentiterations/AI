@@ -1,0 +1,83 @@
+{
+  "repair_id": "BABY_AI_FORMATIONCORE_DEPENDENCY_REPAIR_v0_1",
+  "created_utc": "2026-08-16T04:34:19.504866Z",
+  "philosophy": "A dependent's proceeding is contingent on its prerequisite's state, evaluated where the query lands.",
+  "baseline_freeze": "BABY_AI_COMPLEXITY_LADDER_v0_1 (read-only) + BABY_AI_FORMATIONCORE_CONTEXT_REPAIR_v0_1 (read-only)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "levels": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10"
+  ],
+  "representations": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "scope": "PRIMARY CLASS REPAIRED: dependency-class residual (R7 b_scoped_ctx x24) plus emergent, oracle-exact dependency-class repairs in R3 (child_after_supersede x24) and R4 (chainN_post x84). NOT repaired this tranche: dependency cycles / RELIEVE (R8), temporal validity (R9) - deferred.",
+  "claim_boundary": "The dependency-class cause defect is traced to DEPEND ingestion (unmodeled) and fixed by a direct keyed-prerequisite primitive, with causal ablation and full-ladder regression frozen below. All 132 cause repairs are oracle-exact; ZERO route changes; ZERO new false holds. No claim about cycles (R8) or temporal validity (R9); RELIEVE semantics are not modeled.",
+  "constraints_satisfied": {
+    "no_recursion_no_graph": true,
+    "prefer_boring_keyed_representation": true,
+    "direct_only_deferred_relieve_cycles_temporal": true,
+    "cause_uses_full_surface_not_truncated": true,
+    "ablated_on_off_restore": true,
+    "frozen_ladder_regression_run": true,
+    "a_d_unchanged": true,
+    "adversarial_specificity_battery_run": true
+  },
+  "evidence_files": [
+    "BASELINE_DEPENDENCY_FAILURES.json",
+    "PIPELINE_DIAGNOSIS.json",
+    "REPAIR_MECHANISM.json",
+    "ADVERSARIAL_DEPENDENCY.json",
+    "ABLATION.json",
+    "FULL_LADDER_REGRESSION.json",
+    "CAUSE_FIDELITY.json",
+    "REPAIR_REPORT.md",
+    "manifest.json"
+  ],
+  "source_hashes": {
+    "adapter_operational_self": "a02bdc506bf2b5df",
+    "ladder_representations": "7cd3d886dae891fa",
+    "hostile_events": "a43041df1881485e"
+  },
+  "git_head": "70906730df677226250a5c2a84d9d41cdae818c5",
+  "python": "3.11.15",
+  "platform": "win32"
+}

@@ -1,0 +1,36 @@
+{
+  "gate_off_totals": {
+    "n": 1272,
+    "route_correct": 1200,
+    "cause_fidelity": 1068,
+    "false_proceed": 72,
+    "false_hold": 0,
+    "failure_classes": {
+      "none": 1068,
+      "cause_only": 132,
+      "route_false_proceed": 72
+    },
+    "route_accuracy": 0.943396,
+    "cause_accuracy": 0.839623
+  },
+  "gate_on_totals": {
+    "n": 1272,
+    "route_correct": 1200,
+    "cause_fidelity": 1200,
+    "false_proceed": 72,
+    "false_hold": 0,
+    "failure_classes": {
+      "none": 1200,
+      "route_false_proceed": 72
+    },
+    "route_accuracy": 0.943396,
+    "cause_accuracy": 0.943396
+  },
+  "delta": {
+    "route_correct": 0,
+    "cause_fidelity": 132,
+    "false_proceed": 0,
+    "false_hold": 0
+  },
+  "interpretation": "Gate OFF reproduces the historical (context-repaired) state exactly (route 1200, cause 1068). Gate ON adds 132 cause-fidelity repairs (R7 x24 targeted, plus R3 x24 and R4 x84 emergent dependency-class repairs, all oracle-exact) with ZERO route changes, ZERO new false holds, and the R8/R9 deferred residual untouched. Restore == gate ON."
+}
