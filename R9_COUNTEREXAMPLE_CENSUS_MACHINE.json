@@ -1,0 +1,3077 @@
+{
+  "total_residuals": 24,
+  "residuals": [
+    {
+      "case_id": "R9-S00-a_at_t6",
+      "seed": 0,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_alpha_0_635111, g=alpha_family)",
+        "VALID(e=flux_alpha_0_635111, g=alpha_family, from=2, to=4)",
+        "FORM(e=flux_alpha_5_125142, g=alpha_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_125142",
+          "g": "alpha_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_alpha_0_635111",
+        "g": "alpha_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_125142",
+          "g": "alpha_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_alpha_0_635111, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_alpha_0_635111, g=alpha_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_alpha_0_635111",
+          "flux_alpha_5_125142"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "alpha_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_alpha_0_635111",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_alpha_5_125142",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S01-a_at_t6",
+      "seed": 1,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_beta_0_446259, g=beta_family)",
+        "VALID(e=flux_beta_0_446259, g=beta_family, from=2, to=4)",
+        "FORM(e=flux_beta_5_487425, g=beta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_446259",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_446259",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_487425",
+          "g": "beta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_beta_0_446259",
+        "g": "beta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_446259",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_446259",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_487425",
+          "g": "beta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_beta_0_446259, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_beta_0_446259, g=beta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_beta_0_446259",
+          "flux_beta_5_487425"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "beta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_beta_0_446259",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_beta_5_487425",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S02-a_at_t6",
+      "seed": 2,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_gamma_0_839346, g=gamma_family)",
+        "VALID(e=flux_gamma_0_839346, g=gamma_family, from=2, to=4)",
+        "FORM(e=flux_gamma_5_434943, g=gamma_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_839346",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_839346",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_434943",
+          "g": "gamma_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_gamma_0_839346",
+        "g": "gamma_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_839346",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_839346",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_434943",
+          "g": "gamma_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_gamma_0_839346, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_gamma_0_839346, g=gamma_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_gamma_0_839346",
+          "flux_gamma_5_434943"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "gamma_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_gamma_0_839346",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_gamma_5_434943",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S03-a_at_t6",
+      "seed": 3,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_delta_0_277514, g=delta_family)",
+        "VALID(e=flux_delta_0_277514, g=delta_family, from=2, to=4)",
+        "FORM(e=flux_delta_5_241855, g=delta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_277514",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_277514",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_241855",
+          "g": "delta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_delta_0_277514",
+        "g": "delta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_277514",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_277514",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_241855",
+          "g": "delta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_delta_0_277514, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_delta_0_277514, g=delta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_delta_0_277514",
+          "flux_delta_5_241855"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "delta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_delta_0_277514",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_delta_5_241855",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S04-a_at_t6",
+      "seed": 4,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_epsilon_0_451977, g=epsilon_family)",
+        "VALID(e=flux_epsilon_0_451977, g=epsilon_family, from=2, to=4)",
+        "FORM(e=flux_epsilon_5_844548, g=epsilon_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_451977",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_451977",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_844548",
+          "g": "epsilon_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_epsilon_0_451977",
+        "g": "epsilon_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_451977",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_451977",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_844548",
+          "g": "epsilon_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_epsilon_0_451977, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_epsilon_0_451977, g=epsilon_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_epsilon_0_451977",
+          "flux_epsilon_5_844548"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "epsilon_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_epsilon_0_451977",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_epsilon_5_844548",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S05-a_at_t6",
+      "seed": 5,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_zeta_0_177027, g=zeta_family)",
+        "VALID(e=flux_zeta_0_177027, g=zeta_family, from=2, to=4)",
+        "FORM(e=flux_zeta_5_868811, g=zeta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_177027",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_177027",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_868811",
+          "g": "zeta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_zeta_0_177027",
+        "g": "zeta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_177027",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_177027",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_868811",
+          "g": "zeta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_zeta_0_177027, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_zeta_0_177027, g=zeta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_zeta_0_177027",
+          "flux_zeta_5_868811"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "zeta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_zeta_0_177027",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_zeta_5_868811",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S06-a_at_t6",
+      "seed": 6,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_alpha_0_669423, g=alpha_family)",
+        "VALID(e=flux_alpha_0_669423, g=alpha_family, from=2, to=4)",
+        "FORM(e=flux_alpha_5_260060, g=alpha_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669423",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_669423",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_260060",
+          "g": "alpha_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_alpha_0_669423",
+        "g": "alpha_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669423",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_669423",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_260060",
+          "g": "alpha_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_alpha_0_669423, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_alpha_0_669423, g=alpha_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_alpha_0_669423",
+          "flux_alpha_5_260060"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "alpha_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_alpha_0_669423",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_alpha_5_260060",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S07-a_at_t6",
+      "seed": 7,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_beta_0_453448, g=beta_family)",
+        "VALID(e=flux_beta_0_453448, g=beta_family, from=2, to=4)",
+        "FORM(e=flux_beta_5_85419, g=beta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_453448",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_453448",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_85419",
+          "g": "beta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_beta_0_453448",
+        "g": "beta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_453448",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_453448",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_85419",
+          "g": "beta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_beta_0_453448, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_beta_0_453448, g=beta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_beta_0_453448",
+          "flux_beta_5_85419"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "beta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_beta_0_453448",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_beta_5_85419",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S08-a_at_t6",
+      "seed": 8,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_gamma_0_11129, g=gamma_family)",
+        "VALID(e=flux_gamma_0_11129, g=gamma_family, from=2, to=4)",
+        "FORM(e=flux_gamma_5_971128, g=gamma_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_11129",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_11129",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_971128",
+          "g": "gamma_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_gamma_0_11129",
+        "g": "gamma_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_11129",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_11129",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_971128",
+          "g": "gamma_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_gamma_0_11129, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_gamma_0_11129, g=gamma_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_gamma_0_11129",
+          "flux_gamma_5_971128"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "gamma_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_gamma_0_11129",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_gamma_5_971128",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S09-a_at_t6",
+      "seed": 9,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_delta_0_397460, g=delta_family)",
+        "VALID(e=flux_delta_0_397460, g=delta_family, from=2, to=4)",
+        "FORM(e=flux_delta_5_51138, g=delta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_397460",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_397460",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_51138",
+          "g": "delta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_delta_0_397460",
+        "g": "delta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_397460",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_397460",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_51138",
+          "g": "delta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_delta_0_397460, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_delta_0_397460, g=delta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_delta_0_397460",
+          "flux_delta_5_51138"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "delta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_delta_0_397460",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_delta_5_51138",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S10-a_at_t6",
+      "seed": 10,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_epsilon_0_817349, g=epsilon_family)",
+        "VALID(e=flux_epsilon_0_817349, g=epsilon_family, from=2, to=4)",
+        "FORM(e=flux_epsilon_5_536158, g=epsilon_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_817349",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_817349",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_536158",
+          "g": "epsilon_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_epsilon_0_817349",
+        "g": "epsilon_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_817349",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_817349",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_536158",
+          "g": "epsilon_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_epsilon_0_817349, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_epsilon_0_817349, g=epsilon_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_epsilon_0_817349",
+          "flux_epsilon_5_536158"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "epsilon_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_epsilon_0_817349",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_epsilon_5_536158",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S11-a_at_t6",
+      "seed": 11,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_zeta_0_592247, g=zeta_family)",
+        "VALID(e=flux_zeta_0_592247, g=zeta_family, from=2, to=4)",
+        "FORM(e=flux_zeta_5_957452, g=zeta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_592247",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_592247",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_957452",
+          "g": "zeta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_zeta_0_592247",
+        "g": "zeta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_592247",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_592247",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_957452",
+          "g": "zeta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_zeta_0_592247, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_zeta_0_592247, g=zeta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_zeta_0_592247",
+          "flux_zeta_5_957452"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "zeta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_zeta_0_592247",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_zeta_5_957452",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S12-a_at_t6",
+      "seed": 12,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_alpha_0_669495, g=alpha_family)",
+        "VALID(e=flux_alpha_0_669495, g=alpha_family, from=2, to=4)",
+        "FORM(e=flux_alpha_5_910944, g=alpha_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669495",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_669495",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_910944",
+          "g": "alpha_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_alpha_0_669495",
+        "g": "alpha_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_669495",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_669495",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_910944",
+          "g": "alpha_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_alpha_0_669495, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_alpha_0_669495, g=alpha_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_alpha_0_669495",
+          "flux_alpha_5_910944"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "alpha_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_alpha_0_669495",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_alpha_5_910944",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S13-a_at_t6",
+      "seed": 13,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_beta_0_553120, g=beta_family)",
+        "VALID(e=flux_beta_0_553120, g=beta_family, from=2, to=4)",
+        "FORM(e=flux_beta_5_581325, g=beta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_553120",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_553120",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_581325",
+          "g": "beta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_beta_0_553120",
+        "g": "beta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_553120",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_553120",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_581325",
+          "g": "beta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_beta_0_553120, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_beta_0_553120, g=beta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_beta_0_553120",
+          "flux_beta_5_581325"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "beta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_beta_0_553120",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_beta_5_581325",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S14-a_at_t6",
+      "seed": 14,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_gamma_0_538021, g=gamma_family)",
+        "VALID(e=flux_gamma_0_538021, g=gamma_family, from=2, to=4)",
+        "FORM(e=flux_gamma_5_479986, g=gamma_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_538021",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_538021",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_479986",
+          "g": "gamma_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_gamma_0_538021",
+        "g": "gamma_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_538021",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_538021",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_479986",
+          "g": "gamma_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_gamma_0_538021, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_gamma_0_538021, g=gamma_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_gamma_0_538021",
+          "flux_gamma_5_479986"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "gamma_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_gamma_0_538021",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_gamma_5_479986",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S15-a_at_t6",
+      "seed": 15,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_delta_0_418854, g=delta_family)",
+        "VALID(e=flux_delta_0_418854, g=delta_family, from=2, to=4)",
+        "FORM(e=flux_delta_5_14988, g=delta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_418854",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_418854",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_14988",
+          "g": "delta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_delta_0_418854",
+        "g": "delta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_418854",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_418854",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_14988",
+          "g": "delta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_delta_0_418854, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_delta_0_418854, g=delta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_delta_0_418854",
+          "flux_delta_5_14988"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "delta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_delta_0_418854",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_delta_5_14988",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S16-a_at_t6",
+      "seed": 16,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_epsilon_0_928198, g=epsilon_family)",
+        "VALID(e=flux_epsilon_0_928198, g=epsilon_family, from=2, to=4)",
+        "FORM(e=flux_epsilon_5_113861, g=epsilon_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_928198",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_928198",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_113861",
+          "g": "epsilon_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_epsilon_0_928198",
+        "g": "epsilon_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_928198",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_928198",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_113861",
+          "g": "epsilon_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_epsilon_0_928198, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_epsilon_0_928198, g=epsilon_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_epsilon_0_928198",
+          "flux_epsilon_5_113861"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "epsilon_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_epsilon_0_928198",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_epsilon_5_113861",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S17-a_at_t6",
+      "seed": 17,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_zeta_0_387765, g=zeta_family)",
+        "VALID(e=flux_zeta_0_387765, g=zeta_family, from=2, to=4)",
+        "FORM(e=flux_zeta_5_72360, g=zeta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_387765",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_387765",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_72360",
+          "g": "zeta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_zeta_0_387765",
+        "g": "zeta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_387765",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_387765",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_72360",
+          "g": "zeta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_zeta_0_387765, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_zeta_0_387765, g=zeta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_zeta_0_387765",
+          "flux_zeta_5_72360"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "zeta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_zeta_0_387765",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_zeta_5_72360",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S18-a_at_t6",
+      "seed": 18,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_alpha_0_334115, g=alpha_family)",
+        "VALID(e=flux_alpha_0_334115, g=alpha_family, from=2, to=4)",
+        "FORM(e=flux_alpha_5_680995, g=alpha_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_334115",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_334115",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_680995",
+          "g": "alpha_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_alpha_0_334115",
+        "g": "alpha_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_334115",
+          "g": "alpha_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_alpha_0_334115",
+          "g": "alpha_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_5_680995",
+          "g": "alpha_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_alpha_0_334115, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_alpha_0_334115, g=alpha_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_alpha_0_334115",
+          "flux_alpha_5_680995"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "alpha_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_alpha_0_334115",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_alpha_5_680995",
+            "group": "alpha_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S19-a_at_t6",
+      "seed": 19,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_beta_0_829366, g=beta_family)",
+        "VALID(e=flux_beta_0_829366, g=beta_family, from=2, to=4)",
+        "FORM(e=flux_beta_5_397821, g=beta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_829366",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_829366",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_397821",
+          "g": "beta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_beta_0_829366",
+        "g": "beta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_beta_0_829366",
+          "g": "beta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_beta_0_829366",
+          "g": "beta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_beta_5_397821",
+          "g": "beta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_beta_0_829366, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_beta_0_829366, g=beta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_beta_0_829366",
+          "flux_beta_5_397821"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "beta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_beta_0_829366",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_beta_5_397821",
+            "group": "beta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S20-a_at_t6",
+      "seed": 20,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_gamma_0_427010, g=gamma_family)",
+        "VALID(e=flux_gamma_0_427010, g=gamma_family, from=2, to=4)",
+        "FORM(e=flux_gamma_5_980100, g=gamma_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_427010",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_427010",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_980100",
+          "g": "gamma_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_gamma_0_427010",
+        "g": "gamma_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_gamma_0_427010",
+          "g": "gamma_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_gamma_0_427010",
+          "g": "gamma_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_gamma_5_980100",
+          "g": "gamma_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_gamma_0_427010, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_gamma_0_427010, g=gamma_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_gamma_0_427010",
+          "flux_gamma_5_980100"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "gamma_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_gamma_0_427010",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_gamma_5_980100",
+            "group": "gamma_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S21-a_at_t6",
+      "seed": 21,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_delta_0_800958, g=delta_family)",
+        "VALID(e=flux_delta_0_800958, g=delta_family, from=2, to=4)",
+        "FORM(e=flux_delta_5_504347, g=delta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_800958",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_800958",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_504347",
+          "g": "delta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_delta_0_800958",
+        "g": "delta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_delta_0_800958",
+          "g": "delta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_delta_0_800958",
+          "g": "delta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_delta_5_504347",
+          "g": "delta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_delta_0_800958, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_delta_0_800958, g=delta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_delta_0_800958",
+          "flux_delta_5_504347"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "delta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_delta_0_800958",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_delta_5_504347",
+            "group": "delta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S22-a_at_t6",
+      "seed": 22,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_epsilon_0_21940, g=epsilon_family)",
+        "VALID(e=flux_epsilon_0_21940, g=epsilon_family, from=2, to=4)",
+        "FORM(e=flux_epsilon_5_481410, g=epsilon_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_21940",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_21940",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_481410",
+          "g": "epsilon_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_epsilon_0_21940",
+        "g": "epsilon_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_0_21940",
+          "g": "epsilon_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_epsilon_0_21940",
+          "g": "epsilon_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_epsilon_5_481410",
+          "g": "epsilon_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_epsilon_0_21940, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_epsilon_0_21940, g=epsilon_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_epsilon_0_21940",
+          "flux_epsilon_5_481410"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "epsilon_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_epsilon_0_21940",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_epsilon_5_481410",
+            "group": "epsilon_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    },
+    {
+      "case_id": "R9-S23-a_at_t6",
+      "seed": 23,
+      "label": "a_at_t6",
+      "task_name": "temporal_validity",
+      "op_stream": [
+        "FORM(e=flux_zeta_0_931800, g=zeta_family)",
+        "VALID(e=flux_zeta_0_931800, g=zeta_family, from=2, to=4)",
+        "FORM(e=flux_zeta_5_115959, g=zeta_family)"
+      ],
+      "op_stream_raw": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_931800",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_931800",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_115959",
+          "g": "zeta_family"
+        }
+      ],
+      "query": {
+        "label": "a_at_t6",
+        "e": "flux_zeta_0_931800",
+        "g": "zeta_family",
+        "t": 6
+      },
+      "oracle_time_at_full_ops": 3,
+      "query_prefix_ops": [
+        {
+          "op": "FORM",
+          "e": "flux_zeta_0_931800",
+          "g": "zeta_family"
+        },
+        {
+          "op": "VALID",
+          "e": "flux_zeta_0_931800",
+          "g": "zeta_family",
+          "from": 2,
+          "to": 4
+        },
+        {
+          "op": "FORM",
+          "e": "flux_zeta_5_115959",
+          "g": "zeta_family"
+        }
+      ],
+      "divergence": {
+        "at_query_index": 2,
+        "query_op_repr": "QUERY(label=a_at_t6, e=flux_zeta_0_931800, t=6)",
+        "point_kind": "query-evaluation (VALID window applied by oracle only)",
+        "earliest_state_divergence": {
+          "op_index": 1,
+          "op": "VALID(e=flux_zeta_0_931800, g=zeta_family, from=2, to=4)",
+          "reason": "oracle records valid-window (o.valid); FC marks op unmodeled (no temporal primitive)"
+        }
+      },
+      "oracle_route": "HOLD",
+      "oracle_causes": [
+        "expired_outside_window"
+      ],
+      "fc_route": "PROCEED",
+      "fc_causes": [],
+      "divergence_kind": "route_false_proceed",
+      "missing_causes": [
+        "expired_outside_window"
+      ],
+      "formed_state": {
+        "formed_subjects": [
+          "flux_zeta_0_931800",
+          "flux_zeta_5_115959"
+        ]
+      },
+      "contradiction_state": {
+        "scar_count": 0,
+        "scar_kinds": {}
+      },
+      "dependency_state": {},
+      "applicability_ctx_state": {
+        "queries_ctx": "*",
+        "g": "zeta_family",
+        "t": 6,
+        "recorded_window": {
+          "from": 2,
+          "to": 4
+        }
+      },
+      "scars_history": {
+        "scar_kinds": {},
+        "dependency_ledger_len": 0
+      },
+      "core_snapshot": {
+        "memories": {
+          "mem-0000": {
+            "subject": "flux_zeta_0_931800",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          },
+          "mem-0001": {
+            "subject": "flux_zeta_5_115959",
+            "group": "zeta_family",
+            "decision": [
+              "RELEASE"
+            ],
+            "claim": null
+          }
+        },
+        "scar_count": 0,
+        "scar_kinds": {},
+        "scar_contexts": {},
+        "dependencies": {},
+        "dependency_ledger": [],
+        "unmodeled": [
+          "VALID"
+        ]
+      }
+    }
+  ]
+}

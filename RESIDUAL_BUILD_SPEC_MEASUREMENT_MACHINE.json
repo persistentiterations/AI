@@ -1,0 +1,4114 @@
+{
+  "per_seed": {
+    "R8:0": {
+      "seed": 0,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_418760"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_418760"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_635111"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_635111"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:1": {
+      "seed": 1,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_1_2861"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_0_446259"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 366,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 392,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 125,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_1_2861"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_2861"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_2861"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_0_446259"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_446259"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_446259"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_1_2861"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_1_2861"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_0_446259"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_0_446259"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:2": {
+      "seed": 2,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_1_181335"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_0_839346"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_1_181335"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_181335"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_181335"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_0_839346"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_839346"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_839346"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_1_181335"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_1_181335"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_0_839346"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_0_839346"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:3": {
+      "seed": 3,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_1_45492"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_0_277514"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 369,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 403,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 130,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_1_45492"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_45492"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_45492"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_0_277514"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_277514"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_277514"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_1_45492"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_1_45492"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_0_277514"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_0_277514"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:4": {
+      "seed": 4,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_1_605053"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_0_451977"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 374,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 422,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 139,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_1_605053"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_605053"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_605053"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_0_451977"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_451977"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_451977"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_1_605053"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_1_605053"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_0_451977"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_0_451977"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:5": {
+      "seed": 5,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_1_781372"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_0_177027"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 368,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 398,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 127,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_1_781372"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_781372"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_781372"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_0_177027"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_177027"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_177027"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_1_781372"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_1_781372"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_0_177027"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_0_177027"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:6": {
+      "seed": 6,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_1_460298"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_669423"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_1_460298"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_460298"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_460298"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_0_669423"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_669423"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_669423"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_1_460298"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_1_460298"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_0_669423"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_0_669423"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:7": {
+      "seed": 7,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_1_773178"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_0_453448"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 368,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 398,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 127,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_1_773178"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_773178"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_773178"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_0_453448"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_453448"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_453448"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_1_773178"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_1_773178"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_0_453448"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_0_453448"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:8": {
+      "seed": 8,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_1_392062"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_0_11129"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 369,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 402,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 129,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_1_392062"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_392062"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_392062"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_0_11129"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_11129"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_11129"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_1_392062"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_1_392062"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_0_11129"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_0_11129"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:9": {
+      "seed": 9,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_1_861278"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_0_397460"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_1_861278"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_861278"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_861278"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_0_397460"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_397460"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_397460"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_1_861278"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_1_861278"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_0_397460"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_0_397460"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:10": {
+      "seed": 10,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_1_154281"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_0_817349"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 374,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 422,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 139,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_1_154281"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_154281"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_154281"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_0_817349"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_817349"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_817349"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_1_154281"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_1_154281"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_0_817349"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_0_817349"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:11": {
+      "seed": 11,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_1_40096"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_0_592247"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 367,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 395,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 126,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_1_40096"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_40096"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_40096"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_0_592247"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_592247"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_592247"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_1_40096"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_1_40096"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_0_592247"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_0_592247"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:12": {
+      "seed": 12,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_1_857235"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_669495"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_1_857235"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_857235"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_857235"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_0_669495"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_669495"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_669495"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_1_857235"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_1_857235"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_0_669495"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_0_669495"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:13": {
+      "seed": 13,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_1_993757"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_0_553120"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 368,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 398,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 127,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_1_993757"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_993757"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_993757"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_0_553120"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_553120"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_553120"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_1_993757"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_1_993757"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_0_553120"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_0_553120"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:14": {
+      "seed": 14,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_1_793682"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_0_538021"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_1_793682"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_793682"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_793682"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_0_538021"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_538021"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_538021"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_1_793682"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_1_793682"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_0_538021"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_0_538021"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:15": {
+      "seed": 15,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_1_194049"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_0_418854"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_1_194049"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_194049"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_194049"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_0_418854"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_418854"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_418854"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_1_194049"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_1_194049"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_0_418854"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_0_418854"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:16": {
+      "seed": 16,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_1_248934"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_0_928198"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 374,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 422,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 139,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_1_248934"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_248934"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_248934"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_0_928198"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_928198"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_928198"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_1_248934"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_1_248934"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_0_928198"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_0_928198"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:17": {
+      "seed": 17,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_1_442950"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_0_387765"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 368,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 398,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 127,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_1_442950"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_442950"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_442950"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_0_387765"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_387765"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_387765"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_1_442950"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_1_442950"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_0_387765"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_0_387765"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:18": {
+      "seed": 18,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_1_806892"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_alpha_0_334115"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_1_806892"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_806892"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_1_806892"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_alpha_0_334115"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_334115"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_alpha_0_334115"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_1_806892"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_1_806892"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_alpha_0_334115"
+          ],
+          "B": [
+            "prerequisite_missing:flux_alpha_0_334115"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:19": {
+      "seed": 19,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_1_60080"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_beta_0_829366"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 367,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 395,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 126,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_1_60080"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_60080"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_1_60080"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_beta_0_829366"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_829366"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_beta_0_829366"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_1_60080"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_1_60080"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_beta_0_829366"
+          ],
+          "B": [
+            "prerequisite_missing:flux_beta_0_829366"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:20": {
+      "seed": 20,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_1_312135"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_gamma_0_427010"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_1_312135"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_312135"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_1_312135"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_gamma_0_427010"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_427010"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_gamma_0_427010"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_1_312135"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_1_312135"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_gamma_0_427010"
+          ],
+          "B": [
+            "prerequisite_missing:flux_gamma_0_427010"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:21": {
+      "seed": 21,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_1_194209"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_delta_0_800958"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 370,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 406,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 131,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_1_194209"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_194209"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_1_194209"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_delta_0_800958"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_800958"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_delta_0_800958"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_1_194209"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_1_194209"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_delta_0_800958"
+          ],
+          "B": [
+            "prerequisite_missing:flux_delta_0_800958"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:22": {
+      "seed": 22,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_1_126145"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_epsilon_0_21940"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 373,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 418,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 137,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_1_126145"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_126145"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_1_126145"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_epsilon_0_21940"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_21940"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_epsilon_0_21940"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_1_126145"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_1_126145"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_epsilon_0_21940"
+          ],
+          "B": [
+            "prerequisite_missing:flux_epsilon_0_21940"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    },
+    "R8:23": {
+      "seed": 23,
+      "oracle_verdicts": {
+        "a_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_1_217087"
+          ]
+        },
+        "b_in_cycle": {
+          "decision": "HOLD",
+          "causes": [
+            "prerequisite_missing:flux_zeta_0_931800"
+          ]
+        },
+        "b_after_relieve": {
+          "decision": "PROCEED",
+          "causes": []
+        },
+        "unrelated": {
+          "decision": "HOLD",
+          "causes": [
+            "evidence_missing"
+          ]
+        }
+      },
+      "candidate_A": {
+        "size_bytes": 368,
+        "facts": 17,
+        "note": "exhaustive derived admissibility snapshot"
+      },
+      "candidate_B": {
+        "size_bytes": 398,
+        "facts": 16,
+        "formed_subjects": 1,
+        "ledger_events": 3,
+        "note": "formed state + full dependency ledger + fixed evaluator"
+      },
+      "candidate_C": {
+        "size_bytes": 127,
+        "facts": 6,
+        "formed_subjects": 1,
+        "note": "formed state + current deps map (no event history)"
+      },
+      "reconstruction": {
+        "a_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_1_217087"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_217087"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_1_217087"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_in_cycle": {
+          "at": 3,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "prerequisite_missing:flux_zeta_0_931800"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_931800"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "prerequisite_missing:flux_zeta_0_931800"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": false
+          }
+        },
+        "b_after_relieve": {
+          "at": null,
+          "oracle": "PROCEED",
+          "oracle_causes": [],
+          "A": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "B": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          },
+          "C": {
+            "decision": "PROCEED",
+            "causes": [],
+            "match": true
+          }
+        },
+        "unrelated": {
+          "at": null,
+          "oracle": "HOLD",
+          "oracle_causes": [
+            "evidence_missing"
+          ],
+          "A": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "B": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          },
+          "C": {
+            "decision": "HOLD",
+            "causes": [
+              "evidence_missing"
+            ],
+            "match": true
+          }
+        }
+      },
+      "cycle_causes_reproduced": {
+        "a_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_1_217087"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_1_217087"
+          ]
+        },
+        "b_in_cycle": {
+          "oracle": [
+            "prerequisite_missing:flux_zeta_0_931800"
+          ],
+          "B": [
+            "prerequisite_missing:flux_zeta_0_931800"
+          ]
+        }
+      },
+      "mutate_agrees_oracle": false,
+      "evaluator_cost": {
+        "shared_evaluator_fact_unit": 1,
+        "per_instance_residual_unit": "B: formed+ledger | C: formed+current-map"
+      }
+    }
+  },
+  "report": {
+    "method": "regenerate each query verdict from a single end-of-program residual through the FIXED FormationCore evaluator",
+    "candidate_A_reconstructs_all": true,
+    "candidate_B_reconstructs_all": true,
+    "candidate_C_reconstructs_all": false,
+    "A_size_min_max": [
+      366,
+      374
+    ],
+    "B_size_min_max": [
+      392,
+      422
+    ],
+    "C_size_min_max": [
+      125,
+      139
+    ],
+    "A_fact_min_max": [
+      17,
+      17
+    ],
+    "B_fact_min_max": [
+      16,
+      16
+    ],
+    "C_fact_min_max": [
+      6,
+      6
+    ]
+  }
+}
