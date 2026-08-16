@@ -1,0 +1,6 @@
+{
+  "thesis": "R8's a<->b mutual dependency cycle: E's direct DEPEND primitive satisfies each prereq by the prereq's OWN formed-state gate (no recursion), so both nodes read the other as PROCEED-by-transfer and the cycle reads as two independent PROCEEDs. RELIEVE is unmodeled, so b_after_relieve is answered from the still-bound b->a edge.",
+  "n": 0,
+  "route_wrong": 0,
+  "rows": []
+}

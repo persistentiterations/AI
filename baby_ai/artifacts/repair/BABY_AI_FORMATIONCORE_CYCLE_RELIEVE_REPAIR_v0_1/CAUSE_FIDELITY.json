@@ -1,0 +1,8 @@
+{
+  "r8_cycle_hold_count": 48,
+  "exact_prerequisite_cause_count": 48,
+  "exact_rate": "100.00",
+  "violations": [],
+  "rule": "Every R8 cycle-class HOLD (a_in_cycle / b_in_cycle) must cite ONLY prerequisite_missing:<full surface> (the oracle reports the DIRECT prereq whose recursive walk fails); no borrowed active_contradiction/declared_prohibition/evidence_missing leaks into a cycle-member's cause set.",
+  "note": "R8 carries 96 queries (4 labels x 24 seeds): the two cycle rows must HOLD with prerequisite_missing (48), b_after_relieve must PROCEED with cause [] (24), and unrelated must HOLD with evidence_missing (24). None of the unrelated rows is in the cycle class."
+}

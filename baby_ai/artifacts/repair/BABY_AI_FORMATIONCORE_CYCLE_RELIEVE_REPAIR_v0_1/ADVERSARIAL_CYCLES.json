@@ -1,0 +1,540 @@
+{
+  "n": 17,
+  "n_ok": 17,
+  "interpretation": "E's recursive cycle-safe walk reproduces the oracle on direct chains, mutual two-node cycles (from either node), self-loops (formed and unformed), RELIEVE breaking a cycle, RELIEVE keeping the inverse edge, redeclaration, cycles with external grounding, and empty RELIEVE no-ops -- with exact prerequisite_missing:<surface> causes.",
+  "cases": [
+    {
+      "case": "direct_chain",
+      "ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        }
+      ],
+      "queries": [
+        {
+          "label": "b",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        },
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "two_cycle_both_blocked",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        },
+        {
+          "label": "b",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "relieve_breaks_cycle",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "RELIEVE",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        }
+      ],
+      "queries": [
+        {
+          "label": "b_after",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "relieve_keeps_inverse",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "RELIEVE",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        }
+      ],
+      "queries": [
+        {
+          "label": "b",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        },
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "self_loop_unformed",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_0_635111"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "self_loop_formed",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "relieve_self_noop_then_redeclare",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "RELIEVE",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_0_635111"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "cycle_with_external_ground",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_2_616285"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_2_616285",
+          "g": "alpha_family",
+          "ctx": "*"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        },
+        {
+          "label": "b",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        },
+        {
+          "label": "c",
+          "e": "flux_alpha_2_616285",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "a_formed_only_cycle",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_1_418760"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "b_unformed_relieved_proceeds",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "RELIEVE",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        }
+      ],
+      "queries": [
+        {
+          "label": "b",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "cycle_in_scoped_context_transfer",
+      "ops": [
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        },
+        {
+          "op": "DEPEND",
+          "a": "flux_alpha_1_418760",
+          "b": "flux_alpha_0_635111"
+        },
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        }
+      ],
+      "queries": [
+        {
+          "label": "b_scoped",
+          "e": "flux_alpha_1_418760",
+          "g": "alpha_family",
+          "ctx": "ctx_x",
+          "expected": "HOLD",
+          "expected_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "got": "HOLD",
+          "got_causes": [
+            "prerequisite_missing:flux_alpha_0_635111"
+          ],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    },
+    {
+      "case": "relieve_no_edge_is_noop",
+      "ops": [
+        {
+          "op": "FORM",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*"
+        },
+        {
+          "op": "RELIEVE",
+          "a": "flux_alpha_0_635111",
+          "b": "flux_alpha_1_418760"
+        }
+      ],
+      "queries": [
+        {
+          "label": "a",
+          "e": "flux_alpha_0_635111",
+          "g": "alpha_family",
+          "ctx": "*",
+          "expected": "PROCEED",
+          "expected_causes": [],
+          "got": "PROCEED",
+          "got_causes": [],
+          "route_ok": true,
+          "cause_ok": true
+        }
+      ],
+      "all_correct": true
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "oracle_definition": "apply_op(o, {'op': 'RELIEVE', 'a': X, 'b': Y}) does o.deps[X].discard(Y): it un-binds the CURRENT directional edge X->Y. It touches nothing else: no formed/proposition state, no scars, no time, no decision change.",
+  "derived_rules": [
+    "edge_removed_from_current_binding_only",
+    "history_reconstructible_via_ledger_but_not_resurrected",
+    "redeclared_DEPEND_rebinds_the_edge",
+    "grounding_may_survive_via_transfer_or_own_formed_state"
+  ],
+  "notes": "The oracle keeps no depot of old edges; reconstructibility comes from the op stream / the adapter's dependency_ledger. RELIEVE is asymmetric: X stops depending on Y, but Y's dependence on X (if declared) is untouched.",
+  "probes": {
+    "removes_edge": {
+      "final_deps": {
+        "A": []
+      },
+      "expected": {}
+    },
+    "keeps_other_edges": {
+      "final_deps": {
+        "A": [
+          "C"
+        ]
+      },
+      "expected": {
+        "A": [
+          "C"
+        ]
+      }
+    },
+    "does_not_delete_surface": {
+      "final_deps": {
+        "B": []
+      },
+      "expected": {
+        "B": [],
+        "A": [
+          "B"
+        ]
+      }
+    }
+  }
+}

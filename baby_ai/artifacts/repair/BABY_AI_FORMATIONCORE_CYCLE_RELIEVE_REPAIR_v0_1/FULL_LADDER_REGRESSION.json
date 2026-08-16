@@ -1,0 +1,56 @@
+{
+  "totals": {
+    "A": {
+      "route_correct": 828,
+      "cause_fidelity": 552,
+      "false_proceed": 48,
+      "false_hold": 396
+    },
+    "B": {
+      "route_correct": 1272,
+      "cause_fidelity": 1248,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "C": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "D": {
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "E": {
+      "route_correct": 1248,
+      "cause_fidelity": 1248,
+      "false_proceed": 24,
+      "false_hold": 0
+    }
+  },
+  "e_dependency_tranche_reference": {
+    "route_correct": 1200,
+    "cause_fidelity": 1200,
+    "false_proceed": 72,
+    "false_hold": 0
+  },
+  "a_d_unchanged_vs_original_freeze": {
+    "A": {
+      "bit_identical_vs_original_freeze": true
+    },
+    "B": {
+      "bit_identical_vs_original_freeze": true
+    },
+    "C": {
+      "bit_identical_vs_original_freeze": true
+    },
+    "D": {
+      "bit_identical_vs_original_freeze": true
+    }
+  },
+  "n_queries": 1272,
+  "interpretation": "Cycle/relieve repair moves E from the dependency-tranche state (route 1200 / cause 1200) to route 1248 / cause 1248: +48 R8 repairs (route and cause both), false_proceed 72 -> 24 (R8 cycle rows no longer false-proceed; R9 temporal residual unchanged), false_hold 0 -> 0. A-D bit-identical to the original freeze."
+}

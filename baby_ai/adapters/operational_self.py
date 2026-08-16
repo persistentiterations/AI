@@ -101,6 +101,11 @@ class FormationCore:
         # the representation layer reusing the formed-state gate; the router's
         # raw path is untouched. Direct primitive only: no recursion, no graph.
         self.dependencies: dict[str, list[str]] = {}
+        # dependency ledger (repair v0.2): append-only record of every DEPEND
+        # and RELIEVE event. A RELIEVE un-binds only the CURRENT binding; the
+        # old edge remains reconstructible from this ledger but never
+        # resurrects. Redeclared DEPEND re-binds the edge.
+        self.dependency_ledger: list[dict[str, str]] = []
         # surface attribution (repair v0.1): the event's structured_summary
         # {action, subject, group} survives compression nowhere, so it is kept
         # in a side registry mirroring mem_contexts/scar_contexts, letting the
@@ -125,10 +130,25 @@ class FormationCore:
         """Declare a keyed dependency edge: `dependent` may proceed only while
         `prerequisite` is in a formed, non-blocked state in the query context.
         Direct primitive: one record per (dependent, prerequisite); no graph,
-        no recursion, no cycle semantics (RELIEVE/cycles deferred)."""
+        no recursion (the representation layer walks cycles at route time)."""
         lst = self.dependencies.setdefault(dependent, [])
         if prerequisite not in lst:
             lst.append(prerequisite)
+        self.dependency_ledger.append({"kind": "DEPEND", "dependent": dependent,
+                                       "prerequisite": prerequisite})
+
+    def relieve_dependency(self, dependent: str, prerequisite: str) -> None:
+        """Un-bind the directional edge (dependent -> prerequisite) from the
+        CURRENT binding only. The edge remains in the ledger (reconstructible,
+        never resurrected); a later DEPEND re-binds it. RELIEVE never touches
+        formed/proposition state."""
+        lst = self.dependencies.get(dependent)
+        if lst and prerequisite in lst:
+            lst.remove(prerequisite)
+            if not lst:
+                self.dependencies.pop(dependent, None)
+        self.dependency_ledger.append({"kind": "RELIEVE", "dependent": dependent,
+                                       "prerequisite": prerequisite})
 
     # ------------------------------------------------------------ formation
     def make_event(
@@ -465,6 +485,7 @@ class FormationCore:
             "scar_kinds": dict(self.scar_kinds),
             "mem_tuples": {k: dict(v) for k, v in self.mem_tuples.items()},
             "dependencies": {k: list(v) for k, v in self.dependencies.items()},
+            "dependency_ledger": [dict(v) for v in self.dependency_ledger],
         }
 
     @classmethod
@@ -487,6 +508,7 @@ class FormationCore:
         core.scar_kinds = dict(data.get("scar_kinds", {}))
         core.mem_tuples = {k: dict(v) for k, v in data.get("mem_tuples", {}).items()}
         core.dependencies = {k: list(v) for k, v in data.get("dependencies", {}).items()}
+        core.dependency_ledger = [dict(v) for v in data.get("dependency_ledger", [])]
         return core
 
     def counts(self) -> dict[str, int]:

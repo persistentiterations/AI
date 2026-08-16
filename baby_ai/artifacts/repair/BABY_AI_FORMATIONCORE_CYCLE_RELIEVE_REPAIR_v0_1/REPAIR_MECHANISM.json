@@ -1,0 +1,19 @@
+{
+  "mechanism": {
+    "DEPEND": "record_dependency(a, b): adapter dependencies[a].append(b) (ordered prerequisites), ledger records the event",
+    "RELIEVE": "relieve_dependency(a, b): adapter dependencies[a].discard(b); ledger records the event so the old edge stays reconstructible; nothing else changes",
+    "route_walk": "prerequisite satisfaction is now a RECURSIVE, cycle-safe walk mirroring oracle._route_internal: for prereq e, own declared/contradicted state first, then grounding (own formed record OR has-dependencies OR family transfer), then every dependency of e recursively, with a seen-set that flags a revisit (CYCLE_BLOCKED) as unsatisfied",
+    "cycle_semantics": "a two-node cycle therefore HOLDs from either node with cause prerequisite_missing:<the direct prereq>, exactly as the oracle reports; b_after_relieve reads no deps and PROCEEDs via transfer again exactly as the oracle does"
+  },
+  "source_hashes": {
+    "baby_ai/ladder/representations.py": "005427e93066afb6",
+    "baby_ai/adapters/operational_self.py": "238957e16db8c09b",
+    "baby_ai/ladder/oracle.py": "a180b25c622f847c",
+    "baby_ai/ladder/generator.py": "34e5fcab55b22856",
+    "baby_ai/ladder/runner.py": "d741d342bd176ac0",
+    "baby_ai/ladder/battery.py": "e7f555751271a98f"
+  },
+  "gates": {
+    "dependency_gate": "off => DEPEND/RELIEVE unmodeled + flat walk disabled (historical); on => repaired"
+  }
+}

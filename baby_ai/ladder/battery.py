@@ -307,13 +307,13 @@ def e_failure_profile(battery: dict[str, Any]) -> dict[str, Any]:
                     {"level": r["level"], "seed": r["seed"], "label": r["label"],
                      "expected": r["expected_route"], "actual": r["actual_route"],
                      "expected_causes": r["expected_causes"], "actual_causes": r["actual_causes"]}
-                    for r in fails if r["demand"] == "plain" and r["level"] in ("R5", "R6", "R8")
+                    for r in fails if r["demand"] == "plain" and r["level"] in ("R9",)
                 ],
-                "claim": ("Frozen ladder context (pre-dependency repair): DEPEND/RELIEVE/VALID were "
-                       "recorded as unmodeled in E; cycle and conjunction semantics could not be "
-                       "expressed. The dependency repair (v0.1) adds a direct DEPEND prerequisite "
-                       "primitive (via dependency_gate); RELIEVE/cycles (R8) and VALID/temporal "
-                       "(R9) remain recorded as unmodeled."),
+                "claim": ("E models DEPEND and RELIEVE via the dependency gate: a dependent "
+                       "proceeds only while its prerequisite passes the recursive, "
+                       "cycle-safe formed-state walk in the query context (RW8); RELIEVE "
+                       "un-binds the current edge and the ledger keeps history. R9 "
+                       "temporal (VALID windows) remains the lone unmodeled demand."),
             },
         },
     }

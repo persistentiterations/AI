@@ -531,7 +531,12 @@ class HistoricalFractalish(Representation):
                 self.core.record_dependency(op["a"], op["b"])
             elif getattr(self, "unmodeled", None) is not None:
                 self.unmodeled.append(kind)
-        elif kind in ("RELIEVE", "VALID"):
+        elif kind == "RELIEVE":
+            if type(self).dependency_gate:
+                self.core.relieve_dependency(op["a"], op["b"])
+            elif getattr(self, "unmodeled", None) is not None:
+                self.unmodeled.append(kind)
+        elif kind == "VALID":
             self.unmodeled.append(kind)
             # no expressible primitive in the current architecture's routing
 
@@ -555,25 +560,58 @@ class HistoricalFractalish(Representation):
     # dependent surface whose OWN state is clean (not superseded-HOLD, not
     # contradicted) proceeds only while every prerequisite satisfies the
     # formed-state gate in the QUERY's context; otherwise the cause is
-    # prerequisite_missing:<surface> (never truncated). Direct primitive only:
-    # satisfaction does NOT recurse into the prerequisite's own dependencies.
-    # Toggle OFF restores the historical behavior (DEPEND dropped to unmodeled)
-    # for the ablation.
+    # prerequisite_missing:<surface> (never truncated).
+    # Cycle/relieve repair (v0.2): prerequisite satisfaction is a RECURSIVE,
+    # cycle-safe walk mirroring the oracle's _route_internal: a prerequisite
+    # is satisfied only if ITS OWN formed-state gate passes and every one of
+    # ITS dependencies is in turn satisfied, with a seen-set that flags a
+    # revisit (CYCLE_BLOCKED) as unsatisfied. RELIEVE un-binds the current
+    # edge (adapter ledger keeps history); DEPEND after RELIEVE re-binds.
+    # Toggle OFF restores the historical behavior (DEPEND/RELIEVE dropped to
+    # unmodeled) for the ablation.
     dependency_gate: bool = True
 
-    def _prereq_ok(self, prereq: str, g: str, ctx: str) -> bool:
-        """Y satisfies the prerequisite iff Y alone routes PROCEED through the
-        same formed-state gate that X is queried through (retrieval,
-        applicability, context, scar blocking). No recursion: Y's own
-        dependencies are not consulted (the oracle's pre_ok is straight-line
-        too, modulo its cycle walk which this direct primitive does not have)."""
+    def _dep_grounded(self, e: str, g: str, ctx: str) -> bool:
+        """Oracle _grounded mirror: e is grounded if it has a formed-state
+        gate pass (own record or family transfer) OR it has dependencies
+        (its prerequisites are its grounds). A member of a dependency cycle
+        is grounded by the cycle's own edges, so the recursive walk reaches
+        the revisit instead of reporting evidence_missing."""
+        if self.core.dependencies.get(e):
+            return True
         kwargs = {"plasticity": self.plast}
         if type(self).applicability_gate:
             kwargs["applicability"] = g
         if type(self).context_gate:
             kwargs["context"] = ctx
-        r = self.core.route_decision(prereq, **kwargs)
+        r = self.core.route_decision(e, **kwargs)
         return str(r.get("decision", "HOLD")).startswith("RELEASE")
+
+    def _dep_ok(self, e: str, g: str, ctx: str, _seen: frozenset[str]) -> bool:
+        """Recursive precondition walk mirroring the oracle's _route_internal.
+        e satisfies iff: its OWN formed-state gate passes (declared/contradicted
+        first, then grounding) and every dependency of e is itself satisfied.
+        A revisit of the walk (e already in _seen) is CYCLE_BLOCKED -> False."""
+        if e in _seen:
+            return False
+        _seen = _seen | {e}
+        if self._own_superseded_hold(e, g, ctx):
+            return False
+        if self._own_contradicted(e, g, ctx):
+            return False
+        if not self._dep_grounded(e, g, ctx):
+            return False
+        for b in self.core.dependencies.get(e, []):
+            if not self._dep_ok(b, g, ctx, _seen):
+                return False
+        return True
+
+    def _prereq_ok(self, prereq: str, g: str, ctx: str) -> bool:
+        """Y satisfies the prerequisite iff Y passes the recursive dependency
+        walk (its own formed-state gate and its transitive dependencies) in
+        the same query context X is routed in. Fresh seen-set per prereq,
+        exactly as the oracle re-seeds _seen per direct prereq."""
+        return self._dep_ok(prereq, g, ctx, frozenset())
 
     def _own_superseded_hold(self, e: str, g: str, ctx: str) -> bool:
         """Own-state: e is superseded-HOLD in this context (a SUPERSEDE-origin
