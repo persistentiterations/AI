@@ -13,6 +13,16 @@ Status of the Baby AI FormationCore tranche work at end of this session.
     RESTORE==ON; A/B/C/D bit-identical to original freeze.
   - Cycle cause fidelity 48/48 exact; pytest 96 passed; deterministic regeneration
     verified byte-identical this session.
+- NEW R9 FREEZE — FormationCore TEMPORAL VALIDITY gate v0.3 (`VALID` window + exact
+  `expired_outside_window` cause). Commit message: "FormationCore: freeze temporal
+  validity gate R9 (VALID window, expired_outside_window)". Verifications that must stay
+  reproducible:
+  - R9 census 9 seeds → 24 residuals driven to 0 (a_at_t6 = `expired_outside_window`
+    exact decision + cause). Full ladder R0–R10 × seeds 0–4: E completes 55/55 task-runs
+    (only incomplete runs are Rep A, the relation-less baseline, untouched); cause
+    fidelity 1.0; 96 tests pass.
+  - OFF-toggles verified: `validity_gate` OFF resurrects the R9 residuals (VALID→unmodeled);
+    `dependency_gate` OFF restores DEPEND→unmodeled. Both are ablation-only, never shipped.
 - Branch `hostile-qualification-v0_1`; NO git remote configured (no GitHub push possible
   without wiring a remote/branch policy first); no CI exists in-repo.
 
@@ -34,14 +44,38 @@ Status of the Baby AI FormationCore tranche work at end of this session.
   boundaries; history-equivalence note.
 - `R9_COUNTEREXAMPLE_CENSUS_MACHINE.json` / `RESIDUAL_BUILD_SPEC_MEASUREMENT_MACHINE.json`
   (machine-readable).
+- NEW (R9-adjacent, logged only): `MARK_RESOLVE_DEPWALK_DEFECT_WITNESS.md` + 
+  `MARK_RESOLVE_DEPWALK_TRANCHE.md` — a pre-existing orthogonal defect (MARK→RESOLVE
+  clears surface contradiction but the recursive dep-walk still reads the retained MARK
+  scar as active). NOT REPAIRED; opened as the NEXT tranche. R9 must stay frozen and is
+  OUT OF SCOPE for that repair.
 
 ## R9 state
 
-HYPOTHESIS + CLASSIFICATION COMPLETE, NOT REPAIRED. Stopping point:
-`R9_COUNTEREXAMPLES_CLASSIFIED`. The proposed next tranche is the R9 temporal-validity
-gate (see `R9_MINIMUM_RELATION_HYPOTHESIS.md` §4-8) — tiny state (recorded VALID
-windows), route-time gate, exact cause string `expired_outside_window`, gate toggle for
-ablation, and prohibition: do not modify Natural Math v5, no theoretical operators.
+REPAIRED AND FROZEN THIS SESSION. Stopping point: `R9_FROZEN`, next tranche
+`MARK_RESOLVE_DEPWALK_TRANCHE` (separate). Implemented the temporal-validity gate in
+`HistoricalFractalish` (`baby_ai/ladder/representations.py`): `validity_gate` toggle (ON by
+default), VALID→`record_valid_window` adapter path (OFF→`unmodeled`), `_in_valid_window`
+exact mirror of oracle `_in_window` (per-context fallback to GLOBAL, `t is None` anchors to
+applied-op count = oracle `t_real = o.time`), surface gate in `route()` appends the exact
+cause `expired_outside_window`, `t` threaded through `_dep_ok`/`_prereq_ok` so the
+recursive walk honors windows like `_route_internal`. Verified: R9 census 9 seeds → 24
+residuals driven to 0 (a_at_t6 = `expired_outside_window` exact); full ladder R0–R10 ×
+seeds 0–4 → E completes 55/55 task-runs (only incomplete runs are Rep A, the relation-less
+baseline, untouched); cause fidelity 1.0; 96 tests pass; OFF-toggles verified
+(validity OFF resurrects R9 residuals, dependency OFF restores DEPEND→`unmodeled`).
+Prior R8 freeze (`0e64df6`) untouched and still read-only.
+
+### Known pre-existing finding (LOGGED, NOT REPAIRED — leave frozen)
+
+Adversarial battery (window × dependency × MARK/RESOLVE) exposed a stale-scar issue in the
+recursive dependency walk that is ORTHOGONAL to the R9 validity gate: after a prereq `MARK`
+is `RESOLVE`d, E's surface `route()` says PROCEED correctly (matches oracle), but
+`_dep_ok` → `_own_contradicted` still sees the stale MARK scar, so a dependent HOLDs with
+`prerequisite_missing:a` where the oracle PROCEEDs. Provable with the gate OFF, so it is
+pre-existing, not introduced by the validity repair. R9 fixtures never combine DEPEND +
+MARK/RESOLVE, so it cannot disturb the frozen residuals. DECISION: leave frozen; opened as
+`MARK_RESOLVE_DEPWALK_TRANCHE.md` — do NOT patch inside the R9 commit.
 
 ## Things to check on resume
 

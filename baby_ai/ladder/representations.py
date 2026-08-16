@@ -537,8 +537,11 @@ class HistoricalFractalish(Representation):
             elif getattr(self, "unmodeled", None) is not None:
                 self.unmodeled.append(kind)
         elif kind == "VALID":
-            self.unmodeled.append(kind)
-            # no expressible primitive in the current architecture's routing
+            if type(self).validity_gate:
+                self.core.record_valid_window(op["e"], op.get("from", 0), op.get("to", 0),
+                                              context=op.get("ctx", GLOBAL))
+            elif getattr(self, "unmodeled", None) is not None:
+                self.unmodeled.append(kind)
 
     def _belief_id(self, e: str) -> str:
         return f"route:{e}"
@@ -567,9 +570,18 @@ class HistoricalFractalish(Representation):
     # ITS dependencies is in turn satisfied, with a seen-set that flags a
     # revisit (CYCLE_BLOCKED) as unsatisfied. RELIEVE un-binds the current
     # edge (adapter ledger keeps history); DEPEND after RELIEVE re-binds.
-    # Toggle OFF restores the historical behavior (DEPEND/RELIEVE dropped to
-    # unmodeled) for the ablation.
+    # Temporal validity repair (v0.3): VALID records per-entity windows; a
+    # formation is admissible only while some applicable window contains the
+    # query time (expired_outside_window otherwise). The window check runs in
+    # both the surface query AND the recursive walk, mirroring
+    # route_oracle/_route_internal. Toggle OFF restores the historical
+    # behavior (DEPEND/RELIEVE dropped to unmodeled) for the ablation.
     dependency_gate: bool = True
+
+    # Temporal validity gate (v0.3): VALID windows bound admissibility by
+    # time. OFF restores the historical behavior (VALID unmodeled) for the
+    # ablation.
+    validity_gate: bool = True
 
     def _dep_grounded(self, e: str, g: str, ctx: str) -> bool:
         """Oracle _grounded mirror: e is grounded if it has a formed-state
@@ -587,11 +599,14 @@ class HistoricalFractalish(Representation):
         r = self.core.route_decision(e, **kwargs)
         return str(r.get("decision", "HOLD")).startswith("RELEASE")
 
-    def _dep_ok(self, e: str, g: str, ctx: str, _seen: frozenset[str]) -> bool:
+    def _dep_ok(self, e: str, g: str, ctx: str, _seen: frozenset[str], t: int | None = None) -> bool:
         """Recursive precondition walk mirroring the oracle's _route_internal.
         e satisfies iff: its OWN formed-state gate passes (declared/contradicted
         first, then grounding) and every dependency of e is itself satisfied.
-        A revisit of the walk (e already in _seen) is CYCLE_BLOCKED -> False."""
+        A revisit of the walk (e already in _seen) is CYCLE_BLOCKED -> False.
+        Temporal validity (v0.3): an entity with a recorded VALID window must be
+        in-window at the query time, else it fails the walk --- exactly how
+        _route_internal applies _in_window."""
         if e in _seen:
             return False
         _seen = _seen | {e}
@@ -601,17 +616,19 @@ class HistoricalFractalish(Representation):
             return False
         if not self._dep_grounded(e, g, ctx):
             return False
+        if type(self).validity_gate and not self._in_valid_window(e, ctx, t):
+            return False
         for b in self.core.dependencies.get(e, []):
-            if not self._dep_ok(b, g, ctx, _seen):
+            if not self._dep_ok(b, g, ctx, _seen, t):
                 return False
         return True
 
-    def _prereq_ok(self, prereq: str, g: str, ctx: str) -> bool:
+    def _prereq_ok(self, prereq: str, g: str, ctx: str, t: int | None = None) -> bool:
         """Y satisfies the prerequisite iff Y passes the recursive dependency
         walk (its own formed-state gate and its transitive dependencies) in
         the same query context X is routed in. Fresh seen-set per prereq,
         exactly as the oracle re-seeds _seen per direct prereq."""
-        return self._dep_ok(prereq, g, ctx, frozenset())
+        return self._dep_ok(prereq, g, ctx, frozenset(), t)
 
     def _own_superseded_hold(self, e: str, g: str, ctx: str) -> bool:
         """Own-state: e is superseded-HOLD in this context (a SUPERSEDE-origin
@@ -667,7 +684,7 @@ class HistoricalFractalish(Representation):
             if deps:
                 ctx_q = ctx if ctx not in ("", None) else GLOBAL
                 if not self._own_superseded_hold(e, g, ctx_q) and not self._own_contradicted(e, g, ctx_q):
-                    missing = [p for p in deps if not self._prereq_ok(p, g, ctx_q)]
+                    missing = [p for p in deps if not self._prereq_ok(p, g, ctx_q, t)]
                     if missing:
                         return {
                             "decision": "HOLD",
@@ -685,10 +702,34 @@ class HistoricalFractalish(Representation):
                 cause = [c[:40] for c in r["causes"]]
             else:
                 cause = [reason[:40]]
+        # Temporal validity gate (v0.3): a formation with a recorded VALID window
+        # is admissible only while the query time sits inside some applicable
+        # window. Out-of-window forces HOLD with the oracle cause, exactly as
+        # route_oracle appends expired_outside_window after the grounded check.
+        # When the query time is absent the window check is anchored to the
+        # applied-op count, mirroring the oracle's t_real = o.time.
+        if type(self).validity_gate and not self._in_valid_window(e, ctx, t):
+            decision = "HOLD"
+            if "expired_outside_window" not in cause:
+                cause.append("expired_outside_window")
         return {
             "decision": "PROCEED" if str(decision).startswith("RELEASE") else "HOLD",
             "causes": cause,
         }
+
+    def _in_valid_window(self, e: str, ctx: str, t: int | None) -> bool:
+        """Mirror of the oracle's _in_window: e is PROCEED-able at time t iff
+        every recorded per-context window for e is empty of t, or no window is
+        recorded at all (gate inert). Per-context windows fall back to GLOBAL,
+        exactly as the oracle consults o.valid[(e, ctx)] or o.valid[(e, GLOBAL)].
+        When t is None the oracle anchors to o.time (applied-op count); E
+        mirrors it with the adapter's applied-op counter."""
+        ctx_q = ctx if ctx not in ("", None) else GLOBAL
+        windows = self.core.valid_windows.get((e, ctx_q)) or self.core.valid_windows.get((e, GLOBAL)) or []
+        if not windows:
+            return True
+        t_real = self._w["applies"] if t is None else t
+        return any(a <= t_real <= b for a, b in windows)
 
     def state_bytes(self) -> int:
         import json

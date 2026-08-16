@@ -111,6 +111,11 @@ class FormationCore:
         # in a side registry mirroring mem_contexts/scar_contexts, letting the
         # representation distinguish OWN-state from token-overlap records.
         self.mem_tuples: dict[str, dict[str, str]] = {}
+        # temporal validity (repair v0.3): (entity, context) -> list of
+        # [from, to] VALID windows. At route time a formation is admissible
+        # only while some applicable window contains the query time; when the
+        # entity records no window the gate is inert (always in-window).
+        self.valid_windows: dict[tuple[str, str], list[list[int]]] = {}
         self._record_provenance()
 
     def _record_provenance(self) -> None:
@@ -149,6 +154,14 @@ class FormationCore:
                 self.dependencies.pop(dependent, None)
         self.dependency_ledger.append({"kind": "RELIEVE", "dependent": dependent,
                                        "prerequisite": prerequisite})
+
+    def record_valid_window(self, entity: str, from_t: int, to_t: int,
+                            *, context: str = "*") -> None:
+        """Declare a VALID [from..to] window for an entity in a context. An
+        entity may accumulate multiple windows (the oracle appends). At route
+        time admissible only while some applicable window contains the query
+        time; no window recorded => always in-window."""
+        self.valid_windows.setdefault((entity, context), []).append([from_t, to_t])
 
     # ------------------------------------------------------------ formation
     def make_event(
@@ -486,6 +499,8 @@ class FormationCore:
             "mem_tuples": {k: dict(v) for k, v in self.mem_tuples.items()},
             "dependencies": {k: list(v) for k, v in self.dependencies.items()},
             "dependency_ledger": [dict(v) for v in self.dependency_ledger],
+            "valid_windows": {f"{e}\x00{c}": [list(w) for w in wins]
+                              for (e, c), wins in self.valid_windows.items()},
         }
 
     @classmethod
@@ -509,6 +524,10 @@ class FormationCore:
         core.mem_tuples = {k: dict(v) for k, v in data.get("mem_tuples", {}).items()}
         core.dependencies = {k: list(v) for k, v in data.get("dependencies", {}).items()}
         core.dependency_ledger = [dict(v) for v in data.get("dependency_ledger", [])]
+        core.valid_windows = {}
+        for key, wins in data.get("valid_windows", {}).items():
+            e, _, c = key.partition("\x00")
+            core.valid_windows[(e, c)] = [list(w) for w in wins]
         return core
 
     def counts(self) -> dict[str, int]:
