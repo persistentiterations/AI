@@ -2,7 +2,7 @@
   "tranche": "MARK_RESOLVE_DEPWALK",
   "status": "REPAIRED_AND_FROZEN",
   "head_before": "797598a",
-  "head_after": null,
+  "head_after": "8735911",
   "scope": {
     "files_changed": ["baby_ai/ladder/representations.py"],
     "target": "recursive dependency walk contradiction reading bound to current plasticity authority (READ_CURRENT), gated by contradiction_authority_gate (default True)",
