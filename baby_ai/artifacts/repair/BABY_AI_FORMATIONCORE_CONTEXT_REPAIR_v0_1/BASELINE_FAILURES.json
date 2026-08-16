@@ -1,0 +1,2248 @@
+{
+  "thesis": "Context-qualified queries routed on UNscoped state: a contradiction raised in ctx_scoped blocked the same item in other contexts (false holds), and a supersede scoped to ctx_new revoked a globally-formed state in every context (false proceed). The historical router had no context dimension.",
+  "context_class_summary": {
+    "n": 120,
+    "pre_route_correct": 48,
+    "post_route_correct": 120,
+    "pre_cause_correct": 0,
+    "false_proceeds_pre": 72,
+    "false_holds_pre": 48
+  },
+  "false_proceed_evidence": [
+    {
+      "level": "R7",
+      "seed": 0,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 0,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_alpha_0_635111"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 1,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 1,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_beta_0_446259"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 2,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 2,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_gamma_0_839346"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 3,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 3,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_delta_0_277514"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 4,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 4,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_epsilon_0_451977"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 5,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 5,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_zeta_0_177027"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 6,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 6,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_alpha_0_669423"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 7,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 7,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_beta_0_453448"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 8,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 8,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_gamma_0_11129"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 9,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 9,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_delta_0_397460"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 10,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 10,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_epsilon_0_817349"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 11,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 11,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_zeta_0_592247"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 12,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 12,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_alpha_0_669495"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 13,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 13,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_beta_0_553120"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 14,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 14,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_gamma_0_538021"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 15,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 15,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_delta_0_418854"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 16,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 16,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_epsilon_0_928198"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 17,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 17,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_zeta_0_387765"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 18,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 18,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_alpha_0_334115"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 19,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 19,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_beta_0_829366"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 20,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 20,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_gamma_0_427010"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 21,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 21,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_delta_0_800958"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 22,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 22,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_epsilon_0_21940"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 23,
+      "label": "a_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 23,
+      "label": "b_scoped_ctx",
+      "ctx": "ctx_scoped",
+      "pre_route": "HOLD",
+      "post_route": "HOLD",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [
+        "active_contradiction",
+        "evidence_missing"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "prerequisite_missing:flux_zeta_0_931800"
+      ],
+      "pre_route_ok": true,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 0,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 1,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 2,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 3,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 4,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 5,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 6,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 7,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 8,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 9,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 10,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 11,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 12,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 13,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 14,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 15,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 16,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 17,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 18,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 19,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 20,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 21,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 22,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R10",
+      "seed": 23,
+      "label": "a_new_ctx",
+      "ctx": "ctx_new",
+      "pre_route": "PROCEED",
+      "post_route": "HOLD",
+      "pre_causes": [],
+      "post_causes": [
+        "declared_prohibition"
+      ],
+      "expected_route": "HOLD",
+      "expected_causes": [
+        "declared_prohibition"
+      ],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    }
+  ],
+  "false_hold_evidence": [
+    {
+      "level": "R7",
+      "seed": 0,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 0,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 1,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 1,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 2,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 2,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 3,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 3,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 4,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 4,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 5,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 5,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 6,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 6,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 7,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 7,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 8,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 8,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 9,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 9,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 10,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 10,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 11,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 11,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 12,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 12,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 13,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 13,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 14,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 14,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 15,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 15,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 16,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 16,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 17,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 17,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 18,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 18,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 19,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 19,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 20,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 20,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 21,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 21,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 22,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 22,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 23,
+      "label": "a_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    },
+    {
+      "level": "R7",
+      "seed": 23,
+      "label": "b_other_ctx",
+      "ctx": "ctx_base",
+      "pre_route": "HOLD",
+      "post_route": "PROCEED",
+      "pre_causes": [
+        "evidence_missing"
+      ],
+      "post_causes": [],
+      "expected_route": "PROCEED",
+      "expected_causes": [],
+      "pre_route_ok": false,
+      "pre_cause_ok": false
+    }
+  ],
+  "defect_class_locations": "R7 (context-scoped contradiction) and R10 (context-scoped supersede revoking global state); R7/R10 introduced this class; R1-R6, R8, R9 unrelated to it."
+}

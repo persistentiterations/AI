@@ -1,0 +1,43 @@
+{
+  "context_off_totals": {
+    "n": 1272,
+    "route_correct": 1128,
+    "cause_fidelity": 900,
+    "false_proceed": 96,
+    "false_hold": 48,
+    "failure_classes": {
+      "none": 900,
+      "cause_only": 228,
+      "route_false_hold": 48,
+      "route_false_proceed": 96
+    },
+    "route_accuracy": 0.886792,
+    "cause_accuracy": 0.707547
+  },
+  "context_on_totals": {
+    "n": 1272,
+    "route_correct": 1200,
+    "cause_fidelity": 1068,
+    "false_proceed": 72,
+    "false_hold": 0,
+    "failure_classes": {
+      "none": 1068,
+      "cause_only": 132,
+      "route_false_proceed": 72
+    },
+    "route_accuracy": 0.943396,
+    "cause_accuracy": 0.839623
+  },
+  "delta": {
+    "route_correct": 72,
+    "cause_fidelity": 168,
+    "false_proceed": -24,
+    "false_hold": -48
+  },
+  "restore_reproduces_context_on": true,
+  "restore_totals": {
+    "route_correct": 1200,
+    "cause_fidelity": 1068
+  },
+  "interpretation": "Context OFF reproduces the historical context failure class (R7 cross-context false holds, R10 cross-context false proceed on the scoped supersede, imprecise scar causes). Context ON eliminates exactly that class with ZERO route regressions and ZERO new false holds. Restore == ON (deterministic). Remaining E failures are R8 cyclic constraints and R9 temporal validity, which need dependency/temporal primitives and stay deferred."
+}

@@ -1,0 +1,31 @@
+{
+  "rule": "A context-qualified HOLD must cite the scar's origin precisely: MARK -> active_contradiction, SUPERSEDE HOLD -> declared_prohibition; and when nothing grounds a RELEASE inside the query's context, evidence_missing is added. HOLD because of a context-specific contradiction is not HOLD because no memory was found.",
+  "r10_a_new_ctx_declared_prohibition": {
+    "exact": 24,
+    "n": 24
+  },
+  "r7_a_scoped_ctx_active_contradiction": {
+    "exact": 24,
+    "n": 24
+  },
+  "r1_after_mark_active_contradiction": {
+    "exact": 24,
+    "n": 24
+  },
+  "r3_r4_supersede_declared_prohibition_fidelity": {
+    "exact": 48,
+    "n": 48,
+    "residual_cause_only": []
+  },
+  "context_class_taboo_cause_leaks": [],
+  "context_class_cause_fidelity": {
+    "exact": 144,
+    "n": 168
+  },
+  "preferred_kinds": [
+    "active_contradiction",
+    "declared_prohibition",
+    "evidence_missing",
+    "prerequisite_missing"
+  ]
+}

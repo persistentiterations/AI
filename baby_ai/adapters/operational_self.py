@@ -49,6 +49,7 @@ from fractalish_ai.operational_self.models import (
 )
 
 DETERMINISTIC_TSTAMP = "2026-08-14T12:00:00+00:00"
+GLOBAL_CTX = "*"  # ladder global-context marker (matches baby_ai.ladder.oracle.GLOBAL)
 
 
 def _mk(**kw: Any):
@@ -90,6 +91,11 @@ class FormationCore:
         self.scars: list[ContradictionScar] = []
         self.fog: list[FogRegion] = []
         self.routes: list[ReplayRoute] = []
+        # context dimension (repair v0.1): which context each memory/store was
+        # grounded in, plus the origin op-kind of each contradiction scar.
+        self.mem_contexts: dict[str, str] = {}
+        self.scar_contexts: dict[str, str] = {}
+        self.scar_kinds: dict[str, str] = {}
         self._record_provenance()
 
     def _record_provenance(self) -> None:
@@ -119,8 +125,14 @@ class FormationCore:
         confidence: float = 0.7,
         uncertainty: float = 0.3,
         provenance_extra: dict[str, Any] | None = None,
+        context: str = GLOBAL_CTX,
+        op_kind: str | None = None,
     ) -> MemoryEvent:
         eid = self.ids.nid("evt")
+        extra = dict(provenance_extra or {})
+        extra.setdefault("context", context)
+        if op_kind is not None:
+            extra["op_kind"] = op_kind
         return MemoryEvent(
             event_id=eid,
             activation_id=self.activation_id,
@@ -136,7 +148,7 @@ class FormationCore:
             confidence=confidence,
             uncertainty=uncertainty,
             tags=tags or [],
-            provenance={"domain": "mvp", **(provenance_extra or {})},
+            provenance={"domain": "mvp", **extra},
         )
 
     def ingest(self, event: MemoryEvent) -> dict[str, Any]:
@@ -148,6 +160,10 @@ class FormationCore:
         memory.memory_id = memory_id
         attractor.memory_id = memory_id
         attractor.attractor_id = "attr_" + self.ids.nid("attr")[5:]
+
+        ev_ctx = str(event.provenance.get("context", GLOBAL_CTX))
+        ev_kind = event.provenance.get("op_kind")
+        self.mem_contexts[memory_id] = ev_ctx
 
         new_scars = _scars.detect_scars_from_event(event, memory)
         fog_region = _fog.detect_fog_from_event(event, memory)
@@ -162,6 +178,8 @@ class FormationCore:
             s.memory_ids = [mid if mid == memory_id else mid for mid in s.memory_ids]
             s.memory_ids = [memory_id]
             # link the paired memories if we know both sides
+            self.scar_contexts[s.scar_id] = ev_ctx
+            self.scar_kinds[s.scar_id] = str(ev_kind or "contradiction")
             self.scars.append(s)
             self._link_contradiction_scar(s)
 
@@ -254,7 +272,14 @@ class FormationCore:
             limit=limit,
         )
 
-    def route_decision(self, query: str, plasticity: "Any | None" = None) -> dict[str, Any]:
+    def route_decision(
+        self,
+        query: str,
+        plasticity: "Any | None" = None,
+        *,
+        applicability: str | None = None,
+        context: str | None = None,
+    ) -> dict[str, Any]:
         """Deterministic domain routing over formed state (formation core gating).
 
         If a PlasticityExecutor is supplied, its scar lifecycle status is
@@ -262,11 +287,51 @@ class FormationCore:
         routed RELEASE; once the scar is superseded/resolved, the formed RELEASE
         decision is allowed through again. This is the Gap A causal hook: the
         executor, not the router, decides when a scar stops blocking.
+
+        APPLICABILITY GATE (adapter-local, repair v0.1): when `applicability` is
+        given, it is the query's DECLARED SCOPE (a stable identity token, e.g.
+        the family tag). A retrieved record is only admissible if one of its
+        stored tags equals the declared scope EXACTLY. Retrieval may surface
+        candidates (lexical overlap is allowed); retrieval does NOT make them
+        consequential. With no declared scope, behavior is unchanged (legacy).
+
+        CONTEXT GATE (adapter-local, repair v0.1): when `context` is given it is
+        the query's DECLARED CONTEXT. A memory is admissible only if it was
+        grounded in that context or in the global context ("*"), and a
+        contradiction scar blocks only if it was raised in that context or
+        globally. When a scoped scar blocks, the reason token names the scar
+        origin (MARK -> active_contradiction, SUPERSEDE HOLD ->
+        declared_prohibition) and, if nothing grounds a RELEASE decision inside
+        the query's context, evidence_missing is added. With no declared
+        context, behavior is unchanged (legacy: scar-blocking reason stays
+        "contradiction_scar_blocking").
         """
         res = self.retrieve(query)
         results = res.get("results", [])
         if not results:
             return {"query": query, "decision": "HOLD", "reason": "no_formed_memory", "evidence": [], "match": None}
+
+        ctx_query = context if context is not None else GLOBAL_CTX
+
+        if applicability is not None:
+            applicable = self._applicable_results(results, applicability, context)
+            if not applicable:
+                return {
+                    "query": query,
+                    "decision": "HOLD",
+                    "reason": "no_applicable_evidence",
+                    "evidence": [r.get("memory_id") for r in results],
+                    "match": results[0],
+                    "retrieved_but_inapplicable": [r.get("memory_id") for r in results],
+                }
+            results = applicable
+        elif context is not None:
+            keep: list[dict] = []
+            for r in results:
+                mid = r.get("memory_id")
+                if self.mem_contexts.get(mid, GLOBAL_CTX) in (ctx_query, GLOBAL_CTX):
+                    keep.append(r)
+            results = keep
 
         # Gather all formed RELEASE-family decisions reachable for this query.
         release_matches: list[dict] = []
@@ -278,7 +343,7 @@ class FormationCore:
             if any(d.startswith("RELEASE") for d in decisions):
                 release_matches.append(r)
 
-        blocking_scars = self._blocking_scars_for(results, plasticity)
+        blocking_scars = self._blocking_scars_for(results, plasticity, context)
         if release_matches and not blocking_scars:
             best = results[0]
             decisions = [d.strip().upper() for d in (self.memories.get(best.get("memory_id")).retained_decisions or [])]
@@ -286,20 +351,57 @@ class FormationCore:
             return {"query": query, "decision": "RELEASE", "reason": f"formed_decision:{action}", "evidence": decisions, "match": best}
 
         if blocking_scars:
-            return {
+            out: dict[str, Any] = {
                 "query": query,
                 "decision": "HOLD",
                 "reason": "contradiction_scar_blocking",
                 "evidence": [b.replay_warning or f"scar {b.scar_id}" for b in blocking_scars],
                 "match": results[0],
             }
+            if context is not None:
+                causes, reason = self._cause_for_block(blocking_scars, release_matches)
+                out["reason"] = reason
+                out["causes"] = causes
+            return out
         return {"query": query, "decision": "HOLD", "reason": "no_release_decision", "evidence": [], "match": results[0]}
 
-    def _blocking_scars_for(self, results: list[dict], plasticity: "Any | None") -> list[ContradictionScar]:
+    def _cause_for_block(self, blocking_scars: list[ContradictionScar], release_matches: list[dict]) -> tuple[list[str], str]:
+        kinds = [self.scar_kinds.get(s.scar_id, "contradiction") for s in blocking_scars]
+        primary = "declared_prohibition" if any(str(k).upper() == "SUPERSEDE" for k in kinds) else "active_contradiction"
+        causes = [primary]
+        if not release_matches:
+            causes.append("evidence_missing")
+        return causes, primary
+
+    def _applicable_results(self, results: list[dict], scope: str, context: str | None = None) -> list[dict]:
+        """Keep only retrieved candidates whose stored tag identity matches the
+        declared scope exactly and (when a context is declared) whose grounding
+        context is the query context or global. Stable identity is the tag — NOT
+        lexical overlap. Rejects token-sharing records that belong to a
+        different family."""
+        mem_tags: dict[str, list[str]] = {}
+        for attr in self.attractors.values():
+            mem_tags.setdefault(attr.memory_id, []).extend(list(attr.tags or []))
+        permit_ctx = context if context is not None else GLOBAL_CTX
+        out: list[dict] = []
+        for r in results:
+            mid = r.get("memory_id")
+            tags = mem_tags.get(mid, [])
+            if not any(t == scope for t in tags):
+                continue
+            if self.mem_contexts.get(mid, GLOBAL_CTX) not in (permit_ctx, GLOBAL_CTX):
+                continue
+            out.append(r)
+        return out
+
+    def _blocking_scars_for(self, results: list[dict], plasticity: "Any | None", context: str | None = None) -> list[ContradictionScar]:
         memory_ids = {r.get("memory_id") for r in results}
+        permit_ctx = context if context is not None else GLOBAL_CTX
         out: list[ContradictionScar] = []
         for scar in self.scars:
             if not (set(scar.memory_ids) & memory_ids):
+                continue
+            if self.scar_contexts.get(scar.scar_id, GLOBAL_CTX) not in (permit_ctx, GLOBAL_CTX):
                 continue
             if plasticity is not None:
                 status = plasticity.get_scar_status(scar.scar_id)
@@ -334,6 +436,9 @@ class FormationCore:
             "scars": [dd(v) for v in self.scars],
             "fog": [dd(v) for v in self.fog],
             "routes": [dd(v) for v in self.routes],
+            "mem_contexts": dict(self.mem_contexts),
+            "scar_contexts": dict(self.scar_contexts),
+            "scar_kinds": dict(self.scar_kinds),
         }
 
     @classmethod
@@ -351,6 +456,9 @@ class FormationCore:
         core.scars = [rebuilt(ContradictionScar, v) for v in data.get("scars", [])]
         core.fog = [rebuilt(FogRegion, v) for v in data.get("fog", [])]
         core.routes = [rebuilt(ReplayRoute, v) for v in data.get("routes", [])]
+        core.mem_contexts = dict(data.get("mem_contexts", {}))
+        core.scar_contexts = dict(data.get("scar_contexts", {}))
+        core.scar_kinds = dict(data.get("scar_kinds", {}))
         return core
 
     def counts(self) -> dict[str, int]:

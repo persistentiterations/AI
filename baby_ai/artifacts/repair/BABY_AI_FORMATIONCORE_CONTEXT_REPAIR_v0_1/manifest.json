@@ -1,0 +1,81 @@
+{
+  "repair_id": "BABY_AI_FORMATIONCORE_CONTEXT_REPAIR_v0_1",
+  "created_utc": "2026-08-15T12:19:23Z",
+  "philosophy": "A memory grounds a decision only in the context it was grounded in; a contradiction blocks only where it was raised.",
+  "lineage": "preceded by BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1; this tranche adds the context dimension to that repaired router (scope + context + sequence).",
+  "baseline_freeze": "BABY_AI_COMPLEXITY_LADDER_v0_1 (read-only) + BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1 (E = pre-context baseline)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "levels": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10"
+  ],
+  "representations": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "scope": "CONTEXT CLASS REPAIRED: context-scoped contradiction (R7) and context-scoped supersede revoking global state (R10), plus precise scar-origin causes (declared_prohibition vs active_contradiction) with evidence_missing composition. NOT repaired this tranche: dependency cycles (R8), temporal validity (R9), and prerequisite_missing causation for DEPEND-guarded queries (b_scoped_ctx) - deferred.",
+  "claim_boundary": "The context failure class is traced to the router (no context dimension) and closed by the declared-context scoping gate: mem/scar grounding contexts recorded at ingest, context identity admission, and scar-origin precise causes. Causal ablation (OFF reproduces historical context failures; ON fixes them; RESTORE == ON) and frozen-ladder regression frozen below. No claim about dependency cycles/temporal validity/prerequisites.",
+  "constraints_satisfied": {
+    "no_lexical_patch": true,
+    "prefer_boring_keyed_representation": true,
+    "update_representations_alignment": true,
+    "cause_uses_evidence_precise_kinds": true,
+    "ablated_on_off_restore": true,
+    "frozen_ladder_regression_run": true,
+    "a_d_unchanged": true
+  },
+  "evidence_files": [
+    "BASELINE_FAILURES.json",
+    "REPAIR_MECHANISM.json",
+    "ABLATION.json",
+    "FULL_LADDER_REGRESSION.json",
+    "CAUSE_FIDELITY.json",
+    "REPAIR_REPORT.md",
+    "manifest.json"
+  ],
+  "source_hashes": {
+    "adapter_operational_self": "f77ee6a358e30ba9",
+    "ladder_representations": "49cd25f55a775aa2"
+  },
+  "python": "3.11.15",
+  "platform": "win32",
+  "git_head": "a7cc16c5789636af5d3c19b79fe85cd2053c64db",
+  "working_tree_modified": true
+}

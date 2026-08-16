@@ -1,0 +1,158 @@
+{
+  "totals": {
+    "A": {
+      "n": 1272,
+      "route_correct": 828,
+      "cause_fidelity": 552,
+      "false_proceed": 48,
+      "false_hold": 396
+    },
+    "B": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1248,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "C": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "D": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "E": {
+      "n": 1272,
+      "route_correct": 1200,
+      "cause_fidelity": 1068,
+      "false_proceed": 72,
+      "false_hold": 0,
+      "context_class_route_correct": 168,
+      "context_class_n": 168
+    }
+  },
+  "frozen_references": {
+    "A": {
+      "n": 1272,
+      "route_correct": 828,
+      "cause_fidelity": 552,
+      "false_proceed": 48,
+      "false_hold": 396
+    },
+    "B": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1248,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "C": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    },
+    "D": {
+      "n": 1272,
+      "route_correct": 1272,
+      "cause_fidelity": 1272,
+      "false_proceed": 0,
+      "false_hold": 0
+    }
+  },
+  "a_d_unchanged_vs_frozen": true,
+  "a_d_mismatch_count": 0,
+  "per_level_E_context_dimension_delta": {
+    "R0": {
+      "pre_route": 72,
+      "post_route": 72,
+      "n": 72,
+      "pre_cause": 72,
+      "post_cause": 72
+    },
+    "R1": {
+      "pre_route": 120,
+      "post_route": 120,
+      "n": 120,
+      "pre_cause": 96,
+      "post_cause": 120
+    },
+    "R2": {
+      "pre_route": 144,
+      "post_route": 144,
+      "n": 144,
+      "pre_cause": 144,
+      "post_cause": 144
+    },
+    "R3": {
+      "pre_route": 96,
+      "post_route": 96,
+      "n": 96,
+      "pre_cause": 48,
+      "post_cause": 72
+    },
+    "R4": {
+      "pre_route": 240,
+      "post_route": 240,
+      "n": 240,
+      "pre_cause": 132,
+      "post_cause": 156
+    },
+    "R5": {
+      "pre_route": 120,
+      "post_route": 120,
+      "n": 120,
+      "pre_cause": 120,
+      "post_cause": 120
+    },
+    "R6": {
+      "pre_route": 120,
+      "post_route": 120,
+      "n": 120,
+      "pre_cause": 120,
+      "post_cause": 120
+    },
+    "R7": {
+      "pre_route": 48,
+      "post_route": 96,
+      "n": 96,
+      "pre_cause": 0,
+      "post_cause": 72
+    },
+    "R8": {
+      "pre_route": 48,
+      "post_route": 48,
+      "n": 96,
+      "pre_cause": 48,
+      "post_cause": 48
+    },
+    "R9": {
+      "pre_route": 72,
+      "post_route": 72,
+      "n": 96,
+      "pre_cause": 72,
+      "post_cause": 72
+    },
+    "R10": {
+      "pre_route": 48,
+      "post_route": 72,
+      "n": 72,
+      "pre_cause": 48,
+      "post_cause": 72
+    }
+  },
+  "n_queries": 1272,
+  "unit_suite": {
+    "passed": 96,
+    "framework": "pytest baby_ai/tests/ (formation, plasticity, oracle-ladder, continuity assays)"
+  },
+  "interpretation": "A/B/C/D bit-identical to the v0_1 freeze (0 per-row mismatches). E: context dimension ON makes the context demand class 168/168 route-correct (was 48/168 pre-tranche) and raises cause fidelity with exact declared_prohibition / active_contradiction(+evidence_missing) tokens; zero route regressions across all rungs. Remaining E misses are R8/R9 (dependency/temporal), unchanged by this tranche."
+}
