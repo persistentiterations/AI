@@ -1,0 +1,19 @@
+{
+  "target": "contradiction_authority_gate",
+  "witness_query_c": {
+    "gate_ON": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "gate_OFF": {
+      "decision": "HOLD",
+      "causes": [
+        "prerequisite_missing:a"
+      ]
+    },
+    "gate_RESTORE": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  }
+}

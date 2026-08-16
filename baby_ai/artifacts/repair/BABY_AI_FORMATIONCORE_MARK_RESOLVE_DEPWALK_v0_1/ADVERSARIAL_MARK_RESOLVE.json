@@ -1,0 +1,85 @@
+{
+  "scoped_ctx_mark_resolve_same_ctx_u": {
+    "e_query_star": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "e_query_u": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "oracle_query_u": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  },
+  "scoped_ctx_resolve_different_ctx_LOGGED_DIVERGENCE": {
+    "e_query_star": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "e_query_u": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "e_query_v": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "oracle_query_u": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
+    "note": "pre-existing (797598a) and gate-neutral; E RESOLVE is not ctx-scoped; next tranche."
+  },
+  "resolve_without_mark": {
+    "query": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "oracle": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  },
+  "remark_after_resolve_recontradicts": {
+    "e": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
+    "oracle": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    }
+  },
+  "dependent_walk_proceeds_after_resolve": {
+    "e": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "oracle": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  },
+  "resolved_does_not_mask_new_blocking_mark": {
+    "e": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
+    "oracle": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "repair_id": "BABY_AI_FORMATIONCORE_MARK_RESOLVE_DEPWALK_v0_1",
+  "created_utc": "2026-08-16T22:25:28.103994+00:00",
+  "philosophy": "MARK opens a contradiction contest; RESOLVE clears CURRENT authority through the plasticity scar-status projection while the raw MARK scar remains as history. The recursive dependency walk and surface routing read the SAME current-authority book, so a resolved contradiction no longer blocks a dependent (pre-repair walk defect). Gate = contradiction_authority_gate (default True); OFF restores the recorded pre-repair residual for audit.",
+  "baseline_freeze": "BABY_AI_COMPLEXITY_LADDER_v0_1 + CONTEXT_REPAIR_v0_1 + DEPENDENCY_REPAIR_v0_1 + CYCLE_RELIEVE_REPAIR_v0_1 + R9 temporal validity (read-only)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "levels": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10"
+  ],
+  "representations": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "scope": "PRIMARY DEFECT REPAIRED: recursive dependency walk read retained MARK scars as current contradiction, so MARK e; RESOLVE e left a dependent HOLD prerequisite_missing:e though oracle and surface proceed.",
+  "claim_boundary": "Only the walk's contradiction reading source changed (READ_CURRENT via plast projection), gated. No routes/causes outside the witness family changed; R8/R9 freezes untouched; SUPERSEDE semantics untouched; two secondary pre-existing divergences (SUPERSEDE+RESOLVE surface; repeated-MARK+one RESOLVE) logged as separate tranches, NOT absorbed here.",
+  "constraints_satisfied": {
+    "history_never_deleted": true,
+    "same_book_surface_and_walk": true,
+    "closed_cause_set_preserved": true,
+    "gate_default_ON": true,
+    "gate_OFF_pins_pre_repair_residual": true,
+    "r8_r9_freeze_untouched": true,
+    "raw_mark_scars_retained": true,
+    "separate_tranche_commit": true
+  },
+  "evidence_files": [
+    "WITNESS.json",
+    "FULL_LADDER_REGRESSION.json",
+    "CAUSE_FIDELITY.json",
+    "ABLATION.json",
+    "ADVERSARIAL_MARK_RESOLVE.json",
+    "manifest.json"
+  ],
+  "source_hashes": {
+    "baby_ai/ladder/representations.py": "bd9d884610e599af",
+    "baby_ai/adapters/operational_self.py": "0ae4bcc77c3a2c78"
+  },
+  "git_head": "8735911",
+  "python": "3.11.15",
+  "platform": "win32"
+}

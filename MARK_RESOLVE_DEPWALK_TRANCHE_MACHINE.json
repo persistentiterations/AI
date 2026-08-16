@@ -42,6 +42,16 @@
       "note": "surface AND walk AGREE (both HOLD); adapter-vs-oracle collision, not surface/walk split",
       "gate_neutral": true,
       "predates_tranche": true
+    },
+    {
+      "id": "CROSS_CONTEXT_RESOLVE",
+      "witness": ["FORM a f", "MARK a f u", "RESOLVE a f v"],
+      "oracle_query_u": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "e_query_u_surface_and_walk": {"decision": "PROCEED", "causes": []},
+      "note": "oracle is ctx-scoped; E RESOLVE clears entity-wide. surface and walk AGREE in E; adapter-vs-oracle scoping collision",
+      "gate_neutral": true,
+      "predates_tranche": true,
+      "verified_on": "797598a"
     }
   ],
   "results": {

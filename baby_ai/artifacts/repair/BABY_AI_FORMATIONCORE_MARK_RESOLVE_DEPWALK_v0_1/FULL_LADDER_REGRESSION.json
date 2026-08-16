@@ -1,0 +1,277 @@
+{
+  "R0:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R0:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R0:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R0:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R0:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R1:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R1:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R1:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R1:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R1:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R2:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R2:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R2:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R2:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R2:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R3:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R3:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R3:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R3:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R3:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R4:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R4:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R4:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R4:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R4:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R5:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R5:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R5:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R5:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R5:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R6:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R6:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R6:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R6:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R6:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R7:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R7:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R7:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R7:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R7:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R8:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R8:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R8:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R8:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R8:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R9:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R9:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R9:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R9:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R9:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R10:0": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R10:1": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R10:2": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R10:3": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  },
+  "R10:4": {
+    "accuracy": 1.0,
+    "cause_fidelity": 1.0,
+    "all_correct": true
+  }
+}

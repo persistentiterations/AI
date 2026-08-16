@@ -69,6 +69,13 @@ at `159ba7f` (pre-R9) and `797598a` (pre-tranche):
   RESOLVE; E retains an older unresolved MARK scar, so surface AND walk both
   HOLD. Gate ON/OFF neutral. Predates tranche. Surface and walk AGREE, so it
   is an adapter-vs-oracle collision, not a surface/walk disagreement.
+- cross-context RESOLVE (fourth, orthogonal defect, surfaced during the
+  freeze battery, NOT repaired here): oracle is context-scoped
+  (`MARK a f u; RESOLVE a f v` leaves `contradicted[(a,f,u)]` True → query u
+  HOLD); E's RESOLVE clears entity-wide regardless of ctx → E query u
+  PROCEED. Surface and walk agree in E; gate ON/OFF neutral; predates
+  tranche (verified on `797598a`). Logged with its next-tranche hypothesis
+  in `MARK_RESOLVE_DEPWALK_DEFECT_WITNESS.md`.
 
 ## Boundary contract
 

@@ -84,6 +84,15 @@ auditable offline; default True.
    hypothesis: RESOLVE must supersede every current MARK scar for (e,g,ctx),
    or MARK must merge current authority instead of appending a fresh live
    scar.
+4. cross-context RESOLVE (LOGGED during freeze battery): oracle is
+   context-scoped — `MARK a f u; RESOLVE a f v` leaves `contradicted[(a,f,u)]`
+   True, so query ctx `u` HOLDs `active_contradiction`. E's RESOLVE clears
+   the scar entity-wide regardless of ctx, so E query `u` PROCEEDs. Surface
+   AND walk agree in E (both PROCEED) — an adapter-vs-oracle scoping
+   collision, gate ON/OFF neutral, predates tranche (verified on `797598a`).
+   Next-tranche hypothesis: RESOLVE must carry the ctx of the MARK it
+   supersedes (entity-wide reset is too coarse); or context must be part of
+   the scar resolution key.
 
 ## Post-conditions
 

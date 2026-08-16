@@ -1,0 +1,49 @@
+{
+  "ops": [
+    {
+      "op": "FORM",
+      "e": "a",
+      "g": "f"
+    },
+    {
+      "op": "DEPEND",
+      "a": "c",
+      "b": "a"
+    },
+    {
+      "op": "MARK",
+      "e": "a",
+      "g": "f"
+    },
+    {
+      "op": "RESOLVE",
+      "e": "a",
+      "g": "f"
+    }
+  ],
+  "query": "c",
+  "oracle": {
+    "decision": "PROCEED",
+    "causes": []
+  },
+  "e_walk_before_repair": {
+    "decision": "HOLD",
+    "causes": [
+      "prerequisite_missing:a"
+    ]
+  },
+  "e_walk_after_gate_ON": {
+    "decision": "PROCEED",
+    "causes": []
+  },
+  "e_walk_after_gate_OFF": {
+    "decision": "HOLD",
+    "causes": [
+      "prerequisite_missing:a"
+    ]
+  },
+  "raw_mark_scars_retained": 1,
+  "scar_kinds_retained": [
+    "MARK"
+  ]
+}
