@@ -583,6 +583,19 @@ class HistoricalFractalish(Representation):
     # ablation.
     validity_gate: bool = True
 
+    # Contradiction-authority gate (MARK/RESOLVE tranche, v0.4): RESOLVE clears
+    # the CURRENT contradiction authority through the plasticity executor's
+    # scar-status projection (superseded/resolved), the same projection the
+    # surface already consumes in operational_self._blocking_scars_for. The raw
+    # MARK scar stays in core.scars as historical record — it is not deleted.
+    # The recursive dependency walk derives "currently contradicted" from the
+    # SAME projection so surface routing and walk agree after a legitimate
+    # RESOLVE. OFF restores the historical defect: the walk reads raw retained
+    # scars, so a resolved MARK scar still blocks a dependent as
+    # prerequisite_missing (pre-repair behavior). SUPERSEDE semantics are
+    # untouched by this gate.
+    contradiction_authority_gate: bool = True
+
     def _dep_grounded(self, e: str, g: str, ctx: str) -> bool:
         """Oracle _grounded mirror: e is grounded if it has a formed-state
         gate pass (own record or family transfer) OR it has dependencies
@@ -648,14 +661,28 @@ class HistoricalFractalish(Representation):
         return False
 
     def _own_contradicted(self, e: str, g: str, ctx: str) -> bool:
-        """Own-state: e is actively contradicted in this context (a non-
-        SUPERSEDE-origin contradiction scar over e's own grounded record,
-        scoped to ctx or global)."""
+        """Own-state: e is CURRENTLY contradicted in this context.
+
+        A non-SUPERSEDE-origin contradiction scar over e's own grounded
+        record (scoped to ctx or global) is treated as ACTIVE only while its
+        current authority survives. With the contradiction_authority_gate ON,
+        that authority comes from the plasticity executor's scar status
+        (superseded/resolved => no longer active), the SAME projection the
+        surface consumes in _blocking_scars_for — so the recursive dependency
+        walk and surface routing agree after a legitimate RESOLVE while the raw
+        MARK scar remains in core.scars as history. With the gate OFF the
+        historical behavior is restored: any retained MARK scar reads as
+        active (the pre-repair walk defect). SUPERSEDE-origin scars are never
+        consulted here (they belong to _own_superseded_hold)."""
         for scar in self.core.scars:
             if str(self.core.scar_kinds.get(scar.scar_id, "")).upper() == "SUPERSEDE":
                 continue
             if self.core.scar_contexts.get(scar.scar_id, "*") not in (ctx, "*"):
                 continue
+            if type(self).contradiction_authority_gate:
+                status = self.plast.get_scar_status(scar.scar_id)
+                if status in ("superseded", "resolved"):
+                    continue
             for mid in scar.memory_ids:
                 mem = self.core.memories.get(mid)
                 if not mem:

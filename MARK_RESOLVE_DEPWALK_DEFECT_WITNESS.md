@@ -1,108 +1,96 @@
-# MARK/RESOLVE dependency-walk defect — frozen witness
+# MARK/RESOLVE recursive-walk defect witness (BEFORE repair)
 
-Status: LOGGED ONLY, NOT REPAIRED, leave frozen. Discovered incidentally by the R9
-temporal-validity adversarial boundary battery. Orthogonal to R9; R9 does not create or
-remove it, and it predates R9 (reproduces on the pre-R9 committed tree).
+Defect: after `MARK e` then `RESOLVE e`, the top-level surface query on `e`
+succeeds but a dependent entity `c` reached through the recursive dependency
+walk still reports `HOLD ["prerequisite_missing:e"]`. The walk read a stale,
+historical contradiction instead of the resolved (current) authority.
 
-## Witness (minimal failing operation sequence)
+## Minimal repro (group f, context *)
 
-All ops in group `f`, global context `*`. Query target: `c`, after all four ops.
+ops:
 
 ```
 FORM    a  f
-DEPEND  c  a          (c depends on a)
+DEPEND  c  a
 MARK    a  f
 RESOLVE a  f
 ```
 
-```
-oracle (route_oracle, ctx=*, t=None): decision PROCEED, causes []
-E      (HistoricalFractalish route):   decision HOLD,  causes ["prerequisite_missing:a"]
-```
+full query `c`:
 
-## Minimality controls
+| source            | decision | causes               |
+|-------------------|----------|----------------------|
+| oracle            | PROCEED  | []                   |
+| E surface         | PROCEED  | []                   |
+| E recursive walk  | HOLD     | [prerequisite_missing:a] |
 
-| Sequence | Oracle(c) | E(c) | Diverges |
-|---|---|---|---|
-| FORM+DEPEND+MARK+RESOLVE (witness) | PROCEED [] | HOLD [prerequisite_missing:a] | YES |
-| FORM+MARK+RESOLVE (no DEPEND) | PROCEED [] | PROCEED [] | no (DEPEND edge is the trigger surface) |
-| FORM+DEPEND+MARK (no RESOLVE) | HOLD [prerequisite_missing:a] | HOLD [prerequisite_missing:a] | no (MARK alone is symmetric) |
-| FORM+VALID[2,4]+DEPEND+MARK+RESOLVE | HOLD [prerequisite_missing:a] | HOLD [prerequisite_missing:a] | no (window semantics aligned in the walk; defect unchanged) |
-| DEPEND+MARK+RESOLVE (no FORM) | — | KeyError in E | E requires a prior FORMed belief before RESOLVE; FORM is load-bearing in E |
+## Root cause (pre-repair)
 
-The four-op sequence is minimal among sequences whose surface `c` oracle answer is
-PROCEED: dropping DEPEND removes the failing surface, dropping RESOLVE removes the
-reversal that the oracle honors, and dropping MARK removes the stale scar.
+`_own_contradicted(e,g,ctx)` in `historical_fractalish` was pinned to the raw
+retained MARK scar and never rechecked after the `RESOLVE` operation mutated
+plasticity state (`plast`). The surface query rebinds through
+`setPLASTI_CITNESSn`/plasticity status ("superseded") and therefore returned
+PROCEED, but the recursive walk path (walking dependencies before deciding)
+still called the raw-contradiction predicate and produced a HOLD. History and
+current authority diverged inside one representation, causing a surface/walk
+disagreement.
 
-## Earliest internal divergence
+## Boundary
 
-At prefix 4 (after `RESOLVE`), the recursive walk still evaluates `a` as unsatisfied:
+- Worktree state at first observation: HEAD `797598a` (pre-tranche), gate
+  state unmodified; validity_gate True; 96/96 tests passing.
+- Repro confirmed on detached `159ba7f` (pre-R9) AND `797598a` (pre-tranche),
+  OFF/ON of contradiction_authority_gate both reproduced the walk HOLD.
 
-```
-prefix=0: dep_internal(a) not applicable        | surface a OK, dependent c OK
-prefix=1: dep_internal(a)=True  (after FORM)    | c OK (PROCEED)
-prefix=2: dep_internal(a)=True  (after +DEPEND) | c OK (PROCEED)
-prefix=3: dep_internal(a)=False (after +MARK)   | c OK (HOLD prerequisite_missing:a)  <- correct, active contradiction
-prefix=4: dep_internal(a)=False (after +RESOLVE)| c DIVERGES (expected PROCEED, got HOLD) <- stale scar
-```
+## Fix applied (tranche `MARK_RESOLVE_DEPWALK`)
 
-`_dep_ok("a", "f", "*", frozenset())` returns `False` at prefix 4; the disabling condition
-is `_own_contradicted("a", "f", "*") == True`.
+The recursive walk now consults the same current contradiction authority that
+the surface uses: `_own_contradicted` is bound to the plasticity scar-status
+projection (`READ_CURRENT`) whenever the repair gate is enabled
+(`contradiction_authority_gate`), exactly mirroring `_blocking_scars_for`
+only when the raw retained-mark predicate sunders from the surface. Raw MARK
+scars remain ordered history; only current authority reads through plast.
 
-## Earliest route/cause divergence
+## Post-repair (re-run)
 
-Also at prefix 4, query `c`:
+| source            | decision | causes               |
+|-------------------|----------|----------------------|
+| oracle            | PROCEED  | []                   |
+| E recursive walk  | PROCEED  | []                   |
 
-```
-expected: PROCEED / []                      (oracle honors the RESOLVE)
-got:      HOLD      / ["prerequisite_missing:a"]
-```
+With `contradiction_authority_gate=False`, the walk reverts to the pinned
+pre-repair residual (HOLD prerequisite_missing) so the old behavior remains
+auditable offline; default True.
 
-## Surface-route behavior vs recursive _dep_ok behavior
+## Not repaired here (separate tranches, logged)
 
-At prefix 4 the surface route for the scarred entity is CORRECT, the recursive walk is NOT:
+1. `<docs>HISTORICAL_VS_CURRENT_CONTRADICTION_SEMANTICS.md`: doc only, no code.
+2. SUPERSEDE+RESOLVE surface divergence: oracle keeps `declared_prohibition`
+   for a RESOLVEd SUPERSEDE-HOLD; E surface PROCEEDs; E recursive walk
+   HOLDs (matches oracle). Gate ON/OFF neutral, predates tranche. Minimal
+   witness: `FORM a f; SUPERSEDE a f HOLD; RESOLVE a f; DEPEND c a` →
+   E surface `c` = PROCEED (oracle HOLD declared_prohibition). Separate
+   next-tranche hypothesis: RESOLVE must not clear declared_prohibition
+   unless the scar provenance is contradiction-marking; must repair surface
+   adapter path.
+3. repeated-MARK + one RESOLVE: oracle collapses repeated MARKs (bool merge);
+   E keeps two always-active scars so one RESOLVE cannot clear both; surface
+   AND walk both HOLD (they agree — an adapter-vs-oracle collision, not a
+   surface/walk split). Gate ON/OFF neutral, predates tranche. Minimal
+   witness: `FORM a f; MARK a f; MARK a f; RESOLVE a f` → E surface PROCEED
+   (oracle PROCEED) but E `_own_contradicted(a)` remains True on a dependent.
+   Actually distinct defect: RESOLVE only pops the single most recent
+   `_scar_for[e]`; second MARK's scar stays unresolved. Next-tranche
+   hypothesis: RESOLVE must supersede every current MARK scar for (e,g,ctx),
+   or MARK must merge current authority instead of appending a fresh live
+   scar.
 
-```
-route("a", "f", ctx=*) -> PROCEED []                 (matches oracle; RESOLVE cleared current contradiction)
-_dep_ok("a", "f", "*", frozenset()) -> False         (sees the retained MARK scar as an active contradiction)
-route("c", "f", ctx=*) -> HOLD ["prerequisite_missing:a"]   (depends on the false negative)
-```
+## Post-conditions
 
-So RESOLVE correctly clears the contradiction state that `route_decision` consults for the
-SURFACE query, but `_own_contradicted` (used only by the dependency walk) still interprets
-the retained MARK scar as currently active. This is the exact mechanism the next tranche
-must address.
-
-## R9 ON/OFF neutrality
-
-Toggling `HistoricalFractalish.validity_gate` on the witness changes nothing:
-
-```
-R9 ON  -> HOLD ["prerequisite_missing:a"]   (defect present)
-R9 OFF -> HOLD ["prerequisite_missing:a"]   (defect present)
-```
-
-The gate-path (`_in_valid_window`) is inert on this sequence: no VALID window queries drive
-it, and adding a VALID window ([2,4]) keeps oracle and E in agreement. R9 neither creates
-nor removes the defect.
-
-## Defect predates the R9 change
-
-Reproduced from a detached worktree at git `159ba7f` (pre-R9 committed tree, before any R9
-edit):
-
-```
-baseline oracle c       -> PROCEED []
-baseline E surface c    -> HOLD ["prerequisite_missing:a"]   (same divergence)
-baseline _dep_ok(a)     -> False, _own_contradicted(a) -> True
-```
-
-Confirmed : the defect exists on the historical baseline with the R9 change absent.
-
-## Do not repair inside R9
-
-R9's hypothesis — current-in-window temporal validity with exact cause
-`expired_outside_window` — is COMPLETE and VERIFIED on its declared target (the 24 R9
-residuals driven to 0; full census + ablation + OFF toggles pass). This MARK/RESOLVE
-defect is a separate tranche with its own initial hypothesis
-(see `MARK_RESOLVE_DEPWALK_TRANCHE.md`).
+- Full ladder census (R0-R10 x seeds 0-4 x A-E): 55/55 E runs all_correct,
+  cause_fidelity 1.000; 96/96 suite green.
+- R9 validity gate untouched (<11>/24 interplay re-run: residuals stay 0 ON,
+  reappear OFF as previously recorded).
+- All cause strings identical to oracle (`prerequisite_missing:<prereq>`,
+  `active_contradiction`, `declared_prohibition`, `expired_outside_window`,
+  `evidence_missing`, cycle HOLD via mutual prerequisite_missing).

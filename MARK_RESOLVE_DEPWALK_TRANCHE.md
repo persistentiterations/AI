@@ -1,7 +1,7 @@
 # MARK/RESOLVE dependency-walk tranche — initial hypothesis (R9-adjacent)
 
-Status: NOT STARTED. This is the next separate tranche, independent of R9. R9 is frozen;
-it is OUT OF SCOPE here. Do not patch this defect inside the R9 commit.
+Status: REPAIRED AND FROZEN (separate tranche commit). R9 remains frozen; the repair was
+committed as its own commit on top of `797598a`, never patched inside the R9 commit.
 
 ## The observed defect (witness)
 
@@ -63,3 +63,18 @@ the same book.
 - Keep state bytes growth minimal; compare `state_bytes()` and the `counts()` deltas.
 - Do not modify Natural Math v5; no theoretical operators; no scope-expansion battery of
   unrelated adversarial families in this tranche.
+
+## Outcome (applied)
+
+- Minimal repair: the recursive walk's contradiction predicate
+  (`_own_contradicted`, consulted via `_own_contradicted`/`_prereq_ok` in the
+  walk) is bound to the same current contradiction authority the surface
+  routing uses (plast scar-status projection), gated by the new
+  `contradiction_authority_gate` (default True; OFF re-anchors the recorded
+  pre-repair residual for audit).
+- Raw MARK scars retained as ordered history; only current authority reads
+  through plast.
+- Witness + full battery + census + 96 tests green; R9 and R8 freezes
+  untouched. Two further pre-existing divergences surfaced during the
+  acceptance battery → logged, NOT absorbed (see witness doc "Not repaired
+  here").

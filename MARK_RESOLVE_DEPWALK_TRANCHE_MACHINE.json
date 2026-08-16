@@ -1,0 +1,68 @@
+{
+  "tranche": "MARK_RESOLVE_DEPWALK",
+  "status": "REPAIRED_AND_FROZEN",
+  "head_before": "797598a",
+  "head_after": null,
+  "scope": {
+    "files_changed": ["baby_ai/ladder/representations.py"],
+    "target": "recursive dependency walk contradiction reading bound to current plasticity authority (READ_CURRENT), gated by contradiction_authority_gate (default True)",
+    "out_of_scope": ["SUPERSEDE+RESOLVE surface divergence (separate tranche)", "repeated-MARK + one RESOLVE collision (separate tranche)", "Natural Math v5", "R9 validity gate"]
+  },
+  "witness": {
+    "ops": ["FORM a f", "DEPEND c a", "MARK a f", "RESOLVE a f"],
+    "query": "c",
+    "before": {
+      "oracle": {"decision": "PROCEED", "causes": []},
+      "e_surface": {"decision": "PROCEED", "causes": []},
+      "e_walk": {"decision": "HOLD", "causes": ["prerequisite_missing:a"]}
+    },
+    "after": {
+      "oracle": {"decision": "PROCEED", "causes": []},
+      "e_walk": {"decision": "PROCEED", "causes": []},
+      "e_walk_gate_off": {"decision": "HOLD", "causes": ["prerequisite_missing:a"]}
+    }
+  },
+  "secondary_divergences_logged_not_repaired": [
+    {
+      "id": "SUPERSEDE_RESOLVE_SURFACE",
+      "witness": ["FORM a f", "DEPEND c a", "SUPERSEDE a f HOLD", "RESOLVE a f"],
+      "oracle_a_surface": {"decision": "HOLD", "causes": ["declared_prohibition"]},
+      "e_a_surface": {"decision": "PROCEED", "causes": []},
+      "oracle_c_walk": {"decision": "HOLD", "causes": ["prerequisite_missing:a"]},
+      "e_c_walk": {"decision": "HOLD", "causes": ["prerequisite_missing:a"]},
+      "note": "walk already matches oracle; the divergence is the surface OF a itself",
+      "gate_neutral": true,
+      "predates_tranche": true
+    },
+    {
+      "id": "REPEATED_MARK_ONE_RESOLVE",
+      "witness": ["FORM a f", "MARK a f", "MARK a f", "RESOLVE a f"],
+      "oracle_a": {"decision": "PROCEED", "causes": []},
+      "e_surface_a_and_walk_a": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "note": "surface AND walk AGREE (both HOLD); adapter-vs-oracle collision, not surface/walk split",
+      "gate_neutral": true,
+      "predates_tranche": true
+    }
+  ],
+  "results": {
+    "pytest": "96/96 pass",
+    "census_R0_R10_x_seeds0_4_x_ABCDE": {
+      "e_runs_all_correct": 55,
+      "e_runs_total": 55,
+      "e_cause_fidelity_min": 1.0,
+      "only_incomplete_is_baseline_A": true
+    },
+    "pre_tranche_cause_fidelity_baseline_drops": [
+      {"run": "R7:0..4", "rep": "B", "cause_fidelity": 0.75},
+      {"run": "R10:0..4", "rep": "A", "cause_fidelity": 0.6667}
+    ],
+    "pre_tranche_control_confirmed": "B/R7 and A/R10 drops identical at 797598a; E untouched"
+  },
+  "artifacts": [
+    "MARK_RESOLVE_PRE_REPAIR_BOUNDARY.md",
+    "MARK_RESOLVE_DEPWALK_DEFECT_WITNESS.md",
+    "HISTORICAL_VS_CURRENT_CONTRADICTION_SEMANTICS.md",
+    "BABY_AI_FORMATION_GRAMMAR_REGISTER_v0_1.md",
+    "BABY_AI_FUTURE_TEACHING_CONTRACT_v0_1.md"
+  ]
+}
