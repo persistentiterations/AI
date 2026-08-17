@@ -477,7 +477,7 @@ class HistoricalFractalish(Representation):
         self.core = FormationCore(activation_id="ladder-e")
         self.plast = PlasticityExecutor(receipts=self.core.receipts, provenance=self.core.provenance)
         self._seen_group: dict[str, str] = {}
-        self._scar_for: dict[str, str] = {}
+        self._scar_for: dict[tuple[str, str] | str, str] = {}
         self._w = {"applies": 0, "routes": 0}
         self.unmodeled: list[str] = []
 
@@ -503,9 +503,15 @@ class HistoricalFractalish(Representation):
             self.core.ingest(ev)
             scar = self._last_scar(e)
             if scar:
-                self._scar_for[e] = scar
+                if type(self).context_resolve_gate:
+                    self._scar_for[(e, ctx)] = scar
+                else:
+                    self._scar_for[e] = scar
         elif kind == "RESOLVE":
-            scar = self._scar_for.pop(e, None)
+            if type(self).context_resolve_gate:
+                scar = self._scar_for.pop((e, ctx), None)
+            else:
+                scar = self._scar_for.pop(e, None)
             if scar:
                 self.plast.supersede(belief_id=f"route:{e}", new_claim="re-verified",
                                      new_decision="RELEASE_WITH_GUARD", evidence=["r"],
@@ -521,7 +527,10 @@ class HistoricalFractalish(Representation):
                 self.core.ingest(ev)
                 scar = self._last_scar(e)
                 if scar:
-                    self._scar_for[e] = scar
+                    if type(self).context_resolve_gate:
+                        self._scar_for[(e, ctx)] = scar
+                    else:
+                        self._scar_for[e] = scar
             else:
                 ev = self._resolve(self.core, e, g, decision="RELEASE_WITH_GUARD")
                 ev.provenance.update({"context": ctx, "op_kind": kind})
@@ -595,6 +604,18 @@ class HistoricalFractalish(Representation):
     # prerequisite_missing (pre-repair behavior). SUPERSEDE semantics are
     # untouched by this gate.
     contradiction_authority_gate: bool = True
+
+    # Context-resolve gate (cross-context RESOLVE tranche, v0.5): RESOLVE's
+    # clear is scoped to the SAME (entity, context) as the MARK it pays back.
+    # The scar registry is keyed by (e, ctx) under ON, mirroring the oracle's
+    # contradicted[(e,g,ctx)] exact-key write — resolving in ctx B does NOT
+    # touch a contradiction raised in ctx A. Historical scars stay intact;
+    # only current authority is rewritten, per-context. OFF restores the
+    # historical entity-wide clear: the registry is keyed by e alone, so any
+    # RESOLVE supersedes the most recent MARK scar regardless of context (the
+    # pre-repair defect). Marking the same entity independently in two
+    # contexts is preserved as two distinct current authorities.
+    context_resolve_gate: bool = True
 
     def _dep_grounded(self, e: str, g: str, ctx: str) -> bool:
         """Oracle _grounded mirror: e is grounded if it has a formed-state

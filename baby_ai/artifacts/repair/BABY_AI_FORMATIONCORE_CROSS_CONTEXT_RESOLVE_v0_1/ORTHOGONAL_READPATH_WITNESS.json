@@ -1,0 +1,29 @@
+{
+  "query_A": {
+    "oracle": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "E": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    }
+  },
+  "query_*": {
+    "oracle": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
+    "E": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    }
+  },
+  "note": "LOGGED orthogonal read-path witness (NOT repaired in this tranche)"
+}

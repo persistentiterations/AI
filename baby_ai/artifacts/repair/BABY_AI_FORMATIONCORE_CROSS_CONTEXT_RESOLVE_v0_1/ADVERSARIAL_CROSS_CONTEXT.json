@@ -1,0 +1,294 @@
+{
+  "C1_mark_A_resolve_A": {
+    "A": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C2_mark_A_resolve_B": {
+    "A": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C3_mark_A_B_resolve_A": {
+    "A": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C4_mark_A_B_resolve_A_query_both": {
+    "A": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C5_transitive_per_ctx": {
+    "A": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:a"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:a"
+        ]
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C6_validity_per_ctx": {
+    "A": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "expired_outside_window"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "expired_outside_window"
+        ]
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  },
+  "C7_cycle_scoped": {
+    "A": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "prerequisite_missing:b"
+        ]
+      }
+    }
+  },
+  "C8_A_resolved_B_contradicted": {
+    "A": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "B": {
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "E": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      }
+    },
+    "*": {
+      "oracle": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "E": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  }
+}

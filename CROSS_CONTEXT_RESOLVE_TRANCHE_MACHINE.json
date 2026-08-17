@@ -1,0 +1,96 @@
+{
+  "tranche": "CROSS_CONTEXT_RESOLVE",
+  "status": "REPAIRED_AND_FROZEN",
+  "head_before": "d64c45b",
+  "head_after": null,
+  "scope": {
+    "files_changed": ["baby_ai/ladder/representations.py"],
+    "target": "RESOLVE's current-authority clear scoped to the (entity, context) it names, mirroring oracle contradicted[(e,g,ctx)]; gated by context_resolve_gate (default True)",
+    "out_of_scope": [
+      "SUPERSEDE+RESOLVE surface divergence (separate tranche)",
+      "repeated-MARK + one RESOLVE collision (separate tranche)",
+      "read-path GLOBAL-mark scope divergence (logged orthogonally, NOT repaired here)",
+      "Natural Math v5",
+      "R9 validity gate"
+    ]
+  },
+  "witness": {
+    "ops": ["FORM a f", "MARK a f ctx=A", "RESOLVE a f ctx=B"],
+    "query": "a in context A",
+    "before": {
+      "oracle": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "e_surface": {"decision": "PROCEED", "causes": []},
+      "e_walk": {"decision": "PROCEED", "causes": []}
+    },
+    "after": {
+      "oracle": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "e_surface": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "e_walk": {"decision": "HOLD", "causes": ["active_contradiction"]},
+      "e_gate_off": {"decision": "PROCEED", "causes": []},
+      "scar_status_gate_on": "unresolved",
+      "scar_registry_gate_on": {"('a','A')": "scar-0000"}
+    }
+  },
+  "predates": {
+    "verified_at_797598a": true,
+    "verified_at_8735911": true,
+    "contradiction_authority_gate_neutral": true
+  },
+  "earliest_divergence": {
+    "internal_state": "at the RESOLVE op in B: oracle writes contradicted[(a,f,B)]=False leaving (a,f,A)=True; E pops entity-keyed _scar_for[a] (the A-scar) and marks it superseded",
+    "observable": "first query of a in context A after RESOLVE B: oracle HOLD active_contradiction vs E PROCEED"
+  },
+  "oracle_semantics": {
+    "ctx_key": "op.get('ctx', GLOBAL) with GLOBAL='*'",
+    "contradicted_key": "(e,g,ctx) exact bool; MARK=True, RESOLVE=False",
+    "route_oracle_fallback": "only (e,g,GLOBAL) when query ctx is GLOBAL",
+    "consequence": "qualification is strictly per-(entity, context)"
+  },
+  "adversarial_battery": {
+    "file": "baby_ai/assays/cross_ctx_resolve_battery.py",
+    "cases": [
+      "C1_mark_A_resolve_A",
+      "C2_mark_A_resolve_B",
+      "C3_mark_AB_resolve_A",
+      "C4_mark_AB_resolve_A_query_both",
+      "C5_transitive_dep_per_ctx",
+      "C6_validity_per_ctx",
+      "C7_cycle_scoped",
+      "C8_A_resolved_B_remains"
+    ],
+    "all_cases_oracle_exact_gate_ON": true,
+    "divergences_gate_ON": 0
+  },
+  "orthogonal_witness_logged_not_repaired": {
+    "id": "GLOBAL_MARK_SCOPED_QUERY_READPATH",
+    "witness": ["FORM a f", "MARK a f (GLOBAL ctx)"],
+    "query": "a in context A",
+    "oracle": {"decision": "PROCEED", "causes": []},
+    "e": {"decision": "HOLD", "causes": ["active_contradiction"]},
+    "note": "E reads a GLOBAL-mark scar as active in ANY context (_own_contradicted/_blocking_scars_for accept context '*'); oracle reads contradicted[(e,g,ctx)] exactly, so GLOBAL mark blocks only GLOBAL queries. Read-path divergence, distinct from the write-path repaired here.",
+    "gate_neutral": true,
+    "predates_tranche": true
+  },
+  "results": {
+    "pytest": "96/96 pass",
+    "census_R0_R10_x_seeds0_4_x_ABCDE": {
+      "e_runs_all_correct": 55,
+      "e_runs_total": 55,
+      "e_cause_fidelity_min": 1.0,
+      "incomplete_only_baseline_A": true
+    },
+    "freeze_regression_untouched": {
+      "R9_validity_gate_OFF_unmodeled": ["VALID"],
+      "DEFAULT_gate_OFF_unmodeled": ["DEPEND"],
+      "prior_freezes_byte_identical": true
+    }
+  },
+  "artifacts": [
+    "CROSS_CONTEXT_RESOLVE_PRE_REPAIR_BOUNDARY.md",
+    "CROSS_CONTEXT_RESOLVE_DEFECT_WITNESS.md",
+    "BABY_AI_FORMATION_GRAMMAR_REGISTER_v0_1.md",
+    "baby_ai/assays/cross_ctx_resolve_battery.py",
+    "baby_ai/assays/cross_ctx_resolve_freeze.py",
+    "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1/"
+  ]
+}

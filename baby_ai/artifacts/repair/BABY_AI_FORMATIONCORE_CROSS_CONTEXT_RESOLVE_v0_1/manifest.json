@@ -1,0 +1,60 @@
+{
+  "repair_id": "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
+  "created_utc": "2026-08-17T03:56:47.116760+00:00",
+  "philosophy": "Current contradiction authority is context-scoped. RESOLVE pays back only the (entity, context) it names (mirroring oracle contradicted[(e,g,ctx)]); qualification in one context does not rewrite authority in another. Historical scars stay intact; only current authority is rewritten per-context. Gate = context_resolve_gate (default True); OFF restores the entity-wide-clear pre-repair defect for audit.",
+  "baseline_freeze": "COMPLEXITY_LADDER + CONTEXT + DEPENDENCY + APPLICABILITY + CYCLE_RELIEVE + R9 validity + MARK_RESOLVE_DEPWALK (all read-only)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "levels": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10"
+  ],
+  "representations": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "scope": "PRIMARY DEFECT REPAIRED: RESOLVE cleared contradiction authority entity-wide; now scoped to (entity, context).",
+  "claim_boundary": "Only RESOLVE's current-authority write is context-scoped, gated. No routes/causes outside the witness family changed; all prior freezes untouched; repeated-MARK and SUPERSEDE+RESOLVE NOT repaired here; a read-path GLOBAL-mark scope divergence is logged orthogonally, not absorbed.",
+  "constraints_satisfied": {
+    "no_scar_deletion": true,
+    "current_authority_rewrite_per_context": true,
+    "history_preserved": true,
+    "oracle_exact_ctx_key": true,
+    "gate_default_ON": true,
+    "gate_OFF_restores_entity_wide_clear": true,
+    "prior_freezes_untouched": true,
+    "separate_tranche_commit": true
+  },
+  "evidence_files": [
+    "WITNESS.json",
+    "ADVERSARIAL_CROSS_CONTEXT.json",
+    "FULL_LADDER_REGRESSION.json",
+    "ABLATION.json",
+    "ORTHOGONAL_READPATH_WITNESS.json",
+    "manifest.json"
+  ],
+  "source_hashes": {
+    "baby_ai/ladder/representations.py": "1d0c553b0cbe2412",
+    "baby_ai/adapters/operational_self.py": "0ae4bcc77c3a2c78"
+  },
+  "git_head": "d64c45b",
+  "python": "3.11.15",
+  "platform": "win32"
+}

@@ -1,0 +1,39 @@
+{
+  "target": "context_resolve_gate",
+  "witness_query_a": {
+    "gate_ON": {
+      "A": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "B": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "gate_OFF": {
+      "A": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "B": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    },
+    "gate_RESTORE": {
+      "A": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "B": {
+        "decision": "PROCEED",
+        "causes": []
+      }
+    }
+  }
+}

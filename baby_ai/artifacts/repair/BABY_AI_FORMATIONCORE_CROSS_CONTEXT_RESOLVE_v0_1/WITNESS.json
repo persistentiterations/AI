@@ -1,0 +1,78 @@
+{
+  "ops": [
+    {
+      "op": "FORM",
+      "e": "a",
+      "g": "f"
+    },
+    {
+      "op": "MARK",
+      "e": "a",
+      "g": "f",
+      "ctx": "A"
+    },
+    {
+      "op": "RESOLVE",
+      "e": "a",
+      "g": "f",
+      "ctx": "B"
+    }
+  ],
+  "query_a_in_context": "A",
+  "oracle_a_A": {
+    "decision": "HOLD",
+    "causes": [
+      "active_contradiction"
+    ]
+  },
+  "e_a_A_before_repair": {
+    "decision": "PROCEED",
+    "causes": []
+  },
+  "e_a_A_after_gate_ON": {
+    "decision": "HOLD",
+    "causes": [
+      "active_contradiction"
+    ]
+  },
+  "e_a_A_after_gate_OFF": {
+    "decision": "PROCEED",
+    "causes": []
+  },
+  "e_query_table_gate_ON": {
+    "A": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
+    "B": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "*": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  },
+  "e_query_table_gate_OFF": {
+    "A": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "B": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "*": {
+      "decision": "PROCEED",
+      "causes": []
+    }
+  },
+  "scar_statuses_gate_ON": {
+    "scar-0000": "unresolved"
+  },
+  "scar_registry_gate_ON": {
+    "('a', 'A')": "scar-0000"
+  }
+}
