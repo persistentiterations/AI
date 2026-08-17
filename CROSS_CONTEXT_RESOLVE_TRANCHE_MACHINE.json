@@ -2,9 +2,11 @@
   "tranche": "CROSS_CONTEXT_RESOLVE",
   "status": "REPAIRED_AND_FROZEN",
   "head_before": "d64c45b",
-  "head_after": null,
+  "head_after": "9d63173",
   "scope": {
-    "files_changed": ["baby_ai/ladder/representations.py"],
+    "files_changed": [
+      "baby_ai/ladder/representations.py"
+    ],
     "target": "RESOLVE's current-authority clear scoped to the (entity, context) it names, mirroring oracle contradicted[(e,g,ctx)]; gated by context_resolve_gate (default True)",
     "out_of_scope": [
       "SUPERSEDE+RESOLVE surface divergence (separate tranche)",
@@ -15,20 +17,55 @@
     ]
   },
   "witness": {
-    "ops": ["FORM a f", "MARK a f ctx=A", "RESOLVE a f ctx=B"],
+    "ops": [
+      "FORM a f",
+      "MARK a f ctx=A",
+      "RESOLVE a f ctx=B"
+    ],
     "query": "a in context A",
     "before": {
-      "oracle": {"decision": "HOLD", "causes": ["active_contradiction"]},
-      "e_surface": {"decision": "PROCEED", "causes": []},
-      "e_walk": {"decision": "PROCEED", "causes": []}
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "e_surface": {
+        "decision": "PROCEED",
+        "causes": []
+      },
+      "e_walk": {
+        "decision": "PROCEED",
+        "causes": []
+      }
     },
     "after": {
-      "oracle": {"decision": "HOLD", "causes": ["active_contradiction"]},
-      "e_surface": {"decision": "HOLD", "causes": ["active_contradiction"]},
-      "e_walk": {"decision": "HOLD", "causes": ["active_contradiction"]},
-      "e_gate_off": {"decision": "PROCEED", "causes": []},
+      "oracle": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "e_surface": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "e_walk": {
+        "decision": "HOLD",
+        "causes": [
+          "active_contradiction"
+        ]
+      },
+      "e_gate_off": {
+        "decision": "PROCEED",
+        "causes": []
+      },
       "scar_status_gate_on": "unresolved",
-      "scar_registry_gate_on": {"('a','A')": "scar-0000"}
+      "scar_registry_gate_on": {
+        "('a','A')": "scar-0000"
+      }
     }
   },
   "predates": {
@@ -63,10 +100,21 @@
   },
   "orthogonal_witness_logged_not_repaired": {
     "id": "GLOBAL_MARK_SCOPED_QUERY_READPATH",
-    "witness": ["FORM a f", "MARK a f (GLOBAL ctx)"],
+    "witness": [
+      "FORM a f",
+      "MARK a f (GLOBAL ctx)"
+    ],
     "query": "a in context A",
-    "oracle": {"decision": "PROCEED", "causes": []},
-    "e": {"decision": "HOLD", "causes": ["active_contradiction"]},
+    "oracle": {
+      "decision": "PROCEED",
+      "causes": []
+    },
+    "e": {
+      "decision": "HOLD",
+      "causes": [
+        "active_contradiction"
+      ]
+    },
     "note": "E reads a GLOBAL-mark scar as active in ANY context (_own_contradicted/_blocking_scars_for accept context '*'); oracle reads contradicted[(e,g,ctx)] exactly, so GLOBAL mark blocks only GLOBAL queries. Read-path divergence, distinct from the write-path repaired here.",
     "gate_neutral": true,
     "predates_tranche": true
@@ -80,8 +128,12 @@
       "incomplete_only_baseline_A": true
     },
     "freeze_regression_untouched": {
-      "R9_validity_gate_OFF_unmodeled": ["VALID"],
-      "DEFAULT_gate_OFF_unmodeled": ["DEPEND"],
+      "R9_validity_gate_OFF_unmodeled": [
+        "VALID"
+      ],
+      "DEFAULT_gate_OFF_unmodeled": [
+        "DEPEND"
+      ],
       "prior_freezes_byte_identical": true
     }
   },

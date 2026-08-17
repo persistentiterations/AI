@@ -54,7 +54,7 @@
     "baby_ai/ladder/representations.py": "1d0c553b0cbe2412",
     "baby_ai/adapters/operational_self.py": "0ae4bcc77c3a2c78"
   },
-  "git_head": "d64c45b",
+  "git_head": "9d63173",
   "python": "3.11.15",
   "platform": "win32"
 }
