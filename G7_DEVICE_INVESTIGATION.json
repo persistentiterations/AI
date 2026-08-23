@@ -1,0 +1,177 @@
+{
+ "blocker": "The deployed Motorola production formation path (llc.bonacqui.aptd 0.1.0-aptd) runs a pre-R-001 FormationCore that does NOT consume the allocator-continuation contract. Its allocator resets on every load, and this has already produced 10322 duplicate family IDs in the device's persisted state. G7 cannot be satisfied by host evidence, and the device positive-path qualification is stopped at the bypass. Required repair: deploy a build containing the R-001 id_continuation contract, migrate the existing device state with an operator receipt, then re-run device formation + restart + export under observation.",
+ "collision_evidence": {
+  "detail": "Append-only fog list witnesses counter resets: more fog objects than distinct fog suffixes. mem/attr are dicts, so the same resets silently OVERWRITE inherited records and are invisible in counts.",
+  "fog_multiplicity_note": "fog-0000, fog-0001, fog-0002 each present 3x, all referencing mem-0000/1/2",
+  "total_duplicate_family_objects": 10322
+ },
+ "contract_scan_on_device": {
+  "contract_present": false,
+  "contract_terms_absent": [
+   "id_continuation",
+   "reconcile_allocator",
+   "ALLOCATOR_CONTRACT_VERSION",
+   "ALLOCATOR_PREFIXES",
+   "ALLOCATOR_INDEX_HEADROOM",
+   "_formation_blocked",
+   "allocator_status",
+   "allocator_continuation",
+   "derived_legacy",
+   "apply_operator_allocator_override",
+   "allocator_family_ids",
+   "_derive_counters",
+   "_block_allocator",
+   "next_index"
+  ],
+  "contract_terms_present": [],
+  "from_dict_co_names": [
+   "OperationalSelfState",
+   "attractors",
+   "dependencies",
+   "dependency_ledger",
+   "dict",
+   "fog",
+   "get",
+   "items",
+   "links",
+   "mem_contexts",
+   "mem_tuples",
+   "memories",
+   "partition",
+   "routes",
+   "scar_contexts",
+   "scar_kinds",
+   "scars",
+   "state",
+   "valid_windows"
+  ],
+  "from_dict_touches_ids_or_counters": false,
+  "has_DeterministicIdStream": true,
+  "has_nid": true,
+  "module": "baby_ai/adapters/operational_self.pyc",
+  "module_sha256": "07f5aa6a38974fd0d6ee2448d10c832ac86b70b3ecc44171ca30eec2d9365fa6"
+ },
+ "deployed_build": {
+  "apk_bytes": 57073625,
+  "apk_sha256": "4b1c590758e8e63ebc1f454d8063120c22ab2294a1bb5796c129985a1f07ddc1",
+  "bundles_baby_ai": true,
+  "firstInstallTime": "2026-08-17 19:33:14",
+  "lastUpdateTime": "2026-08-18 01:20:32",
+  "package": "llc.bonacqui.aptd",
+  "runtime": "Chaquopy embedded CPython 3.11 (libpython3.11.so)",
+  "versionCode": 1,
+  "versionName": "0.1.0-aptd"
+ },
+ "device_identity": {
+  "android_version": "14",
+  "build_id": "U1THS34.65-74-1-7-24",
+  "captured_via": "adb getprop / adb get-serialno",
+  "device_codename": "gnevan",
+  "model": "moto g stylus (2023)",
+  "serial": "ZY22HFN93K",
+  "sku": "XT2317-2"
+ },
+ "epistemic_boundary": "The host verified what the phone produced (its APK bytes and its persisted state bytes). The host did NOT observe a live device formation in this pass, because the deployed build was found to lack the contract under qualification; per the adversarial rule, discovery of a bypass stops the device positive-path qualification and returns HOLD.",
+ "finding": "BYPASS_DISCOVERED",
+ "g7_verdict": "UNSATISFIED",
+ "inherited_device_state": {
+  "basin_core_bytes": 167062057,
+  "basin_core_sha256": "ed9bccd8315fe40a69d15df4975f268d81775267cdf5b1b770961df2051edf8f",
+  "families": {
+   "attr": {
+    "count": 90073,
+    "distinct_suffixes": 90073,
+    "duplicate_objects": 0,
+    "max_suffix": 90072,
+    "min_suffix": 0,
+    "suffixes_with_multiplicity_gt_1": 0
+   },
+   "fog": {
+    "count": 100395,
+    "distinct_suffixes": 90073,
+    "duplicate_objects": 10322,
+    "max_suffix": 90072,
+    "min_suffix": 0,
+    "suffixes_with_multiplicity_gt_1": 9575
+   },
+   "lnk": {
+    "count": 0,
+    "distinct_suffixes": 0,
+    "duplicate_objects": 0,
+    "max_suffix": null,
+    "min_suffix": null,
+    "suffixes_with_multiplicity_gt_1": 0
+   },
+   "mem": {
+    "count": 90073,
+    "distinct_suffixes": 90073,
+    "duplicate_objects": 0,
+    "max_suffix": 90072,
+    "min_suffix": 0,
+    "suffixes_with_multiplicity_gt_1": 0
+   },
+   "replay": {
+    "count": 0,
+    "distinct_suffixes": 0,
+    "duplicate_objects": 0,
+    "max_suffix": null,
+    "min_suffix": null,
+    "suffixes_with_multiplicity_gt_1": 0
+   },
+   "scar": {
+    "count": 0,
+    "distinct_suffixes": 0,
+    "duplicate_objects": 0,
+    "max_suffix": null,
+    "min_suffix": null,
+    "suffixes_with_multiplicity_gt_1": 0
+   }
+  },
+  "id_continuation_present_in_persisted_core": false,
+  "state_self_id": "oself-baby-mvp-a"
+ },
+ "investigation_utc": "2026-08-22T14:26:54Z",
+ "method": "read-only adb observation; APK pull; compiled-module (.pyc) contract scan; read-only pull and analysis of on-device persisted state via `run-as`. No device state was modified.",
+ "production_route_trace": {
+  "calls_ingest": true,
+  "calls_make_event": true,
+  "chain": "ReceptorEvent -> aptd.intake/guard -> aptd_host_main._form -> FormationCore.make_event -> FormationCore.ingest -> persist(basin_core.json)",
+  "drives_FormationCore": true,
+  "has_form_route": true,
+  "module": "llc/bonacqui/aptd/aptd_host_main.pyc",
+  "module_sha256": "0748e26cf7ee9f1e674bf5ffc5f698544df7b840b7c565763d3f14a4d0176353",
+  "receptor_pathway": [
+   "ReceptorSequence",
+   "disable_receptor",
+   "enable_receptor",
+   "llc.bonacqui.aptd.receptor_event",
+   "receptor_event",
+   "source_receptor",
+   "trigger_receptor"
+  ],
+  "uses_ContinuitySnapshot": true,
+  "uses_provenance": true,
+  "uses_receipts": true
+ },
+ "provenance_observation": {
+  "finding": "EMPTY \u2014 device formation carries no provenance records",
+  "provenance_ledger_bytes": 18,
+  "provenance_ledger_sha256": "033b8a8714a2e827a5cfa3b40dddb40e7b00f919dd07b64b3e16b1f9c91d0552",
+  "provenance_record_count": 0
+ },
+ "receipt_observation": {
+  "chain_prev_hash_valid": true,
+  "entry_count": 302073,
+  "finding": "receipt chain is present and internally chained; provenance is not",
+  "last_entry_hash": "fd046cf0665f863f",
+  "receipt_ledger_bytes": 76913105,
+  "receipt_ledger_sha256": "d639ee12cac08c431d6431547074b9723fc9d2f1f839f2139f0a24537e47c352",
+  "recorded_tip": "fd046cf0665f863f",
+  "tip_matches_last_hash": true
+ },
+ "reset_on_load_defect": {
+  "demonstrated_by_state": true,
+  "description": "On-device FormationCore.from_dict restores collections but never touches ids.counters; to_dict emits no id_continuation block. After every cold load the DeterministicIdStream starts empty, so the next ingest re-issues suffix 0 for every family, colliding with / overwriting inherited IDs."
+ },
+ "title": "G7 DEVICE INVESTIGATION \u2014 Motorola APTD production formation path"
+}
