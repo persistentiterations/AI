@@ -1,0 +1,180 @@
+        eligible=eligible.astype(np.uint8),
+        shifts=np.asarray(shifts, dtype=np.float32),
+        source_video=np.asarray(video.name),
+        config_sha256=np.asarray(sha256_file(Path(args.config))),
+    )
+
+
+def evenly_spaced_indices(n: int, count: int) -> list[int]:
+    return sorted(set(np.linspace(0, n - 1, count, dtype=int).tolist()))
+
+
+def qa_id1(config: dict, video: Path, segmented: Path, outdir: Path) -> dict:
+    outdir.mkdir(parents=True, exist_ok=True)
+    _, _, n_frames = ffprobe(video)
+    sample = set(evenly_spaced_indices(n_frames, config["qa"]["sample_frame_count"]))
+    seg = Segmenter(config)
+    rows = []
+    panels = []
+    for idx, frame in raw_frames(video):
+        if idx not in sample:
+            continue
+        mask_a, _ = seg.mask(frame, "A")
+        mask_b, _ = seg.mask(frame, "B")
+        union = np.logical_or(mask_a, mask_b).sum()
+        iou = np.logical_and(mask_a, mask_b).sum() / union if union else 1.0
+        thin_b = mask_b & (ndi.distance_transform_edt(mask_b) <= 2.0)
+        thin_recall = np.logical_and(mask_a, thin_b).sum() / max(1, thin_b.sum())
+        rows.append((idx, int(mask_a.sum()), int(mask_b.sum()), iou, thin_recall))
+        overlay = frame.copy()
+        overlay[mask_a] = (0.30 * overlay[mask_a] + 0.70 * np.array([255, 0, 0])).astype(np.uint8)
+        im = Image.fromarray(overlay).resize((960, 540), Image.Resampling.LANCZOS)
+        draw = ImageDraw.Draw(im)
+        draw.text((12, 12), f"frame {idx} | A pixels {mask_a.sum()} | A/B IoU {iou:.3f}", fill="white", stroke_width=2, stroke_fill="black")
+        panels.append(im)
+    contact = Image.new("RGB", (960, 540 * len(panels)))
+    for i, panel in enumerate(panels):
+        contact.paste(panel, (0, i * 540))
+    contact.save(outdir / "ID1_SEGMENTATION_QA_CONTACT.jpg", quality=92)
+    with (outdir / "id1_method_agreement.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["frame", "method_a_pixels", "method_b_pixels", "iou", "thin_tube_recall"])
+        w.writerows(rows)
+    data = np.load(segmented)
+    masks = data["masks"].astype(bool)
+    flashes = masks[1:-1] & ~masks[:-2] & ~masks[2:]
+    flash_fraction = flashes.sum() / max(1, masks[1:-1].sum())
+    shifts = data["shifts"]
+    shift_norm = np.sqrt((shifts ** 2).sum(axis=1))
+    q = config["qa"]
+    result = {
+        "organism": "Id1",
+        "sample_frames": [r[0] for r in rows],
+        "method_agreement_median_iou": float(np.median([r[3] for r in rows])),
+        "method_agreement_min_iou": float(np.min([r[3] for r in rows])),
+        "thin_tube_mean_recall": float(np.mean([r[4] for r in rows])),
+        "thin_tube_min_recall": float(np.min([r[4] for r in rows])),
+        "one_frame_flash_fraction": float(flash_fraction),
+        "registration_pass_fraction": float(np.mean(shift_norm <= q["registration_shift_px_max"])),
+        "registration_shift_max_downsampled_px": float(np.max(shift_norm)),
+    }
+    result["gates"] = {
+        "agreement_median": result["method_agreement_median_iou"] >= q["method_agreement_median_iou_min"],
+        "agreement_min": result["method_agreement_min_iou"] >= q["method_agreement_min_iou_min"],
+        "thin_mean": result["thin_tube_mean_recall"] >= q["thin_tube_mean_recall_min"],
+        "thin_min": result["thin_tube_min_recall"] >= q["thin_tube_min_recall_min"],
+        "temporal_flash": result["one_frame_flash_fraction"] <= q["one_frame_flash_fraction_max"],
+        "registration": result["registration_pass_fraction"] >= q["registration_pass_fraction_min"],
+    }
+    result["automatic_gate_pass"] = bool(all(result["gates"].values()))
+    with (outdir / "id1_qa_result.json").open("w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, sort_keys=True)
+    print(json.dumps(result, indent=2, sort_keys=True))
+    return result
+
+
+def local_sum(mask: np.ndarray, size: int) -> np.ndarray:
+    return ndi.uniform_filter(mask.astype(np.float32), size=size, mode="constant") * (size * size)
+
+
+def organism_number(name: str) -> int:
+    return int(name.lower().replace("id", ""))
+
+
+def event_rows_for_organism(config: dict, organism: str, segmented: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    data = np.load(segmented)
+    masks = data["masks"].astype(bool)
+    scores = data["scores"].astype(np.float32) - 64.0
+    eligible = data["eligible"].astype(bool)
+    n, h, w = masks.shape
+    horizon = config["primary_horizon_frames"]
+    confirm = config["confirmation_frame_offset"]
+    ecfg = config["events"]
+    age_cap = ecfg["age_cap_frames"]
+    max_per = ecfg["max_candidates_per_frame"]
+    min_per = ecfg["minimum_candidates_per_frame"]
+    yy, xx = np.mgrid[:h, :w]
+    cx = (w - 1) / 2
+    cy = (h - 1) / 2
+    rx = config["segmentation"]["arena_axis_x"] / config["segmentation"]["analysis_grid_px"]
+    ry = config["segmentation"]["arena_axis_y"] / config["segmentation"]["analysis_grid_px"]
+    plate_dist = 1.0 - np.sqrt(((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2)
+    ever = np.zeros((h, w), dtype=bool)
+    last_seen = np.full((h, w), -10_000, dtype=np.int32)
+    cumulative = np.zeros((h, w), dtype=np.int32)
+    departures = np.zeros((h, w), dtype=np.int16)
+    prev = np.zeros((h, w), dtype=bool)
+    Xs, Xh, ys, frames = [], [], [], []
+    structure = np.ones((3, 3), dtype=bool)
+    for t in range(n - horizon - confirm):
+        current = masks[t]
+        if t > 0:
+            departures += (prev & ~current).astype(np.int16)
+        # History is updated only after features for time t are formed.
+        dilated = ndi.binary_dilation(current, structure=structure, iterations=ecfg["candidate_chebyshev_radius_cells"])
+        candidates = dilated & ~current & eligible
+        coords = np.argwhere(candidates)
+        if len(coords) >= min_per:
+            rng = np.random.default_rng(ecfg["candidate_seed"] + 100_000 * organism_number(organism) + t)
+            if len(coords) > max_per:
+                coords = coords[rng.choice(len(coords), size=max_per, replace=False)]
+            cyy, cxx = coords[:, 0], coords[:, 1]
+            count3 = local_sum(current, 3)
+            count5 = local_sum(current, 5)
+            count9 = local_sum(current, 9)
+            smooth = ndi.uniform_filter(current.astype(np.float32), size=5)
+            grad_y, grad_x = np.gradient(smooth)
+            # 3x3 present occupancy patch, row major.
+            padded = np.pad(current.astype(np.float32), 1)
+            patch = np.stack([padded[cyy + dy + 1, cxx + dx + 1] for dy in (-1, 0, 1) for dx in (-1, 0, 1)], axis=1)
+            area = current.sum() / eligible.sum()
+            snap = np.column_stack([
+                patch,
+                count3[cyy, cxx], count5[cyy, cxx], count9[cyy, cxx],
+                grad_x[cyy, cxx], grad_y[cyy, cxx],
+                scores[t, cyy, cxx],
+                cxx / max(1, w - 1), cyy / max(1, h - 1), plate_dist[cyy, cxx],
+                np.full(len(coords), area), np.full(len(coords), t / 1000.0),
+            ]).astype(np.float32)
+            age = np.where(ever, np.minimum(t - last_seen, age_cap), age_cap)
+            recent = ever & (age <= ecfg["recent_history_frames"])
+            hist = np.column_stack([
+                ever[cyy, cxx].astype(np.float32),
+                age[cyy, cxx] / age_cap,
+                np.log1p(cumulative[cyy, cxx]),
+                np.log1p(departures[cyy, cxx]),
+                local_sum(ever, 3)[cyy, cxx],
+                local_sum(ever, 5)[cyy, cxx],
+                local_sum(recent, 3)[cyy, cxx],
+                local_sum(recent, 5)[cyy, cxx],
+            ]).astype(np.float32)
+            future_a = masks[t + horizon][cyy, cxx]
+            future_b = masks[t + horizon + confirm][cyy, cxx]
+            stable = future_a == future_b
+            if stable.any():
+                Xs.append(snap[stable])
+                Xh.append(hist[stable])
+                ys.append(future_a[stable].astype(np.uint8))
+                frames.append(np.full(stable.sum(), t, dtype=np.int32))
+        cumulative += current.astype(np.int32)
+        last_seen[current] = t
+        ever |= current
+        prev = current
+    if not Xs:
+        raise RuntimeError(f"no events for {organism}")
+    return np.vstack(Xs), np.vstack(Xh), np.concatenate(ys), np.concatenate(frames)
+
+
+def build_events(config: dict, segment_dir: Path, output: Path) -> None:
+    arrays = {}
+    summary = []
+    for organism in config["evaluation_organisms"]:
+        xs, xh, y, frames = event_rows_for_organism(config, organism, segment_dir / f"{organism}_segmented.npz")
+        arrays[f"{organism}_snapshot"] = xs
+        arrays[f"{organism}_history"] = xh
+        arrays[f"{organism}_y"] = y
+        arrays[f"{organism}_frame"] = frames
+        summary.append({"organism": organism, "events": int(len(y)), "positives": int(y.sum()), "prevalence": float(y.mean())})
+        print(summary[-1], flush=True)
+    arrays["summary_json"] = np.asarray(json.dumps(summary, sort_keys=True))
+    arrays["config_sha256"] = np.asarray(sha256_file(Path(args.config)))

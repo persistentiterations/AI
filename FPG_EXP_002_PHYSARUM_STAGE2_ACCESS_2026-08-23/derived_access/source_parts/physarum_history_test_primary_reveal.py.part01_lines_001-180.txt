@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+"""FPG-EXP-002 empirical Physarum history-increment test.
+
+The script has explicit stages. `segment` never fits a scientific model.
+`qa` reads Id1 only. `events` constructs past-only features. `test` performs
+the frozen leave-one-organism-out comparison once.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import math
+import os
+import subprocess
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+import numpy as np
+from PIL import Image, ImageDraw
+from scipy import ndimage as ndi
+
+
+def load_config(path: Path) -> dict:
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def ffprobe(video: Path) -> tuple[int, int, int]:
+    cmd = [
+        "ffprobe", "-v", "error", "-select_streams", "v:0",
+        "-show_entries", "stream=width,height,nb_frames", "-of", "json", str(video),
+    ]
+    obj = json.loads(subprocess.check_output(cmd, text=True))
+    stream = obj["streams"][0]
+    return int(stream["width"]), int(stream["height"]), int(stream["nb_frames"])
+
+
+def raw_frames(video: Path):
+    width, height, n_frames = ffprobe(video)
+    cmd = [
+        "ffmpeg", "-v", "error", "-i", str(video), "-f", "rawvideo",
+        "-pix_fmt", "rgb24", "pipe:1",
+    ]
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    assert proc.stdout is not None
+    frame_bytes = width * height * 3
+    try:
+        for idx in range(n_frames):
+            buf = proc.stdout.read(frame_bytes)
+            if len(buf) != frame_bytes:
+                raise RuntimeError(f"short decoded frame {idx}: {len(buf)} bytes")
+            yield idx, np.frombuffer(buf, dtype=np.uint8).reshape(height, width, 3)
+    finally:
+        proc.stdout.close()
+        rc = proc.wait()
+        if rc != 0:
+            raise RuntimeError(f"ffmpeg failed with exit status {rc}")
+
+
+@dataclass(frozen=True)
+class Segmenter:
+    cfg: dict
+    width: int = 1920
+    height: int = 1080
+
+    def roi(self) -> np.ndarray:
+        p = self.cfg["segmentation"]
+        y, x = np.ogrid[: self.height, : self.width]
+        ellipse = (
+            ((x - p["arena_center_x"]) / p["arena_axis_x"]) ** 2
+            + ((y - p["arena_center_y"]) / p["arena_axis_y"]) ** 2
+            < 1
+        )
+        center = (
+            (x - p["arena_center_x"]) ** 2
+            + (y - p["arena_center_y"]) ** 2
+            > p["center_exclusion_radius"] ** 2
+        )
+        return ellipse & center
+
+    def channels(self, frame: np.ndarray, method: str = "A") -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        p = self.cfg["segmentation"]
+        rgb = frame.astype(np.float32)
+        r, g, b = rgb.transpose(2, 0, 1)
+        green = g - (r + b) / 2
+        yellow = (r + g) / 2 - b
+        if method == "A":
+            bg_green = ndi.uniform_filter(green, size=p["local_background_window_px"])
+            bg_yellow = ndi.uniform_filter(yellow, size=p["local_background_window_px"])
+        elif method == "B":
+            sigma = self.cfg["qa"]["method_b_background_sigma_px"]
+            bg_green = ndi.gaussian_filter(green, sigma=sigma)
+            bg_yellow = ndi.gaussian_filter(yellow, sigma=sigma)
+        else:
+            raise ValueError(method)
+        score = (green - bg_green) + p["yellow_weight"] * (yellow - bg_yellow)
+        return green, yellow, score
+
+    def mask(self, frame: np.ndarray, method: str = "A") -> tuple[np.ndarray, np.ndarray]:
+        p = self.cfg["segmentation"]
+        roi = self.roi()
+        green, yellow, score = self.channels(frame, method)
+        support = (score > p["support_threshold"]) & roi
+        seed = (
+            (green > p["green_seed_threshold"])
+            & (yellow > p["yellow_seed_threshold"])
+            & (score > p["score_seed_threshold"])
+            & roi
+        )
+        labels, _ = ndi.label(support)
+        touching = np.unique(labels[seed])
+        touching = touching[touching > 0]
+        mask = np.isin(labels, touching)
+        labels, _ = ndi.label(mask)
+        sizes = np.bincount(labels.ravel())
+        keep = np.flatnonzero(sizes >= p["minimum_component_pixels"])
+        keep = keep[keep > 0]
+        mask = np.isin(labels, keep)
+        mask = ndi.binary_closing(mask, iterations=p["closing_iterations"])
+        return mask, score
+
+    def grid(self, mask: np.ndarray, score: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        p = self.cfg["segmentation"]
+        g = p["analysis_grid_px"]
+        h2 = self.height // g
+        w2 = self.width // g
+        m = mask[: h2 * g, : w2 * g].reshape(h2, g, w2, g)
+        occupancy = m.sum(axis=(1, 3)) >= p["occupied_pixels_per_grid_cell"]
+        s = score[: h2 * g, : w2 * g].reshape(h2, g, w2, g)
+        max_score = np.clip(np.rint(s.max(axis=(1, 3)) + 64), 0, 255).astype(np.uint8)
+        r = self.roi()[: h2 * g, : w2 * g].reshape(h2, g, w2, g)
+        eligible = r.mean(axis=(1, 3)) >= p["eligible_roi_fraction"]
+        return occupancy, max_score, eligible
+
+
+def phase_shift(prev: np.ndarray, curr: np.ndarray, downsample: int) -> tuple[float, float]:
+    a = prev[::downsample, ::downsample].astype(np.float32).mean(axis=2)
+    b = curr[::downsample, ::downsample].astype(np.float32).mean(axis=2)
+    a -= a.mean()
+    b -= b.mean()
+    cross = np.fft.rfft2(a) * np.conj(np.fft.rfft2(b))
+    cross /= np.maximum(np.abs(cross), 1e-9)
+    corr = np.fft.irfft2(cross, s=a.shape)
+    y, x = np.unravel_index(np.argmax(corr), corr.shape)
+    if y > a.shape[0] // 2:
+        y -= a.shape[0]
+    if x > a.shape[1] // 2:
+        x -= a.shape[1]
+    return float(x), float(y)
+
+
+def segment_video(config: dict, video: Path, output: Path) -> None:
+    width, height, n_frames = ffprobe(video)
+    if (width, height) != (1920, 1080):
+        raise ValueError(f"unexpected dimensions: {(width, height)}")
+    seg = Segmenter(config, width, height)
+    masks = []
+    scores = []
+    shifts = []
+    prev = None
+    for idx, frame in raw_frames(video):
+        mask, score = seg.mask(frame, "A")
+        grid, grid_score, eligible = seg.grid(mask, score)
+        masks.append(grid)
+        scores.append(grid_score)
+        if prev is not None:
+            shifts.append(phase_shift(prev, frame, config["qa"]["registration_downsample"]))
+        prev = frame.copy()
+        if idx and idx % 100 == 0:
+            print(f"{video.name}: {idx}/{n_frames}", flush=True)
+    mask_array = np.stack(masks).astype(np.uint8)
+    score_array = np.stack(scores).astype(np.uint8)
+    np.savez_compressed(
+        output,
+        masks=mask_array,
+        scores=score_array,

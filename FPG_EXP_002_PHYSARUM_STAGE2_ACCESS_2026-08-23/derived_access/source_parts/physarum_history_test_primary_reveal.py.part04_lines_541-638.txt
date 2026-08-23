@@ -1,0 +1,98 @@
+    }
+    mcfg = config["model"]
+    summary["primary_numeric_gates"] = {
+        "relative_improvement": summary["relative_log_loss_improvement"] >= mcfg["advance_relative_log_loss_min"],
+        "bootstrap_lower_above_zero": summary["bootstrap_delta_ci95"][0] > 0,
+        "positive_organisms": summary["positive_organisms"] >= mcfg["advance_positive_organisms_min"],
+    }
+    summary["primary_numeric_gate_pass"] = bool(all(summary["primary_numeric_gates"].values()))
+    shuffled_deltas = np.asarray([r["ordered_vs_shuffled_delta"] for r in results])
+    residue_relative = np.asarray([r["visible_residue_relative_improvement"] for r in results])
+    mean_time_q = np.mean(np.asarray([r["time_quartile_delta"] for r in results]), axis=0)
+    mean_area_q = np.mean(np.asarray([r["area_quartile_delta"] for r in results]), axis=0)
+    summary["control_results"] = {
+        "mean_ordered_vs_shuffled_delta": float(shuffled_deltas.mean()),
+        "ordered_beats_shuffled_organisms": int((shuffled_deltas > 0).sum()),
+        "mean_visible_residue_exclusion_relative_improvement": float(residue_relative.mean()),
+        "visible_residue_positive_organisms": int((residue_relative > 0).sum()),
+        "mean_time_quartile_deltas": mean_time_q.tolist(),
+        "positive_time_quartiles": int((mean_time_q > 0).sum()),
+        "mean_area_quartile_deltas": mean_area_q.tolist(),
+        "positive_area_quartiles": int((mean_area_q > 0).sum()),
+        "mean_coordinate_log_loss": float(np.mean([r["coordinate_log_loss"] for r in results])),
+    }
+    summary["control_gates"] = {
+        "ordered_beats_shuffled": bool(
+            summary["control_results"]["mean_ordered_vs_shuffled_delta"] > 0
+            and summary["control_results"]["ordered_beats_shuffled_organisms"] >= config["model"]["shuffle_positive_organisms_min"]
+        ),
+        "visible_residue_exclusion": bool(
+            summary["control_results"]["mean_visible_residue_exclusion_relative_improvement"] >= config["model"]["advance_relative_log_loss_min"]
+            and summary["control_results"]["visible_residue_positive_organisms"] >= config["model"]["advance_positive_organisms_min"]
+        ),
+        "time_strata": bool(summary["control_results"]["positive_time_quartiles"] >= config["model"]["stratified_positive_quartiles_min"]),
+        "area_strata": bool(summary["control_results"]["positive_area_quartiles"] >= config["model"]["stratified_positive_quartiles_min"]),
+    }
+    summary["all_advance_gates_pass"] = bool(summary["primary_numeric_gate_pass"] and all(summary["control_gates"].values()))
+    if summary["all_advance_gates_pass"]:
+        summary["verdict"] = "PHYSARUM_HISTORY_INCREMENT"
+    elif summary["relative_log_loss_improvement"] < config["model"]["advance_relative_log_loss_min"] and summary["bootstrap_delta_ci95"][0] <= 0:
+        summary["verdict"] = "SNAPSHOT_CLOSURE"
+    elif not summary["control_gates"]["visible_residue_exclusion"]:
+        summary["verdict"] = "HISTORY_PROXY_FOR_VISIBLE_RESIDUE_OR_STATE"
+    elif not (summary["control_gates"]["time_strata"] and summary["control_gates"]["area_strata"]):
+        summary["verdict"] = "HISTORY_PROXY_FOR_TIME_OR_SIZE"
+    else:
+        summary["verdict"] = "AMBIGUOUS"
+    out = {"summary": summary, "per_organism": results, "config_sha256": sha256_file(Path(args.config)), "events_sha256": sha256_file(events_path)}
+    with output.open("w", encoding="utf-8") as f:
+        json.dump(out, f, indent=2, sort_keys=True)
+    pred_path = output.with_name("physarum_predictions.npz")
+    flat = {}
+    for organism, obj in all_predictions.items():
+        for key, value in obj.items():
+            flat[f"{organism}_{key}"] = value
+    np.savez_compressed(pred_path, **flat)
+    print(json.dumps(summary, indent=2, sort_keys=True))
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def main() -> None:
+    global args
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", default="physarum_test_config.json")
+    sub = parser.add_subparsers(dest="command", required=True)
+    p = sub.add_parser("segment")
+    p.add_argument("video")
+    p.add_argument("output")
+    p = sub.add_parser("qa")
+    p.add_argument("video")
+    p.add_argument("segmented")
+    p.add_argument("outdir")
+    p = sub.add_parser("events")
+    p.add_argument("segment_dir")
+    p.add_argument("output")
+    p = sub.add_parser("test")
+    p.add_argument("events")
+    p.add_argument("output")
+    args = parser.parse_args()
+    config = load_config(Path(args.config))
+    if args.command == "segment":
+        segment_video(config, Path(args.video), Path(args.output))
+    elif args.command == "qa":
+        qa_id1(config, Path(args.video), Path(args.segmented), Path(args.outdir))
+    elif args.command == "events":
+        build_events(config, Path(args.segment_dir), Path(args.output))
+    elif args.command == "test":
+        run_test(config, Path(args.events), Path(args.output))
+
+
+if __name__ == "__main__":
+    main()

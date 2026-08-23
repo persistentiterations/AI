@@ -1,0 +1,69 @@
+{
+  "contract": "FPG-EXP-002",
+  "created_utc": "2026-08-23",
+  "development_organisms": ["Id1"],
+  "evaluation_organisms": ["Id2", "Id3", "Id4", "Id5", "Id6", "Id7", "Id8", "Id9", "Id10", "Id11", "Id12"],
+  "nominal_minutes_per_frame": 5,
+  "primary_horizon_frames": 3,
+  "confirmation_frame_offset": 1,
+  "segmentation": {
+    "arena_center_x": 960,
+    "arena_center_y": 535,
+    "arena_axis_x": 840,
+    "arena_axis_y": 385,
+    "center_exclusion_radius": 85,
+    "local_background_window_px": 25,
+    "yellow_weight": 0.35,
+    "support_threshold": 2.5,
+    "green_seed_threshold": 9.0,
+    "yellow_seed_threshold": -10.0,
+    "score_seed_threshold": 3.0,
+    "minimum_component_pixels": 12,
+    "closing_iterations": 1,
+    "analysis_grid_px": 8,
+    "occupied_pixels_per_grid_cell": 4,
+    "eligible_roi_fraction": 0.90
+  },
+  "qa": {
+    "sample_frame_count": 13,
+    "method_b_background_sigma_px": 12.0,
+    "method_agreement_median_iou_min": 0.85,
+    "method_agreement_min_iou_min": 0.70,
+    "thin_tube_mean_recall_min": 0.80,
+    "thin_tube_min_recall_min": 0.60,
+    "one_frame_flash_fraction_max": 0.05,
+    "registration_downsample": 8,
+    "registration_shift_px_max": 1.0,
+    "registration_pass_fraction_min": 0.99
+  },
+  "events": {
+    "candidate_chebyshev_radius_cells": 1,
+    "max_candidates_per_frame": 96,
+    "minimum_candidates_per_frame": 8,
+    "age_cap_frames": 120,
+    "recent_history_frames": 12,
+    "candidate_seed": 672804213
+  },
+  "model": {
+    "classifier": "sklearn.linear_model.LogisticRegression",
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "regularization_c_grid": [0.03, 0.1, 0.3, 1.0, 3.0],
+    "regularization_selection_source": "Id1 five contiguous temporal blocks; selected before processing Id2-Id12",
+    "snapshot_c": 0.03,
+    "history_c": 0.3,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 19088743,
+    "shuffle_seed": 2309737967,
+    "shuffle_positive_organisms_min": 8,
+    "visible_residue_exclusion_quantile": 0.90,
+    "stratified_positive_quartiles_min": 3,
+    "advance_relative_log_loss_min": 0.01,
+    "advance_positive_organisms_min": 8
+  },
+  "sensitivity": {
+    "occupied_pixels_per_grid_cell": [2, 8],
+    "horizon_frames": [1, 6]
+  }
+}

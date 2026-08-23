@@ -1,0 +1,21 @@
+{
+  "contract": "FPG-EXP-002",
+  "freeze_date_utc": "2026-08-23",
+  "status": "READY_FOR_SINGLE_REVEAL",
+  "pre_evaluation_receipt_sha256": "327912aa210ff27866529dc7baa3b8c77a6ed9411b4eb135089205d0d918c442",
+  "measurement_config_sha256_recorded_in_segmented_files": "31f8b55b721b109374bd8d3296cc629091b88e9368a02b846a0279e3a051af2c",
+  "final_scoring_config_sha256": "fdcbf8e8efef938b172927c3a1ac464cec21738be6394971ae77211e3b06799f",
+  "final_code_sha256": "13943bcde1b27327cecfb96b4e8a9fa7d3b19fb57182d23eb8e5b87e6884e1c8",
+  "event_table_sha256": "a129b47aa9c1b07222036b6597cecfec541106cb64490da3fb46d848403299b0",
+  "event_count": 425814,
+  "positive_event_count": 14679,
+  "evaluation_organism_count": 11,
+  "controls_frozen_before_reveal": [
+    "matched history shuffle within organism, time quintile, arena annulus, and snapshot-propensity decile",
+    "top-decile visible-residue-score exclusion",
+    "time-quartile consistency",
+    "organism-area-quartile consistency",
+    "coordinate-only nuisance model"
+  ],
+  "note": "The configuration hash changed after segmentation only to record Id1-selected regularization and prespecified scoring controls. Segmentation and event definitions were unchanged. No held-out prediction had been computed when this receipt was written."
+}

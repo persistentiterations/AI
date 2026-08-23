@@ -1,0 +1,28 @@
+{
+  "contract": "FPG-EXP-002",
+  "freeze_date_utc": "2026-08-23",
+  "status": "MEASUREMENT_GATE_PASS_PRE_EVALUATION",
+  "development_organism": "Id1",
+  "evaluation_organisms_unprocessed_at_freeze": [
+    "Id2", "Id3", "Id4", "Id5", "Id6", "Id7", "Id8", "Id9", "Id10", "Id11", "Id12"
+  ],
+  "config_sha256": "31f8b55b721b109374bd8d3296cc629091b88e9368a02b846a0279e3a051af2c",
+  "code_sha256": "e8a8429d3d8625380783f27f108fa5418e639205f0fda5c0bbfd8055c98aab42",
+  "id1_qa_result_sha256": "9b9bd786d2d43332a863c67a676733a060785864b98df2d083f2cdbbc0a62fa0",
+  "id1_qa_contact_sha256": "fbf749341a09378744af38288c50e9b84e24d7af82453eced90fb21edcc601f9",
+  "automatic_measurement_gate_pass": true,
+  "human_visual_gate_pass": true,
+  "human_visual_note": "Thirteen evenly spaced Id1 overlays track the visible yellow-green network within the eligible arena without systematic center-glare or rim contamination. Portions outside the prespecified eligible arena are excluded, not repaired.",
+  "id1_regularization_selection": {
+    "method": "five contiguous temporal blocks on development organism only",
+    "snapshot_c": 0.03,
+    "history_c": 0.3
+  },
+  "forbidden_after_freeze": [
+    "organism-specific segmentation tuning",
+    "threshold relaxation after evaluation data",
+    "feature changes after held-out scores are viewed",
+    "G1, G1B, or G1C reruns or repairs",
+    "new morphology simulation"
+  ]
+}

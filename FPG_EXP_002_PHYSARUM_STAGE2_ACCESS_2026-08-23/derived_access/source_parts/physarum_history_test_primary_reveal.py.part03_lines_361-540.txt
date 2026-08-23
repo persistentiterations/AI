@@ -1,0 +1,180 @@
+    np.savez_compressed(output, **arrays)
+
+
+def frame_equal_weights(frames: np.ndarray) -> np.ndarray:
+    unique, counts = np.unique(frames, return_counts=True)
+    mapping = dict(zip(unique.tolist(), counts.tolist()))
+    return np.asarray([1.0 / mapping[int(f)] for f in frames], dtype=np.float64)
+
+
+def standardize_train_test(x_train: np.ndarray, x_test: np.ndarray, w: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    mean = np.average(x_train, axis=0, weights=w)
+    var = np.average((x_train - mean) ** 2, axis=0, weights=w)
+    scale = np.sqrt(np.maximum(var, 1e-8))
+    return (x_train - mean) / scale, (x_test - mean) / scale
+
+
+def weighted_log_loss(y: np.ndarray, p: np.ndarray, w: np.ndarray) -> float:
+    p = np.clip(p, 1e-7, 1 - 1e-7)
+    return float(np.average(-(y * np.log(p) + (1 - y) * np.log(1 - p)), weights=w))
+
+
+def quantile_bins(values: np.ndarray, count: int) -> np.ndarray:
+    order = np.argsort(values, kind="stable")
+    bins = np.empty(len(values), dtype=np.int16)
+    bins[order] = np.minimum(count - 1, (count * np.arange(len(values))) // max(1, len(values)))
+    return bins
+
+
+def matched_shuffle_history(
+    history: np.ndarray,
+    frames: np.ndarray,
+    snapshot: np.ndarray,
+    snapshot_p: np.ndarray,
+    seed: int,
+) -> np.ndarray:
+    """Shuffle rows within time, arena, and snapshot-propensity strata."""
+    time_bin = quantile_bins(frames.astype(np.float64), 5)
+    annulus_bin = quantile_bins(snapshot[:, 17], 4)
+    propensity_bin = quantile_bins(snapshot_p, 10)
+    key = time_bin.astype(np.int32) * 100 + annulus_bin.astype(np.int32) * 10 + propensity_bin.astype(np.int32)
+    out = history.copy()
+    rng = np.random.default_rng(seed)
+    for value in np.unique(key):
+        idx = np.flatnonzero(key == value)
+        if len(idx) > 1:
+            out[idx] = history[rng.permutation(idx)]
+    return out
+
+
+def stratum_deltas(y: np.ndarray, ps: np.ndarray, ph: np.ndarray, weights: np.ndarray, values: np.ndarray) -> list[float]:
+    bins = quantile_bins(values, 4)
+    out = []
+    for b in range(4):
+        take = bins == b
+        out.append(weighted_log_loss(y[take], ps[take], weights[take]) - weighted_log_loss(y[take], ph[take], weights[take]))
+    return out
+
+
+def run_test(config: dict, events_path: Path, output: Path) -> None:
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import average_precision_score
+
+    data = np.load(events_path)
+    organisms = config["evaluation_organisms"]
+    results = []
+    all_predictions = {}
+    for held in organisms:
+        train_orgs = [o for o in organisms if o != held]
+        xs_train = np.vstack([data[f"{o}_snapshot"] for o in train_orgs])
+        xh_train = np.vstack([data[f"{o}_history"] for o in train_orgs])
+        y_train = np.concatenate([data[f"{o}_y"] for o in train_orgs])
+        f_train = np.concatenate([data[f"{o}_frame"] for o in train_orgs])
+        w_train = np.concatenate([frame_equal_weights(data[f"{o}_frame"]) for o in train_orgs])
+        xs_test = data[f"{held}_snapshot"]
+        xh_test = data[f"{held}_history"]
+        y_test = data[f"{held}_y"]
+        f_test = data[f"{held}_frame"]
+        w_test = frame_equal_weights(f_test)
+        # Select C inside the training organisms independently for each feature block.
+        chosen = {
+            "snapshot": float(config["model"]["snapshot_c"]),
+            "history": float(config["model"]["history_c"]),
+        }
+        predictions = {}
+        transforms = {}
+        for name, train_x, test_x in [
+            ("snapshot", xs_train, xs_test),
+            ("history", np.hstack([xs_train, xh_train]), np.hstack([xs_test, xh_test])),
+        ]:
+            chosen_c = chosen[name]
+            mean = np.average(train_x, axis=0, weights=w_train)
+            var = np.average((train_x - mean) ** 2, axis=0, weights=w_train)
+            scale = np.sqrt(np.maximum(var, 1e-8))
+            xtr = (train_x - mean) / scale
+            xte = (test_x - mean) / scale
+            model = LogisticRegression(C=chosen_c, solver="lbfgs", max_iter=config["model"]["max_iter"])
+            model.fit(xtr, y_train, sample_weight=w_train)
+            predictions[name] = model.predict_proba(xte)[:, 1]
+            transforms[name] = (mean, scale, model)
+        coord_cols = [15, 16, 17, 18, 19]
+        coord_train = xs_train[:, coord_cols]
+        coord_test = xs_test[:, coord_cols]
+        coord_mean = np.average(coord_train, axis=0, weights=w_train)
+        coord_scale = np.sqrt(np.maximum(np.average((coord_train - coord_mean) ** 2, axis=0, weights=w_train), 1e-8))
+        coord_model = LogisticRegression(C=config["model"]["snapshot_c"], solver="lbfgs", max_iter=config["model"]["max_iter"])
+        coord_model.fit((coord_train - coord_mean) / coord_scale, y_train, sample_weight=w_train)
+        predictions["coordinate"] = coord_model.predict_proba((coord_test - coord_mean) / coord_scale)[:, 1]
+        shuffled_h = matched_shuffle_history(
+            xh_test,
+            f_test,
+            xs_test,
+            predictions["snapshot"],
+            config["model"]["shuffle_seed"] + organism_number(held),
+        )
+        h_mean, h_scale, h_model = transforms["history"]
+        shuffled_x = np.hstack([xs_test, shuffled_h])
+        predictions["shuffled_history"] = h_model.predict_proba((shuffled_x - h_mean) / h_scale)[:, 1]
+        ls = weighted_log_loss(y_test, predictions["snapshot"], w_test)
+        lh = weighted_log_loss(y_test, predictions["history"], w_test)
+        lshuffle = weighted_log_loss(y_test, predictions["shuffled_history"], w_test)
+        lcoord = weighted_log_loss(y_test, predictions["coordinate"], w_test)
+        residue_threshold = float(np.quantile(xs_test[:, 14], config["model"]["visible_residue_exclusion_quantile"]))
+        residue_keep = xs_test[:, 14] <= residue_threshold
+        lsr = weighted_log_loss(y_test[residue_keep], predictions["snapshot"][residue_keep], w_test[residue_keep])
+        lhr = weighted_log_loss(y_test[residue_keep], predictions["history"][residue_keep], w_test[residue_keep])
+        row = {
+            "organism": held,
+            "n": int(len(y_test)),
+            "prevalence": float(np.average(y_test, weights=w_test)),
+            "snapshot_log_loss": ls,
+            "history_log_loss": lh,
+            "delta_log_loss": ls - lh,
+            "relative_improvement": (ls - lh) / ls,
+            "shuffled_history_log_loss": lshuffle,
+            "ordered_vs_shuffled_delta": lshuffle - lh,
+            "coordinate_log_loss": lcoord,
+            "visible_residue_exclusion_threshold": residue_threshold,
+            "visible_residue_exclusion_n": int(residue_keep.sum()),
+            "visible_residue_snapshot_log_loss": lsr,
+            "visible_residue_history_log_loss": lhr,
+            "visible_residue_relative_improvement": (lsr - lhr) / lsr,
+            "time_quartile_delta": stratum_deltas(y_test, predictions["snapshot"], predictions["history"], w_test, f_test),
+            "area_quartile_delta": stratum_deltas(y_test, predictions["snapshot"], predictions["history"], w_test, xs_test[:, 18]),
+            "snapshot_brier": float(np.average((y_test - predictions["snapshot"]) ** 2, weights=w_test)),
+            "history_brier": float(np.average((y_test - predictions["history"]) ** 2, weights=w_test)),
+            "snapshot_auprc": float(average_precision_score(y_test, predictions["snapshot"], sample_weight=w_test)),
+            "history_auprc": float(average_precision_score(y_test, predictions["history"], sample_weight=w_test)),
+            "snapshot_c": chosen["snapshot"],
+            "history_c": chosen["history"],
+        }
+        results.append(row)
+        all_predictions[held] = {
+            "y": y_test.astype(np.uint8),
+            "frame": f_test.astype(np.int32),
+            "weight": w_test.astype(np.float32),
+            "snapshot_p": predictions["snapshot"].astype(np.float32),
+            "history_p": predictions["history"].astype(np.float32),
+            "shuffled_history_p": predictions["shuffled_history"].astype(np.float32),
+            "coordinate_p": predictions["coordinate"].astype(np.float32),
+            "visible_score": xs_test[:, 14].astype(np.float32),
+            "area": xs_test[:, 18].astype(np.float32),
+        }
+        print(row, flush=True)
+    deltas = np.asarray([r["delta_log_loss"] for r in results])
+    ls_vals = np.asarray([r["snapshot_log_loss"] for r in results])
+    rng = np.random.default_rng(config["model"]["bootstrap_seed"])
+    boot = np.empty(config["model"]["bootstrap_resamples"], dtype=np.float64)
+    for i in range(len(boot)):
+        sample = rng.integers(0, len(results), len(results))
+        boot[i] = deltas[sample].mean()
+    mean_ls = float(ls_vals.mean())
+    mean_delta = float(deltas.mean())
+    summary = {
+        "mean_snapshot_log_loss": mean_ls,
+        "mean_history_log_loss": float(np.mean([r["history_log_loss"] for r in results])),
+        "mean_delta_log_loss": mean_delta,
+        "relative_log_loss_improvement": mean_delta / mean_ls,
+        "bootstrap_delta_ci95": [float(np.quantile(boot, 0.025)), float(np.quantile(boot, 0.975))],
+        "positive_organisms": int((deltas > 0).sum()),
+        "organism_count": len(results),
