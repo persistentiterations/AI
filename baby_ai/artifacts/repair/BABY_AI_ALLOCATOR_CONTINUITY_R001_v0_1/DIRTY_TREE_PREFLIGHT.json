@@ -1,0 +1,785 @@
+{
+ "branch": "hostile-qualification-v0_1",
+ "captured_utc": "2026-08-30T22:50:35Z",
+ "entries": [
+  {
+   "bytes": 43462,
+   "classification": "R001_REQUIRED",
+   "diffstat": " 1 file changed, 394 insertions(+), 2 deletions(-)",
+   "path": "baby_ai/adapters/operational_self.py",
+   "sha256": "b1420cc1a7d36a8612366fc54326965dd3b8f535c1de40a39f572011c269a01f",
+   "status": "M",
+   "tracked": true
+  },
+  {
+   "bytes": 4910,
+   "classification": "R001_REQUIRED",
+   "diffstat": " 1 file changed, 61 insertions(+), 1 deletion(-)",
+   "path": "baby_ai/tests/test_formation.py",
+   "sha256": "c817ef4ae39538178d6b212830f8154e4829c2da81dbab3a398036a12546a129",
+   "status": "M",
+   "tracked": true
+  },
+  {
+   "bytes": 40173,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "BATCH_summary.txt",
+   "sha256": "5b10e3e3c372ea4b91ef9f98d06c22a55d482a91010dece8ca9bb3e1e4103c63",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 4081,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "CONFIG_hashes.txt",
+   "sha256": "e1701c905264cfa61194400a103d070229d4aab0137ba5df0fe67e0f5136dfb9",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 599,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "CONFIG_lineage_run.txt",
+   "sha256": "7cc862cbb8e655ae80f78bb54746dd5cb3e485a33e709d16b2fb7273522e3c0d",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1332,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "CONFIG_lineage_test.txt",
+   "sha256": "c05f2bd7253d9960ed850e79d0e338193c8424b8b78bdf4da093fa6d9937b379",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 10332,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "CONFIG_report.txt",
+   "sha256": "cfdea8a63b8fcd782633ec35e7142d684106a385d96c60d24de7e6223af393ac",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 7111,
+   "classification": "UNKNOWN",
+   "diffstat": "",
+   "path": "FRACTALISH_AI_hashes.json",
+   "sha256": "f58e72802caaea45e3b01eb410e4b0293a3d56d06dc79eaf54c84dd9de67c3e8",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 8361,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "MIMIC_decision.txt",
+   "sha256": "233bab3d99945660789d0697e0de76eed78af89afb6ad9c35f836e30e7e69313",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 4979,
+   "classification": "UNKNOWN",
+   "diffstat": "",
+   "path": "SOURCE_LINEAGE.md",
+   "sha256": "2c5889a4242a26c3f0888e826ff68b7e0baa9cfe2677be59e7793b8f9a7e2f60",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 11869,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/assays/applicability.py",
+   "sha256": "e5fa3328cc1ec2a1415ce61258dd2c0ecfc7162089d8353ddbebe0256e1cdd12",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 18205,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/assays/repair_freeze.py",
+   "sha256": "e5bc2acd6ab51fe93b30d9c8ee172ca0a49885ab01d848a52be978e71f3495c9",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 3455,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/core/migration_receipts.py",
+   "sha256": "3af991aeaccfd19492fe865f3fa235861fd2631bb9a5855646af6528a5259160",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 58974,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/qualifications//__pycache__/r001_closure.cpython-311.pyc",
+   "sha256": "bbfea1cf71e8416f9cf858bdae1909d09a874109a17c3a343f189d8c88ff804c",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 43257,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/qualifications//r001_closure.py",
+   "sha256": "ea45c348ba79de8b3bd731e94a9b7c32727e41f369db705d3f25413c3f626c37",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1580,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_det.py",
+   "sha256": "6e2d56629a3e9f420db469f1a7d3876abf6c2044e9e4df26347075e621f112f4",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1037,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_det2.py",
+   "sha256": "15ddf4e65900fb989bffd9c03e0bc6f3de1e2a4eb2b947c4eb4af95f78a08565",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 38674,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_docs_dump.txt",
+   "sha256": "7efcf5ebcc944df5dc7f683146d324d9f5cf6d0ef975ba197abc8d2ca3de3d70",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2421,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_frozen2.txt",
+   "sha256": "c40c6d72555756203c144b87648d377e441a908b3edafff0d1f3a6335253deb6",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 112,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_frozen_dirs.txt",
+   "sha256": "5567d0a1fc7eddc772fe57cd028d245ff4f117058c1ded56f5f9bcdeff63922b",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 3544,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_on_v0_4_tree.txt",
+   "sha256": "97c4bfc523c4dc23086901e7f8fd272c05948dad91303c9c1c75fb61381bb560",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 920,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_pytest.py",
+   "sha256": "13dab8a7e1e592c98095f9b16795c0cc352b296b20456ec9253884179a713e4c",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 933,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_run_tests.py",
+   "sha256": "99033bbba1293e5a7f500e5286953e7715cd80a79f4c362c860e9198970cc6cd",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 823,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_test_imports.txt",
+   "sha256": "1c2d7f61d1acb90197375a578b57e0ee4d891587c77bfe3c06eea6ac003e2bb1",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1284,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_tree.py",
+   "sha256": "08e6344ac8110d07480292e42d8f0ff3a86ca734ab76d8a83f557212ccd7330d",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 365,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_v0_4_pytest.txt",
+   "sha256": "539543369cb7377947201d654092bee8a9b32363804408b04aa1af76319ccfcc",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 113,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bolt_v0_4_tests.txt",
+   "sha256": "b0281afc5a8f851fedc2bba09c88d720f4dcc47a2a487e40928c779cb967ff8c",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 3924,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "borlow_on_v0_4_tests.out",
+   "sha256": "276d2b3c24e38f3d73d40e53ada50c4c7be9b414c80eb54291c8521c739a7fd8",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2299,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bounded_mimic.py",
+   "sha256": "1b0fe28716c0b76f9a66f920756dc42675b74fc8729125bce280c4009fc07ffe",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2247,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "bounded_mimic2.py",
+   "sha256": "a63e363c990c9c529517103bedbf241921ceae1e3b310ed9094f071ce0ab471d",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 656367,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "cntm_gap_scan.txt",
+   "sha256": "3429ba380a11516ccc9d6b8e66f45aed211bb9c3c1d2764e486637f9172e1e6a",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 105,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "cntm_tests.txt",
+   "sha256": "8000f744fa8344a335c98c6331d2b3449e36ba5b5a0cb98aa941e054ab2e922e",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2087,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "compare_config_lineage.py",
+   "sha256": "72ab245ea7317c1fd846e327ceafe0896abdad66768038d6e6479d7b08735895",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1067,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_deep_diff.txt",
+   "sha256": "274b5a285c21fc14485e5781662117dfbfbc8919c757bcf6bfc9e2f9775cbbe4",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 980,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_demo_run.txt",
+   "sha256": "ab95d5a72c061c04ec2e884a06b4e70eca873b6285d8b2b78d4855ccaa00eece",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 198,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_det_norm.txt",
+   "sha256": "6a5bc458f68b06fe593cb0b13d03d5a8f8b9e3dadab2cacd64ca460fb2f44fe9",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2442,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_det_run.txt",
+   "sha256": "6c0f91c95d59f79db88d0c25f38ca4bd8bc9f6e9069ac93ff0681acd9ed79832",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 481,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_determinism.txt",
+   "sha256": "7dc652a11a8a7f7eedb88a71fb69a1e91f1608c44de34b595b5da7843f46f6d0",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 198,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_determinism_norm.txt",
+   "sha256": "94f7e4179329f9068f4f5cbc571a785b54e4b6625331c4c6a5e191c2ada1d1cf",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 187,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_full_tests.txt",
+   "sha256": "daf9253a92815bba8ee614b1b1e9b340d6fa2d84fa942b4aab28827d0e6c6648",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 105,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "fx_opself_tests.txt",
+   "sha256": "16abe3ec53d677f3e3283aadd08a193ddbcdf62f729d341f1f29b5fc5692268e",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 123198,
+   "classification": "UNKNOWN",
+   "diffstat": "",
+   "path": "fxbuild_gap_scan.txt",
+   "sha256": "c4ac376ba45cf33e59f7f5e3556293ad7a60cf8c6225b579286aa30e2d9869fc",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 3446,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "hash_configurators.py",
+   "sha256": "f3b773aaf64faa4c94ee33e950e8e1da57543d0b21fd0e5f1efc95b69ca8442e",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2121,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "inspect_v12.py",
+   "sha256": "5fe042e5f0c35d618e2b5db7c7d5992b8b94ff5819ec302af0052df0e9a4fc1f",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1721,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "mimic_decide.py",
+   "sha256": "9d96165d9fba6dcd3087aec016048afcc3741efa0dd6e646e3fe310dad3a6f51",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1753,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "rerun_mimic_crep.py",
+   "sha256": "52ff148ab1294a26b85e7adc5f1a5dea1156760b98152d1cdf04f74732573d5b",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1416,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "run_config_lineage.py",
+   "sha256": "5c871428f704436b3955eded259433f211b55ef728c0f3c027f195f0b2d6a2cd",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 14345,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_CONFIGURATOR.json",
+   "sha256": "75c66be32f200bd99226ae53319252a8512f761a71aa07665cdce1b41cafc74d",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1242,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_CREP.json",
+   "sha256": "0eb216c2f57ac747f35dd6b90fb56cf05689e097380c81d5c2901560dacc957c",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 619,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_MIMIC.json",
+   "sha256": "92252944603c2efa8046d645ac8ebb881e8ad13e3455c78b889fb9f0a8fa73a1",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 31616,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_MIMIC_content.json",
+   "sha256": "7f93a1950172a620956c937ef302b590bad93c4a739a93860f4b462506768e90",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 322564,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_batch.json",
+   "sha256": "e0ec09b05458d98636a2f93394dd103e6d0b9f8c68c3610c7034892087f52bb0",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2900,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_batch.py",
+   "sha256": "8249b5a4647940b1940d16e7f497261715e01dae05ab51ae19b0f25370da6823",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1571,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "scan_configurator2.py",
+   "sha256": "33fa3809a46a91dc6dad2cbe0eabd4f8a6fc89d423ca33280a0960b2580a8406",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 733,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "summarize_batch.py",
+   "sha256": "c38e1a7e289f327e51eb759ab3b6e46d22ed554e00b03d60f0e81ae39ce74e73",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 323,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_diff.txt",
+   "sha256": "97d3a607997ce04ff87cd20ba3e1fe5223964b75c17c3a5b272ecc59ed184a4a",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 5982,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run1.out",
+   "sha256": "8da00ef8ade9655dd8c5160a79f914d38de8e7dfbaf5b578ab004e9a1469127f",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 6082,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run1.txt",
+   "sha256": "2aaeecd842954908034eb394918596cc330019ee890bfc949b828bf0b4d30796",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 12170,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run1_view.txt",
+   "sha256": "06610c8c5de4d90765165b08f75d4c6032992d652895c3aaa75eb676567d643a",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 8428,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run_1.txt",
+   "sha256": "ea915f114ea58da1c0340fd28da71762b0c54d54fbad06bd9080749ee1355939",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 8428,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run_2.txt",
+   "sha256": "cf55840e9b17de5c6dd38898e4044e5afee8bbebd602d5c2b8f6780161b18f27",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 2748,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run_default.txt",
+   "sha256": "cbd30c9107c6d16b3abd87084177f886b80013f0c6d43651b52175eabed622d5",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 197,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run_selftest.txt",
+   "sha256": "d9331f7bfe53ad8bd2f65a7802e3ad7e3a29d9bb63ef8ff7d5622251e4e109a4",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 16840,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_run_utf8.out",
+   "sha256": "c0a96cd62a8655cf26ec05ab59265f483645eada1c787e84d5bd70564f4021cb",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 925,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_runner.py",
+   "sha256": "73413ae1d8b72c0a4bb28e192e0b90977c25d8957536190b88d0b560df88f869",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 4100,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_structure.txt",
+   "sha256": "22bfff2fcd21852ff764f5f01e070a8a85344ab912008c9468c8c8ba15c65303",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1093,
+   "classification": "SCRATCH",
+   "diffstat": "",
+   "path": "v12_twice.py",
+   "sha256": "08226e9952330a6ff69323503a0b0e46028fa63ee89a3453a6d3922fb4b8a610",
+   "status": "??",
+   "tracked": false
+  },
+  {
+   "bytes": 1480,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/_cold_restart_worker.py",
+   "sha256": "a369167c6aecb8e20eb41f1e036131d84d4e373c6113b0a904dae8889e34c509",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 23721154,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/cold_restart_input.snapshot.json",
+   "sha256": "fd9329c23f24029b8b08e73649a15e1e9ac9b8884f3b8947918f3d75a0a75612",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 519,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/cold_restart_result.json",
+   "sha256": "dddcfbe7ff048e5e08ec12aa2cfe27f6ecc1f3df16e34312b80ba5b82e870cc8",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 8192,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/FINAL_REPORT.md",
+   "sha256": "0e3c84dec4ae458ce280d250a7d30cb871033021af1fce490721ec8f6d4d7248",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 2113,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/FREEZE_MANIFEST.json",
+   "sha256": "2b18d3b00109ab1ae7a5e9cb99bf05ba6fcac5d8abc7f548aadd2b399a4924cb",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 6816,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/G7_DEVICE_INVESTIGATION.json",
+   "sha256": "9fd32fce1d0e37958076fb42d509b2844d1801e534af0dc57055f6c5dd0ef711",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 228904,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/MANIFEST.json",
+   "sha256": "08b917eee239d3b663b3806cd9183b04254798ac6b2a8f43e3e198e851021595",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 485392,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/migration_receipts/migration_receipts.jsonl",
+   "sha256": "48ba338e6e990c8ac2c7b29858ac92ba1ba890694c63eb8d067df859aee5f039",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 228904,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/R001_CLOSURE_EVIDENCE.json",
+   "sha256": "08b917eee239d3b663b3806cd9183b04254798ac6b2a8f43e3e198e851021595",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 1552,
+   "classification": "R001_REQUIRED",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/WITNESS_ALLOCATOR_CONTINUITY.json",
+   "sha256": "43bb055d696429b6cf1fced0216b568706dd063cbea70b3e89dae96dc9569997",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 1114,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/ABLATION.json",
+   "sha256": "132c52289e380e96b898ed80b0d05effb341f40740ed2916b973f32c81332631",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 63090,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/ADVERSARIAL_RETRIEVAL.json",
+   "sha256": "608de83561f110ec9a409216441dd03898ab4d8aac11aaa0c1393f3fd2d54674",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 39920,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/BASELINE_FAILURES.json",
+   "sha256": "97e7230c8c548623fadc0d0e10681e14ddedff9a366ed3457415a7b4f0cd3f53",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 429,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/CAUSE_FIDELITY.json",
+   "sha256": "0d8f96941975edaf0fc1abc18f6b29251fb1f0897a9398b2503f58bd803f9e48",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 2053,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/FULL_LADDER_REGRESSION.json",
+   "sha256": "6bf594aa021a6315e1371ed19a7829fec41aa701ec0099929e628fa4bf2b24d0",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 2172,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/manifest.json",
+   "sha256": "915b68714e518f72c78fd06b528915891667c89d7f52925b39ce9f2fa61859f9",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 1114,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/PIPELINE_DIAGNOSIS.json",
+   "sha256": "87dc9898a83ae9c3108bfa3d436515b98c6fbbfe4003768d4cb7bfe58efef27e",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 1343,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/REPAIR_MECHANISM.json",
+   "sha256": "a6cc8cf9f01a35344f4b8c107ac841d1ff0f5f1b3b0d923c57751cebc3b28d52",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  },
+  {
+   "bytes": 3532,
+   "classification": "OTHER_TRANCHE",
+   "diffstat": "",
+   "path": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_APPLICABILITY_REPAIR_v0_1/REPAIR_REPORT.md",
+   "sha256": "ac4e2b698e427dffc74ed70a2da029e686e3afd0011fd22f67be071afc099c2b",
+   "status": "!! (gitignored, untracked)",
+   "tracked": false
+  }
+ ],
+ "entry_count": 86,
+ "head": "63f8af316da4f20b6cfa07c7225645af2a550dc7",
+ "note": "Forensic inventory captured BEFORE any R-001 freeze operation. Gitignored repair packages are included because git status cannot see them. Scratch/other files are preserved on disk and intentionally excluded from the R-001 commit.",
+ "receipt": "R001_DIRTY_TREE_PREFLIGHT",
+ "repo": "C:\\Users\\moop\\FractalishBuild\\baby-ai-assembly-v0.1"
+}

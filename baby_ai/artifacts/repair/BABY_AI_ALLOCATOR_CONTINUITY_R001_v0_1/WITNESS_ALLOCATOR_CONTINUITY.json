@@ -1,0 +1,48 @@
+{
+  "device_observation": {
+    "deployed_bytecode": "pre-R-001 (operational_self.pyc lacks id_continuation)",
+    "deployed_package": "llc.bonacqui.aptd 0.1.0-aptd",
+    "duplicate_fog_id_suffixes_observed": 10322,
+    "fog_objects_observed": 100395,
+    "handset": "ZY22HFN93K (moto g stylus 2023, XT2317-2, Android 14)",
+    "memories_observed": 90073,
+    "provenance_ledger_bytes_observed": 18
+  },
+  "fixture": {
+    "inherited_fog_count": 6,
+    "inherited_mem_count": 6,
+    "source_events": [
+      "experience_safe(flux_alpha)",
+      "experience_contradiction(flux_alpha)",
+      "experience_safe(flux_beta)",
+      "experience_contradiction(flux_beta)",
+      "experience_safe(dura_gamma)",
+      "experience_contradiction(dura_gamma)"
+    ]
+  },
+  "governed_families": [
+    "mem",
+    "attr",
+    "fog",
+    "scar",
+    "lnk",
+    "replay",
+    "evt"
+  ],
+  "invariant": "After serialized state is reloaded, newly allocated identifiers continue from authoritative persisted allocator state and cannot collide with identifiers already present in retained state.",
+  "pre_R001_reload": {
+    "counters_empty": true,
+    "fog_duplicate_suffixes": 1,
+    "memory_id_collision": true
+  },
+  "r001_reload": {
+    "allocator_status_kind": "persisted",
+    "continues_beyond_retained": true,
+    "fog_duplicate_suffixes": 0,
+    "formation_ready": true,
+    "max_inherited_suffix": 5,
+    "memory_id_collision": false,
+    "next_memory_id": "mem-0006"
+  },
+  "tranche": "R001_ALLOCATOR_CONTINUITY"
+}

@@ -19,6 +19,7 @@ only relies on SEMANTIC state (see core.semantics).
 
 from __future__ import annotations
 
+import re
 from dataclasses import fields as _fields
 from typing import Any
 
@@ -50,6 +51,101 @@ from fractalish_ai.operational_self.models import (
 
 DETERMINISTIC_TSTAMP = "2026-08-14T12:00:00+00:00"
 GLOBAL_CTX = "*"  # ladder global-context marker (matches baby_ai.ladder.oracle.GLOBAL)
+
+# ------------------------------------------------------------------ allocator
+# The in-process DeterministicIdStream is a DELIVERY mechanism only; it is not
+# itself the persisted continuity contract. Continuity lives in the serialized
+# "id_continuation" block (explicit, versioned counters). Every load path MUST
+# either present that block or accept a DETERMINISTIC derivation from the
+# collections actually present (max index in each collection + 1); anything
+# else is rejected at the boundary and the core enters formation_blocked
+# (HOLD, no write into the formed-state). See FormationCore.reconcile_allocator.
+ALLOCATOR_CONTRACT_VERSION = "v0.1"
+ALLOCATOR_PREFIXES = ("mem", "attr", "fog", "scar", "lnk", "replay", "evt")
+# (prefix, separator) per persistent id family. "evt" has no persistent
+# collection (its records are transient) so it carries no id format and
+# derives to 0 in legacy mode.
+ALLOCATOR_ID_FORMATS = {
+    "mem": ("mem", "-"),
+    "attr": ("attr", "_"),
+    "fog": ("fog", "-"),
+    "scar": ("scar", "-"),
+    "lnk": ("lnk", "-"),
+    "replay": ("replay", "-"),
+}
+
+# Deterministic sanity cap: an explicit counter more than this many indices
+# ABOVE the derived floor is treated as nonsensical/overflow and rejected
+# (formation_blocked). Absolute bounds are banned because they would break
+# legitimate batches; the cap tracks the floor so it scales with the store.
+ALLOCATOR_INDEX_HEADROOM = 10_000_000
+
+
+def _family_ids(core: "FormationCore", family: str):
+    """Live iterable of persistent ids currently present for a family."""
+    if family == "mem":
+        return list(core.memories.keys())
+    if family == "attr":
+        return list(core.attractors.keys())
+    if family == "fog":
+        return [f.fog_id for f in core.fog]
+    if family == "scar":
+        return [s.scar_id for s in core.scars]
+    if family == "lnk":
+        return [l.link_id for l in core.links]
+    if family == "replay":
+        return [r.route_id for r in core.routes]
+    return []
+
+_ID_TAIL = re.compile(r"-(\d+)$")
+
+
+def _record_provenance_allocator_migration(core: "FormationCore", family: str,
+                                          floor: int, operator_value: int,
+                                          pre_hash: str, post_hash: str,
+                                          reason: str) -> None:
+    """Permanent provenance row for a manual operator allocator handoff."""
+    if any(r["component"] == "FormationCore/allocator" and r["organ"] == "operator_override"
+           and r.get("modifications", "").startswith(f"family={family} ") for r in core.provenance.records):
+        return
+    core.provenance.record(
+        component="FormationCore/allocator",
+        organ="operator_override",
+        reuse_kind="operator",
+        path="operator-supplied migration counter (see MigrationReceiptLedger)",
+        sha256=post_hash,
+        modifications=(f"family={family} floor={floor} value={operator_value} "
+                       f"pre={pre_hash} post={post_hash} reason={reason}"),
+    )
+
+
+def _max_next_index(ids, prefix: str) -> int:
+    """max(index among ids)+1, 0 when empty. For '_'-separated attr ids both
+    separator variants are considered (legacy attrs used 'attr-<n>')."""
+    best = -1
+    for raw in ids:
+        for sep in ("-", "_"):
+            i = raw.rfind(prefix + sep)
+            if i < 0:
+                continue
+            tail = raw[i + len(prefix) + 1:]
+            if not tail.isdigit():
+                continue
+            best = max(best, int(tail))
+    return best + 1
+
+
+def _counters_from_state(core: "FormationCore") -> dict[str, int]:
+    """Deterministic next-index derivation from the collections ONLY."""
+    return {
+        "mem": _max_next_index(core.memories, "mem"),
+        "attr": _max_next_index(core.attractors, "attr"),
+        "fog": _max_next_index((f.fog_id for f in core.fog), "fog"),
+        "scar": _max_next_index((s.scar_id for s in core.scars), "scar"),
+        "lnk": _max_next_index((l.link_id for l in core.links), "lnk"),
+        "replay": _max_next_index((r.route_id for r in core.routes), "replay"),
+        "evt": 0,
+    }
 
 
 def _mk(**kw: Any):
@@ -116,12 +212,29 @@ class FormationCore:
         # only while some applicable window contains the query time; when the
         # entity records no window the gate is inert (always in-window).
         self.valid_windows: dict[tuple[str, str], list[list[int]]] = {}
+        # allocator continuity: whether this core MAY allocate persistent ids.
+        # Fresh construction is always ready; a load that cannot establish
+        # explicit-or-derived continuation sets _formation_blocked and the
+        # router then only answers HOLD. See reconcile_allocator.
+        self._formation_blocked = False
+        self.allocator_status: dict[str, Any] = {
+            "kind": "fresh",
+            "reason": "new core: id_continuation established on first load/knowledge",
+            "counters": dict(self.ids.counters),
+            "version": ALLOCATOR_CONTRACT_VERSION,
+        }
         self._record_provenance()
 
     def _record_provenance(self) -> None:
         import baby_ai._env as env
 
         opsha = env._ORGANS.get("OLD_FRACTALISH_AI_PACKAGE", {}).get("package_sha256")
+        # idempotent: __init__ + from_dict share one ledger, so the record
+        # (and its semantically-derived hash) must not be re-appended twice.
+        uid = ("FormationCore", "OLD FRACTALISH-AI / OPERATIONAL SELF")
+        if any(r["component"] == uid[0] and r["organ"] == uid[1]
+               for r in self.provenance.records):
+            return
         self.provenance.record(
             component="FormationCore",
             organ="OLD FRACTALISH-AI / OPERATIONAL SELF",
@@ -129,6 +242,233 @@ class FormationCore:
             path=str(env.OLD_FRACTALISH_AI_TREE),
             sha256=opsha,
             modifications="adapter layer: deterministic id stream + fixed timestamps; no organ mutation",
+        )
+
+    # ------------------------------------------------------------ allocator
+    def formation_ready(self) -> bool:
+        """True when this core may allocate persistent ids (i.e. continuation
+        was established explicitly or derived deterministically)."""
+        return not self._formation_blocked
+
+    def allocator_continuation(self) -> dict[str, Any]:
+        """Human/audit evidence for the allocator-continuity decision."""
+        return {
+            "ready": self.formation_ready(),
+            "status": dict(self.allocator_status),
+        }
+
+    def allocator_family_ids(self, family: str) -> list[str]:
+        """Persistent ids currently present for a family (collections only;
+        never the in-memory counter stream)."""
+        if family not in ALLOCATOR_PREFIXES:
+            raise ValueError(f"unknown allocator family {family!r}")
+        return sorted(_family_ids(self, family))
+
+    def allocator_state_hash(self) -> str:
+        """Deterministic hash over the identity-bearing allocator surface:
+        every family's present ids plus the continuation status/counters."""
+        from baby_ai.core.semantics import canonical_json
+
+        surface = {
+            "status": {k: v for k, v in self.allocator_status.items()},
+            "counters": dict(self.ids.counters),
+            "ids": {f: self.allocator_family_ids(f) for f in ALLOCATOR_PREFIXES},
+        }
+        import hashlib
+
+        return hashlib.sha256(canonical_json(surface).encode("utf-8")).hexdigest()
+
+    def apply_operator_allocator_override(
+        self,
+        family: str,
+        operator_value: int,
+        *,
+        reason: str,
+        ledger_root: str | None = None,
+    ) -> dict[str, Any]:
+        """MANUAL allocator handoff with a permanent migration receipt.
+
+        The derived floor is the default; an operator counter is an explicit
+        exception and is ONLY permitted when it does not collide with (i.e. is
+        strictly above) every id the collections already prove, and ONLY with a
+        stated reason. The handoff is recorded in the MigrationReceiptLedger:
+        pre-migration state hash, derived floor, operator value, reason the
+        derived value was insufficient, post-migration hash. Manual counters
+        are never silent history. Returns the written receipt + new status.
+        """
+        from baby_ai.core.migration_receipts import MigrationReceiptLedger
+
+        if family not in ALLOCATOR_PREFIXES:
+            raise ValueError(f"unknown allocator family {family!r}")
+        if isinstance(operator_value, bool) or not isinstance(operator_value, int):
+            raise ValueError(f"operator_value must be an int, got {operator_value!r}")
+        if not reason or not reason.strip():
+            raise ValueError("a stated reason is required: manual counters are never silent history")
+        derived_floor = self._derive_counters().get(family, 0)
+        if operator_value < derived_floor:
+            raise ValueError(
+                f"operator value {operator_value} is below derived floor {derived_floor} for {family!r} "
+                "(an operator cannot lower the floor)"
+            )
+        if operator_value > derived_floor + ALLOCATOR_INDEX_HEADROOM:
+            raise ValueError(
+                f"operator value {operator_value} is absurdly above floor {derived_floor} "
+                f"(headroom {ALLOCATOR_INDEX_HEADROOM}); refuse"
+            )
+
+        observed = self.allocator_family_ids(family)
+        pre_hash = self.allocator_state_hash()
+        self.ids.counters[family] = operator_value
+        self.allocator_status = {
+            "kind": "operator_override",
+            "reason": f"operator handoff for {family}: {reason}",
+            "counters": dict(self.ids.counters),
+            "version": ALLOCATOR_CONTRACT_VERSION,
+        }
+        post_hash = self.allocator_state_hash()
+        ledger = MigrationReceiptLedger(ledger_root) if ledger_root else MigrationReceiptLedger()
+        receipt = ledger.record(
+            activation_id=self.activation_id,
+            family=family,
+            derived_floor=derived_floor,
+            operator_value=operator_value,
+            reason_derived_insufficient=reason,
+            pre_state_hash=pre_hash,
+            post_state_hash=post_hash,
+            observed_ids=observed,
+        )
+        self.receipts.append(
+            action="allocator.operator_override",
+            targets=[f"family={family}"],
+            evidence=[f"floor={derived_floor}", f"value={operator_value}", reason],
+            payload={"pre_hash": pre_hash, "post_hash": post_hash, "receipt_hash": receipt["receipt_hash"]},
+        )
+        _record_provenance_allocator_migration(self, family, derived_floor, operator_value,
+                                                pre_hash, post_hash, reason)
+        return {"receipt": receipt, "allocator": self.allocator_continuation()}
+
+    def _derive_counters(self) -> dict[str, int]:
+        return _counters_from_state(self)
+
+    def _block_allocator(self, reason: str) -> None:
+        self._formation_blocked = True
+        self.allocator_status = {
+            "kind": "FAIL",
+            "reason": reason,
+            "counters": None,
+            "version": ALLOCATOR_CONTRACT_VERSION,
+        }
+
+    def reconcile_allocator(self, persisted: Any) -> dict[str, Any]:
+        """Establish allocator continuation for a loaded core. Rules (single
+        deterministic policy, enforced at the load boundary):
+
+        1. NO id_continuation block -> DERIVE next-index from the collections
+           actually present (max index in each + 1). This is what a legacy
+           serialization (organ session glyph, device packet, prior MVP dump)
+           must rely on: collapsed collections leave a unique max that any
+           future allocator will exceed.
+        2. Malformed/partial block (bad version, missing/invalid counter,
+           unknown prefix, stale counter below what the collections already
+           require) -> REJECT. The core enters formation_blocked and answers
+           HOLD only; the run is never silently self-repaired by guessing.
+        3. Explicit counters equal-or-beyond collections -> first-next-index
+           = counter value (explicit continuation wins).
+
+        Prepends provenance evidence to the shared ledger (idempotent on the
+        (phase, policies) identity)."""
+        import baby_ai._env as env
+
+        derived = self._derive_counters()
+        baseline = dict(self.ids.counters)
+        if persisted is None:
+            self.ids.counters.update(derived)
+            self.allocator_status = {
+                "kind": "derived_legacy",
+                "reason": "no id_continuation in source; deterministic max(existing id)+1 per family",
+                "counters": dict(self.ids.counters),
+            }
+            self._record_reconcile_evidence(env, "load_derived", baseline, {}, self.allocator_status["reason"])
+            return self.allocator_continuation()
+
+        # ------------------------------------------------------------------
+        # note: a derived core already skipping strict structural checks below
+        if not isinstance(persisted, dict) or persisted.get("version") != ALLOCATOR_CONTRACT_VERSION:
+            self._block_allocator(
+                "id_continuation malformed: missing/bad version "
+                f"(want {ALLOCATOR_CONTRACT_VERSION}, got {persisted.get('version') if isinstance(persisted, dict) else persisted!r})"
+            )
+            self._record_reconcile_evidence(env, "load_reject", baseline, {}, self.allocator_status["reason"])
+            return self.allocator_continuation()
+        counters = persisted.get("counters")
+        if not isinstance(counters, dict):
+            self._block_allocator("id_continuation malformed: counters is not a dict")
+            self._record_reconcile_evidence(env, "load_reject", baseline, {}, self.allocator_status["reason"])
+            return self.allocator_continuation()
+        unknown = set(counters) - set(ALLOCATOR_PREFIXES)
+        if unknown:
+            self._block_allocator(f"id_continuation malformed: unknown prefix(es) {sorted(unknown)}")
+            self._record_reconcile_evidence(env, "load_reject", baseline, {}, self.allocator_status["reason"])
+            return self.allocator_continuation()
+        missing = [p for p in ALLOCATOR_PREFIXES if p not in counters]
+        if missing:
+            self._block_allocator(f"id_continuation malformed: missing prefix(es) {missing}")
+            self._record_reconcile_evidence(env, "load_reject", baseline, {}, self.allocator_status["reason"])
+            return self.allocator_continuation()
+
+        errors: list[str] = []
+        parsed: dict[str, int] = {}
+        for prefix in ALLOCATOR_PREFIXES:
+            val = counters.get(prefix)
+            if isinstance(val, bool) or not isinstance(val, int):
+                errors.append(f"{prefix}: non-integer {val!r}")
+                continue
+            if val < 0:
+                errors.append(f"{prefix}: negative {val}")
+                continue
+            need = derived[prefix]
+            if val < need:
+                errors.append(f"{prefix}: stale counter {val} < required {need}")
+                continue
+            if val > need + ALLOCATOR_INDEX_HEADROOM:
+                errors.append(
+                    f"{prefix}: nonsensical/overflow counter {val} > floor {need} + headroom {ALLOCATOR_INDEX_HEADROOM}"
+                )
+                continue
+            parsed[prefix] = val
+        if errors:
+            self._block_allocator("id_continuation REJECTED: " + " | ".join(errors))
+            self._record_reconcile_evidence(env, "load_reject", baseline, parsed, self.allocator_status["reason"])
+            return self.allocator_continuation()
+
+        self.ids.counters.update(parsed)
+        self.allocator_status = {
+            "kind": "persisted",
+            "reason": "explicit id_continuation accepted",
+            "counters": dict(self.ids.counters),
+            "version": ALLOCATOR_CONTRACT_VERSION,
+        }
+        self._record_reconcile_evidence(env, "load_accept", baseline, dict(parsed),
+                                        self.allocator_status["reason"])
+        return self.allocator_continuation()
+
+
+
+    def _record_reconcile_evidence(self, env, phase: str, baseline: dict,
+                                   explicit: dict, reason: str) -> None:
+        """Append allocator reconciliation evidence to the provenance ledger,
+        idempotent on (phase) identity: a core records at most one row per
+        reconciliation phase (load_derived/load_accept/load_reject)."""
+        if any(r["component"] == "FormationCore/allocator" and r["organ"] == phase
+               for r in self.provenance.records):
+            return
+        self.provenance.record(
+            component="FormationCore/allocator",
+            organ=phase,
+            reuse_kind="load",
+            path="serialized id_continuation",
+            sha256=("explicit" if explicit else "derived"),
+            modifications=f"counters baseline={baseline} explicit={explicit}; {reason}",
         )
 
     def record_dependency(self, dependent: str, prerequisite: str) -> None:
@@ -208,6 +548,13 @@ class FormationCore:
 
     def ingest(self, event: MemoryEvent) -> dict[str, Any]:
         """Full qualified formation: compress -> attractor -> scars -> fog -> links -> replay -> self."""
+        if self._formation_blocked:
+            return {
+                "error": "formation_blocked",
+                "decision": "HOLD",
+                "reason": "allocator_continuation_failed",
+                "allocator": dict(self.allocator_status),
+            }
         memory = _comp.light_compress(event)
         attractor = _attr.create_attractor(event, memory)
         memory_id = "mem-" + self.ids.nid("mem")[4:]
@@ -362,7 +709,37 @@ class FormationCore:
         the query's context, evidence_missing is added. With no declared
         context, behavior is unchanged (legacy: scar-blocking reason stays
         "contradiction_scar_blocking").
+
+        ALLOCATOR CONTINUITY (repair): routing is a READ path (no ids are
+        allocated) so it still surfaces whatever was formed. When this core is
+        in formation_blocked (its id_continuation could not be established at
+        load), every reply carries the allocator status and any would-be
+        RELEASE is downgraded to HOLD with reason EVIDENCE — an operator can
+        see "what would have happened had I not survived" alongside the reason
+        the allocator rejected continuation.
         """
+        out = self._evaluate_route(
+            query, plasticity, applicability=applicability, context=context
+        )
+        if self._formation_blocked:
+            status = dict(self.allocator_status)
+            out["allocator"] = status
+            if out.get("decision") == "RELEASE":
+                out["decision"] = "HOLD"
+                out["reason"] = "EVIDENCE"
+                out["evidence"] = list(out.get("evidence", [])) + [
+                    f"loader_rejected_allocator_continuation: {status.get('reason')}"
+                ]
+        return out
+
+    def _evaluate_route(
+        self,
+        query: str,
+        plasticity: "Any | None" = None,
+        *,
+        applicability: str | None = None,
+        context: str | None = None,
+    ) -> dict[str, Any]:
         res = self.retrieve(query)
         results = res.get("results", [])
         if not results:
@@ -501,11 +878,25 @@ class FormationCore:
             "dependency_ledger": [dict(v) for v in self.dependency_ledger],
             "valid_windows": {f"{e}\x00{c}": [list(w) for w in wins]
                               for (e, c), wins in self.valid_windows.items()},
+            # explicit allocator continuity: next-id counters, versioned. The
+            # contract always carries ALL families (untouched = 0) so the block
+            # round-trips as a complete, parseable continuation.
+            "id_continuation": {
+                "version": ALLOCATOR_CONTRACT_VERSION,
+                "counters": {p: self.ids.counters.get(p, 0) for p in ALLOCATOR_PREFIXES},
+            },
         }
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any], *, activation_id: str = "baby-mvp-a") -> "FormationCore":
-        core = cls(activation_id=activation_id)
+    def from_dict(
+        cls,
+        data: dict[str, Any],
+        *,
+        activation_id: str = "baby-mvp-a",
+        receipts: Any = None,
+        provenance: Any = None,
+    ) -> "FormationCore":
+        core = cls(activation_id=activation_id, receipts=receipts, provenance=provenance)
 
         def rebuilt(cls_, payload: dict[str, Any]):
             field_names = {f.name for f in _fields(cls_)}
@@ -528,6 +919,7 @@ class FormationCore:
         for key, wins in data.get("valid_windows", {}).items():
             e, _, c = key.partition("\x00")
             core.valid_windows[(e, c)] = [list(w) for w in wins]
+        core.reconcile_allocator(data.get("id_continuation"))
         return core
 
     def counts(self) -> dict[str, int]:

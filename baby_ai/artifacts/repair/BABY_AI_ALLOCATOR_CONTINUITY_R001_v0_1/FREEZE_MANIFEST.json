@@ -1,0 +1,47 @@
+{
+  "constraints_satisfied": {
+    "deterministic_witness": true,
+    "host_only": true,
+    "ladder_representations_untouched": true,
+    "no_scar_deletion": true,
+    "prior_authority_semantics_unchanged": true
+  },
+  "created_utc": "2026-08-30T22:50:10.146440+00:00",
+  "evidence_files": [
+    "WITNESS_ALLOCATOR_CONTINUITY.json",
+    "TEST_RECEIPT.json",
+    "MIGRATION_POLICY.json",
+    "DIRTY_TREE_PREFLIGHT.json",
+    "BABY_AI_ALLOCATOR_CONTINUITY_R001_FREEZE_REPORT.md",
+    "FREEZE_MANIFEST.json"
+  ],
+  "git_head": null,
+  "governed_families": [
+    "mem",
+    "attr",
+    "fog",
+    "scar",
+    "lnk",
+    "replay",
+    "evt"
+  ],
+  "legacy_handling": "No id_continuation -> derive next-index = max(existing suffix) + 1 per family.",
+  "malformed_handling": "Malformed/partial/stale/negative/overflow continuation -> REJECT: the core enters formation_blocked and answers HOLD only; never silent id reuse.",
+  "migration_handling": "Operator-supplied counter values require a permanent MigrationReceipt (pre/post state hash, family, observed floor, supplied value, reason, authorization, timestamp). See MIGRATION_POLICY.json.",
+  "philosophy": "Formation survived on-device; allocator identity did not. R-001 repairs the reset-on-load id allocator by carrying an explicit, versioned id_continuation block and reconciling it at the load boundary.",
+  "platform": "win32",
+  "prior_authority": {
+    "freeze_package": "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
+    "implementation_sha": "9d6317351f74032c77883db198d637777af4a33b"
+  },
+  "python": "3.11.15",
+  "repair_id": "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1",
+  "scope": "ALLOCATOR CONTINUITY ONLY. No route/cause/authority semantics changed.",
+  "source_hashes": {
+    "baby_ai/adapters/operational_self.py": "b1420cc1a7d36a86",
+    "baby_ai/assays/allocator_continuity_freeze.py": "d63e677c3e336321",
+    "baby_ai/core/migration_receipts.py": "3af991aeaccfd194",
+    "baby_ai/qualifications/r001_closure.py": "ea45c348ba79de8b",
+    "baby_ai/tests/test_formation.py": "3696b7d1f3aef1c0"
+  }
+}

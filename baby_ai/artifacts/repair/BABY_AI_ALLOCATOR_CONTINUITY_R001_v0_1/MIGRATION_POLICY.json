@@ -1,0 +1,37 @@
+{
+  "receipt": "R001_MIGRATION_POLICY",
+  "tranche": "R001_ALLOCATOR_CONTINUITY",
+  "policy": {
+    "default": "derived_allocator_floor",
+    "derivation": "next_index = max(existing suffix) + 1 per governed family, from the collections actually present",
+    "governed_families": ["mem", "attr", "fog", "scar", "lnk", "replay", "evt"]
+  },
+  "operator_override_conditions": {
+    "family_valid": "must be one of the seven governed families",
+    "value_int": "must be a plain int (bool rejected)",
+    "reason_required": "a non-empty stated reason is mandatory (manual counters are never silent history)",
+    "not_below_floor": "operator value must be >= derived floor (an operator cannot lower the floor)",
+    "not_above_headroom": "operator value must be <= derived floor + ALLOCATOR_INDEX_HEADROOM (10,000,000)"
+  },
+  "receipt_ledger": {
+    "module": "baby_ai/core/migration_receipts.py",
+    "class": "MigrationReceiptLedger",
+    "format": "append-only JSONL (migration_receipts.jsonl)",
+    "fields": [
+      "pre_migration_state_hash",
+      "derived_allocator_floor",
+      "operator_value",
+      "reason_derived_value_insufficient",
+      "post_migration_state_hash",
+      "authorization",
+      "timestamp / sequence position"
+    ]
+  },
+  "ambiguity_routing": {
+    "absent_id_continuation": "derive deterministically from retained collections",
+    "malformed_continuation": "REJECT -> formation_blocked -> HOLD only",
+    "stale_or_negative_or_overflow_counter": "REJECT -> formation_blocked -> HOLD only",
+    "below_existing_ids": "REJECT (stale) -> formation_blocked -> HOLD only",
+    "no_manual_migration_occurred_in_this_tranche": true
+  }
+}

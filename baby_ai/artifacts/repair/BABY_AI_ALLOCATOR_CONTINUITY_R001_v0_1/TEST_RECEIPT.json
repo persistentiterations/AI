@@ -1,0 +1,22 @@
+{
+  "receipt": "R001_TEST_RECEIPT",
+  "command": "python -m pytest baby_ai/tests -q",
+  "captured_utc": "2026-08-30T22:50:35Z",
+  "python": "3.11.15",
+  "result": "100 passed in 0.78s",
+  "test_count": 100,
+  "r001_added_tests": [
+    "test_id_continuation_explicit_round_trip",
+    "test_id_continuation_legacy_derivation",
+    "test_id_continuation_malformed_rejects_formation",
+    "test_allocator_continuity_reset_on_load_regression"
+  ],
+  "authority_regression": {
+    "ladder_E_all_correct": "55/55",
+    "ladder_E_cause_fidelity_min": 1.0,
+    "cross_context_resolve_freeze_regeneration": "byte-identical (non-manifest evidence) at HEAD",
+    "mark_resolve_depwalk_freeze_regeneration": "byte-identical at its own freeze commit d64c45b (known 1-case divergence at HEAD because CROSS_CONTEXT changed RESOLVE semantics)",
+    "prior_freeze_packages_byte_identical": true,
+    "ladder_representations_py_modified_by_R001": false
+  }
+}
