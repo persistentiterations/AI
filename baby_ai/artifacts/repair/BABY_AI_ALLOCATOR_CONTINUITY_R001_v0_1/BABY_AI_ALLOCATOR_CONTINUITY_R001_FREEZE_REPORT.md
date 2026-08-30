@@ -12,10 +12,8 @@ identity did not — a reset-on-load id allocator re-issued inherited identifier
 
 ## New R-001 commit
 
-Recorded by annotated tag `BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1`; resolve via
-`git rev-list -1 BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1`. This report and the
-freeze manifest are committed together with the code; the tag is the authority
-pointer.
+`3782a166e3f30aee9a4d0f5bde73b8661d799cab` (freeze commit; the code + freeze
+package). The annotated tag `BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1` points here.
 
 ## New tag
 
@@ -86,7 +84,7 @@ restarts → re-routes with a printed authority trace is the only new shell need
 ---
 
 **R-001 STATUS:** FROZEN
-**AUTHORITY SHA:** `9d6317351f74032c77883db198d637777af4a33b` (implementation) — new R-001 commit via tag
+**AUTHORITY SHA:** `3782a166e3f30aee9a4d0f5bde73b8661d799cab` (R-001 commit; prior authority `9d6317351f74032c77883db198d637777af4a33b`)
 **TAG:** `BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1`
 **TESTS:** 100 passed
 **MOTOROLA TOUCHED:** NO

@@ -15,7 +15,7 @@
     "BABY_AI_ALLOCATOR_CONTINUITY_R001_FREEZE_REPORT.md",
     "FREEZE_MANIFEST.json"
   ],
-  "git_head": null,
+  "git_head": "3782a16",
   "governed_families": [
     "mem",
     "attr",
