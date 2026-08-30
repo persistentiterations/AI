@@ -1,19 +1,14 @@
 {
-  "receipt_type": "CURRENT_AUTHORITY_RECEIPT",
-  "project": "Baby AI / FormationCore",
-  "created_utc": "2026-08-23T01:10:57Z",
-  "authoritative_implementation_sha": "9d6317351f74032c77883db198d637777af4a33b",
-  "authoritative_freeze_package": "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
-  "authoritative_tag": "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
+  "artifact_manifest_location": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1/manifest.json",
+  "authoritative_freeze_package": "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1",
+  "authoritative_implementation_sha": "3782a166e3f30aee9a4d0f5bde73b8661d799cab",
+  "authoritative_tag": "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1",
   "base_r9_commit_sha": "797598ad525a7e7980c435f88e72d9467892127f",
-  "r8_freeze_sha": "0e64df61a61e94f591242e69bce297ee3912f0d9",
-  "tranche_commits": {
-    "mark_resolve_repair": "8735911704fb257c096983c2d36059bb6da234f1",
-    "mark_resolve_docs": "9f044318b5855aed2aef871623d02ea7af44ec79",
-    "mark_resolve_freeze": "d64c45b89e9b8273a8e586cd26ef9a84e3759e90",
-    "cross_context_freeze": "9d6317351f74032c77883db198d637777af4a33b",
-    "cross_context_docs_head": "442cb7f7156868a12153ff38b911d010ad0847a5"
-  },
+  "branch": "hostile-qualification-v0_1",
+  "created_utc": "2026-08-23T01:10:57Z",
+  "earlier_freezes_not_modified": true,
+  "github_repository": "persistentiterations/AI",
+  "implementation_vs_archival": "Implementation authority = 3782a166e3f30aee9a4d0f5bde73b8661d799cab (R-001); prior authority 9d6317351f74032c77883db198d637777af4a33b; this receipt and archival commits are metadata only.",
   "lineage": [
     "0e64df61a61e94f591242e69bce297ee3912f0d9",
     "797598ad525a7e7980c435f88e72d9467892127f",
@@ -21,41 +16,52 @@
     "9f044318b5855aed2aef871623d02ea7af44ec79",
     "d64c45b89e9b8273a8e586cd26ef9a84e3759e90",
     "9d6317351f74032c77883db198d637777af4a33b",
-    "442cb7f7156868a12153ff38b911d010ad0847a5"
+    "442cb7f7156868a12153ff38b911d010ad0847a5",
+    "3782a166e3f30aee9a4d0f5bde73b8661d799cab",
+    "ce4146994fa9f97612d7fe8564faa3b0122eccba"
   ],
-  "github_repository": "persistentiterations/AI",
-  "branch": "hostile-qualification-v0_1",
-  "tags_created": [
-    "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
-    "BABY_AI_FORMATIONCORE_MARK_RESOLVE_DEPWALK_v0_1",
-    "BABY_AI_FORMATIONCORE_R9_TEMPORAL_VALIDITY_v0_1",
-    "BABY_AI_FORMATIONCORE_R8_CYCLE_RELIEVE_REPAIR_v0_1"
-  ],
-  "artifact_manifest_location": "baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1/manifest.json",
+  "prior_authority_sha": "9d6317351f74032c77883db198d637777af4a33b",
+  "project": "Baby AI / FormationCore",
+  "r8_freeze_sha": "0e64df61a61e94f591242e69bce297ee3912f0d9",
+  "receipt_type": "CURRENT_AUTHORITY_RECEIPT",
   "regeneration_tools": [
     "baby_ai/assays/cross_ctx_resolve_freeze.py",
     "baby_ai/assays/mark_resolve_depwalk_freeze.py",
     "baby_ai/assays/r9_census.py",
     "baby_ai/assays/repair_cycle_relieve.py"
   ],
-  "verification_rerun": {
-    "date_utc": "2026-08-23T01:10:57Z",
-    "pytest": "96/96 passed",
-    "census_E": "55/55 all_correct",
-    "cause_fidelity_min": 1.0,
-    "r9_residuals": 0,
-    "mark_resolve_witness_gate_ON": "PROCEED",
-    "mark_resolve_witness_gate_OFF": "HOLD prerequisite_missing:a",
-    "cross_context_witness_gate_ON": "HOLD active_contradiction",
-    "cross_context_witness_gate_OFF": "PROCEED",
-    "deterministic_regeneration_cross_context": "byte-identical at HEAD",
-    "deterministic_regeneration_mark_resolve": "byte-identical at d64c45b",
-    "r8_r9_packages_untouched": true
+  "tags_created": [
+    "BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1",
+    "BABY_AI_FORMATIONCORE_MARK_RESOLVE_DEPWALK_v0_1",
+    "BABY_AI_FORMATIONCORE_R9_TEMPORAL_VALIDITY_v0_1",
+    "BABY_AI_FORMATIONCORE_R8_CYCLE_RELIEVE_REPAIR_v0_1",
+    "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1"
+  ],
+  "tranche_commits": {
+    "cross_context_docs_head": "442cb7f7156868a12153ff38b911d010ad0847a5",
+    "cross_context_freeze": "9d6317351f74032c77883db198d637777af4a33b",
+    "mark_resolve_docs": "9f044318b5855aed2aef871623d02ea7af44ec79",
+    "mark_resolve_freeze": "d64c45b89e9b8273a8e586cd26ef9a84e3759e90",
+    "mark_resolve_repair": "8735911704fb257c096983c2d36059bb6da234f1",
+    "r001_allocator_continuity_freeze": "3782a166e3f30aee9a4d0f5bde73b8661d799cab",
+    "r001_docs_head": "ce4146994fa9f97612d7fe8564faa3b0122eccba"
   },
   "verification_limitations": [
     "r9_census.main() rewrites R9_COUNTEREXAMPLE_CENSUS_MACHINE.json (frozen pre-repair artifact); verification ran in a throwaway worktree, main checkout untouched.",
     "mark_resolve_depwalk_freeze.py regenerates byte-identically only at its own freeze commit d64c45b; at later HEAD one adversarial case differs because CROSS_CONTEXT_RESOLVE changed RESOLVE semantics (expected per-tranche snapshot)."
   ],
-  "earlier_freezes_not_modified": true,
-  "implementation_vs_archival": "Implementation authority = 9d6317351f74032c77883db198d637777af4a33b; this receipt and any archival commit are metadata only and do not redefine the implementation freeze."
+  "verification_rerun": {
+    "cause_fidelity_min": 1.0,
+    "census_E": "55/55 all_correct",
+    "cross_context_witness_gate_OFF": "PROCEED",
+    "cross_context_witness_gate_ON": "HOLD active_contradiction",
+    "date_utc": "2026-08-23T01:10:57Z",
+    "deterministic_regeneration_cross_context": "byte-identical at HEAD",
+    "deterministic_regeneration_mark_resolve": "byte-identical at d64c45b",
+    "mark_resolve_witness_gate_OFF": "HOLD prerequisite_missing:a",
+    "mark_resolve_witness_gate_ON": "PROCEED",
+    "pytest": "96/96 passed",
+    "r8_r9_packages_untouched": true,
+    "r9_residuals": 0
+  }
 }

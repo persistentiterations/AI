@@ -5,11 +5,12 @@ lineage, for archival/backup purposes. It is a **pointer**, not the implementati
 
 ## Authoritative implementation (frozen)
 
-- **Implementation freeze commit:** `9d6317351f74032c77883db198d637777af4a33b`
-  - message: `CROSS_CONTEXT_RESOLVE: (e,ctx)-scoped RESOLVE authority behind context_resolve_gate; freeze v0.1 package (separate tranche)`
-- **Frozen package:** `BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1`
-  - location: `baby_ai/artifacts/repair/BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1/`
-- **Tag:** `BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1`
+- **Implementation freeze commit:** `3782a166e3f30aee9a4d0f5bde73b8661d799cab`
+  - message: `R-001: allocator continuity repair (id_continuation + reconcile_allocator); freeze package + Motorola-shaped witness`
+- **Frozen package:** `BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1`
+  - location: `baby_ai/artifacts/repair/BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1/`
+- **Tag:** `BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1`
+- **Prior authority:** `9d6317351f74032c77883db198d637777af4a33b` (CROSS_CONTEXT_RESOLVE)
 
 ## Lineage (linear, oldest -> newest)
 
@@ -20,15 +21,17 @@ lineage, for archival/backup purposes. It is a **pointer**, not the implementati
 | `8735911704fb257c096983c2d36059bb6da234f1` | MARK/RESOLVE repair (contradiction_authority_gate) |
 | `9f044318b5855aed2aef871623d02ea7af44ec79` | docs: record tranche head 8735911 |
 | `d64c45b89e9b8273a8e586cd26ef9a84e3759e90` | MARK/RESOLVE freeze (`BABY_AI_FORMATIONCORE_MARK_RESOLVE_DEPWALK_v0_1`) |
-| `9d6317351f74032c77883db198d637777af4a33b` | **CROSS_CONTEXT_RESOLVE freeze (CURRENT AUTHORITY)** |
-| `442cb7f7156868a12153ff38b911d010ad0847a5` | docs: record tranche head 9d63173 (project's own docs head) |
+| `9d6317351f74032c77883db198d637777af4a33b` | CROSS_CONTEXT_RESOLVE freeze (`BABY_AI_FORMATIONCORE_CROSS_CONTEXT_RESOLVE_v0_1`) |
+| `442cb7f7156868a12153ff38b911d010ad0847a5` | docs: record tranche head 9d63173 |
+| `3782a166e3f30aee9a4d0f5bde73b8661d799cab` | **R-001 allocator continuity freeze (CURRENT AUTHORITY)** |
+| `ce4146994fa9f97612d7fe8564faa3b0122eccba` | docs: record R-001 tranche head 3782a16 |
 
 `main` branch tip (`1919578214b938d39a54e00c5a81797113c3c953`,
 BABY_AI_CAUSAL_CORE_MVP_2026-08-14) is an ancestor of this lineage.
 
 ## Implementation SHA vs archival SHA
 
-- **Implementation authority = `9d6317351f74032c77883db198d637777af4a33b`** (frozen source + package).
+- **Implementation authority = `3782a166e3f30aee9a4d0f5bde73b8661d799cab`** (frozen source + package).
 - This receipt and any later backup/archival commit are **metadata only** and do not
   redefine the implementation freeze.
 
@@ -36,13 +39,16 @@ BABY_AI_CAUSAL_CORE_MVP_2026-08-14) is an ancestor of this lineage.
 
 ```bash
 # tests
-python -m pytest baby_ai/tests -q                       # -> 96 passed
+python -m pytest baby_ai/tests -q                       # -> 100 passed
 
 # census + cause fidelity (also regenerates FULL_LADDER_REGRESSION.json)
 python -m baby_ai.assays.cross_ctx_resolve_freeze       # E 55/55 all_correct, cause fidelity 1.0
 
 # MARK/RESOLVE deterministic regeneration (run at its own freeze commit d64c45b)
 python -m baby_ai.assays.mark_resolve_depwalk_freeze    # byte-identical at d64c45b
+
+# R-001 allocator-continuity deterministic regeneration
+python -m baby_ai.assays.allocator_continuity_freeze    # WITNESS byte-identical
 
 # R9 residual census (0 residuals expected post-repair)
 python -c "from baby_ai.assays.r9_census import main; main()"
