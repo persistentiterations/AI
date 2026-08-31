@@ -1,0 +1,67 @@
+{
+  "report": "FRACTALISH_V4_FORMATIONCORE_RECONCILIATION",
+  "audit_kind": "read_only",
+  "inspected_paths": [
+    "C:\\Users\\moop\\FractalishBuild\\baby-ai-assembly-v0.1",
+    "C:\\Users\\moop\\Cognitive-Basin-Worktrees\\grok-fractalish-v4-baseline",
+    "C:\\Users\\moop\\Cognitive-Basin-Worktrees\\grok-fractalish-v4-baseline\\python\\fractalish_ai",
+    "C:\\Users\\moop\\Cognitive-Basin-Worktrees\\fractalish-ai_v4-extracted\\fractalish-ai\\fractalish_ai",
+    "C:\\Users\\moop\\cognitive-basin-platform\\imports\\grok-guardian-intake\\worker.js",
+    "C:\\Users\\moop\\Downloads\\Articles on X.com\\Machine Consciousness as Persistent Statehood\\SERA_LITERATURE_MINING"
+  ],
+  "formationcore": {
+    "repo": "C:\\Users\\moop\\FractalishBuild\\baby-ai-assembly-v0.1",
+    "branch": "hostile-qualification-v0_1",
+    "head": "b9d97824c6509c4553cb420a2b26b4af98d2c3da",
+    "r001_authority_sha": "3782a166e3f30aee9a4d0f5bde73b8661d799cab",
+    "r001_tag": "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1",
+    "prior_authority_sha": "9d6317351f74032c77883db198d637777af4a33b"
+  },
+  "v4": {
+    "worktree": "C:\\Users\\moop\\Cognitive-Basin-Worktrees\\grok-fractalish-v4-baseline",
+    "branch": "grok/fractalish/v4-baseline-closure",
+    "head": "998364174143df69deb2cbae049d9f9de1886dce",
+    "archive_sha256": "3C4FA0509054F5B9C8179579B28BEC7DFBEF6D43A0721623DCB5B77E9B192B72",
+    "archive_bytes": 83827,
+    "duplicate_extraction_equivalent": true,
+    "reproduction": {
+      "demo_activation": "PASS (Guard PROCEED)",
+      "demo_full_runtime": "PASS (Guard WATCH, MCVA MCVA)",
+      "test_fractalish_v4_replay": "PASS"
+    },
+    "determinism": "NON_DETERMINISTIC (uuid4 event_id + wall-clock timestamp -> state_hash varies between runs)"
+  },
+  "module_dispositions": {
+    "percept": "ADAPT",
+    "atal": "DEFER",
+    "rigor": "ADAPT",
+    "circuit": "REPLACE_WITH_FORMATIONCORE",
+    "guard": "REPLACE_WITH_FORMATIONCORE",
+    "sera": "KEEP",
+    "session_glyph": "ADAPT",
+    "core_runtime": "REPLACE_WITH_FORMATIONCORE"
+  },
+  "duplicate_authority_risks": [
+    "stateless GUARD PROCEED/HOLD vs stateful FormationCore route_decision (no precedence contract)",
+    "CIRCUIT flat contradiction_scars vs FormationCore authority-bearing scars",
+    "RIGOR event-field 'contradiction' vs FormationCore contradiction scars",
+    "CIRCUIT memory_nodes vs FormationCore memories/attractors (duplicate memory)",
+    "SessionGlyph state_hash vs ContinuitySnapshot semantic_hash"
+  ],
+  "guardian_intake": {
+    "path": "C:\\Users\\moop\\cognitive-basin-platform\\imports\\grok-guardian-intake\\worker.js",
+    "verdict": "GUARD-adjacent name only; guard_decision hardcoded 'allow'; naive prompt-injection substring; no authority/provenance binding"
+  },
+  "m2_readiness": "READY_WITH_PRECONDITIONS",
+  "m2_preconditions": [
+    "define explicit corruption state (HOLD_CONTINUITY_FAILURE equivalent) + fail-closed provenance check",
+    "host-only, FormationCore-only (no v4 dependency)",
+    "encode 'receipts != provenance': missing authoritative provenance fails closed"
+  ],
+  "recommended_next_action": "Begin M2 as minimal host-only runner on FormationCore from_dict/ContinuitySnapshot/ReceiptLedger/ProvenanceLedger/route_decision",
+  "unresolved": [
+    "Whether v4 mcva/natural_math subpackages contain unaudited authority overlap",
+    "Whether v4 baseline was ever byte-frozen (impossible as-written due to UUID/wall-clock)",
+    "No surviving note mapping v4 guard_decision to a FormationCore precedence contract"
+  ]
+}
