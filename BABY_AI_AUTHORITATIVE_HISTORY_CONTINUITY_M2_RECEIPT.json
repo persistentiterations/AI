@@ -1,0 +1,44 @@
+{
+  "tranche": "M2_AUTHORITATIVE_HISTORY_CONTINUITY",
+  "status": "HOLD",
+  "prior_authority_sha": "3782a166e3f30aee9a4d0f5bde73b8661d799cab",
+  "prior_authority_tag": "BABY_AI_ALLOCATOR_CONTINUITY_R001_v0_1",
+  "question": "After persistence and process death, does the system reconstruct the same authoritative history strongly enough to produce the same justified admissibility result?",
+  "method": "three genuine subprocess invocations (A build->HOLD, B reload->HOLD->RESOLVE->RELEASE, C reload->RELEASE) + corruption controls",
+  "runner": "baby_ai/assays/authoritative_history_continuity.py",
+  "test": "baby_ai/tests/test_m2_continuity.py",
+  "determinism": {
+    "before_semantic_hash": "842f2c4990ea3da1",
+    "after_semantic_hash": "bda266df01592ee5",
+    "byte_stable_across_runs": true
+  },
+  "invariants": {
+    "I1_identity": "PASS",
+    "I2_ordering": "PASS",
+    "I3_provenance": "FAIL",
+    "I4_causal_link": "PASS",
+    "I5_archive": "PASS",
+    "I6_authority": "PASS",
+    "I7_decision": "PASS",
+    "I8_cause": "PASS"
+  },
+  "corruption_controls": {
+    "C1_missing_provenance": {"outcome": "FAIL_NO_FAIL_CLOSED", "detail": "reconstruction accepted empty provenance; ledger repopulated with load-time bookkeeping only"},
+    "C2_tampered_content": {"outcome": "PASS_FAIL_CLOSED", "detail": "integrity_mismatch via semantic_hash"},
+    "C3_broken_causal_ref": {"outcome": "PASS_ACCEPTABLE", "detail": "reverted to HOLD"},
+    "C3b_scar_erased": {"outcome": "FAIL_NO_FAIL_CLOSED", "detail": "history erased -> silently RELEASE"},
+    "C4_ordering_corruption": {"outcome": "PASS_FAIL_CLOSED", "detail": "integrity_mismatch via semantic_hash"}
+  },
+  "first_failing_invariant": "I3_provenance_continuity -> C1_missing_provenance_does_not_fail_closed",
+  "receipts_vs_provenance": {
+    "receipt_ledger": "survives, hash-chained, valid",
+    "provenance_ledger_after_reload": ["FormationCore", "plasticity_executor", "FormationCore/allocator"],
+    "finding": "receipt continuity is not provenance continuity; no per-event source binding in the formal provenance ledger"
+  },
+  "minimum_repair_proposed": "add a provenance-presence/binding gate at the load boundary: record per-event provenance into the ProvenanceLedger at ingest/resolve, and fail closed on reload when an authority-bearing event lacks a matching authoritative provenance record; treat a missing historical scar as continuity failure",
+  "tests": "102 passed",
+  "prior_freezes_changed": false,
+  "v4_dependency": false,
+  "motorola_touched": false,
+  "freeze_tag": null
+}
